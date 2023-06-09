@@ -15,15 +15,8 @@
 <div class="content-page">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 mb-4 mt-1">
-                <div class="d-flex flex-wrap justify-content-between align-items-center">
-                    <h4 class="font-weight-bold">Pesanan</h4>
-                    <div class="form-group mb-0 vanila-daterangepicker d-flex flex-row">
-                        <div class="date-icon-set">
-                     </span>
-                        </div>
-                    </div>
-                </div>
+            <div class="panel mb-5">
+                <div id="mychart" height="100px"></div>
             </div>
             <div class="col-lg-8 col-md-12">
                 <div class="row">
@@ -32,10 +25,12 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="">
+                                        <a href="{{ route('orders.index') }}">
                                         <p class="mb-2 text-secondary">Pesanan yang Sudah di Konfirmasi</p>
                                         <div class="d-flex flex-wrap justify-content-start align-items-center">
                                             <h5 class="mb-0 font-weight-bold">{{$completed}}</h5>
                                         </div>
+                                    </a>
                                     </div>
                                 </div>
                             </div>
@@ -46,10 +41,12 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="">
+                                        <a href="{{ route('orders.index') }}">
                                         <p class="mb-2 text-secondary">Pesanan yang Belum di Konfirmasi</p>
                                         <div class="d-flex flex-wrap justify-content-start align-items-center">
-                                            <h5 class="mb-0 font-weight-bold">{{$pending}}</h5>
+                                            <h5 class="mb-0 font-weight-bold">{{$pendings}}</h5>
                                         </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -60,10 +57,11 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="">
-                                        <p class="mb-2 text-secondary">Total Pengguna</p>
+                                        <a href="{{ route('customer.index') }}"><p class="mb-2 text-secondary">Total Pengguna</p>
                                         <div class="d-flex flex-wrap justify-content-start align-items-center">
                                             <h5 class="mb-0 font-weight-bold">{{$userTotal}}</h5>
                                         </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -111,17 +109,17 @@
                     </div>
                     <div class="card-body-list">
                         <ul class="list-style-3 mb-0">
-                            @if($pending == 0)
+                            @if($pendings == 0)
                                 <h5 class="mb-0 font-weight-bold text-center">Tidak ada</h5>
                             @endif 
 
-                            @foreach($order as $orders)
+                            @foreach($pending as $orders)
                             <li class="p-3 list-item d-flex justify-content-start align-items-center">
                                 <div class="list-style-detail ml-3 mr-2">
-                                    <p class="mb-0">{{$orders->name}}</p>
+                                    <p class="mb-0"></p>
                                 </div>
                                 <div class="list-style-action d-flex justify-content-end ml-auto">
-                                    <h6 class="font-weight-bold">$1,056</h6>
+                                    <h6 class="font-weight-bold">{{$orders->user->name}}</h6>
                                 </div>
                             </li>
                             @endforeach 
@@ -177,4 +175,83 @@
         <!-- Page end  -->
     </div>
 </div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        Highcharts.chart('mychart', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        align: 'left',
+        text: 'Pesanan'
+    },
+    accessibility: {
+        announceNewData: {
+            enabled: true
+        }
+    },
+    xAxis: {
+        type: 'category'
+    },
+    yAxis: {
+        title: {
+            text: 'Total pesanan'
+        }
+
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.y}'
+            }
+        }
+    },
+
+    tooltip: {
+        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> of total<br/>'
+    },
+
+    series: [
+        {
+            name: 'Order',
+            colorByPoint: true,
+            data: [
+                {
+                    name: 'Completed',
+                    y: {{$completed}},
+                    drilldown: 'Completed'
+                },
+                {
+                    name: 'Canceled',
+                    y: {{$canceled}},
+                    drilldown: 'Canceled'
+                },
+                {
+                    name: 'Denied',
+                    y: {{$denied}},
+                    drilldown: 'Denied'
+                },
+                {
+                    name: 'Pending',
+                    y: {{$pendings}},
+                    drilldown: 'Pending'
+                },
+                {
+                    name: 'Processing',
+                    y: {{$processing}},
+                    drilldown: 'Processing'
+                },
+            ]
+        }
+    ],
+    
+});
+    </script>
 @endsection

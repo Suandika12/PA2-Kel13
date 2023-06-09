@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CreditController;
 use App\Http\Controllers\BookingLapanganController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +38,9 @@ Route::group(['middleware' => ['role:admin']], function () {
     // lapangan
     Route::resource('lapangan', LapanganController::class);
 
+    // customer
+    Route::resource('customer', CustomerController::class);
+
     // Orders
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
@@ -56,6 +60,13 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::post('/add_event', [EventController::class, 'store'])->name('add_event');
     Route::patch('/update_event/{id}', [EventController::class, 'update'])->name('update_event');
     Route::delete('/delete_event/{id}', [EventController::class, 'destroy'])->name('delete_event');
+
+
+    //Customer
+    Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
+    Route::get('/edit_customer/{id}', [CustomerController::class, 'edit'])->name('edit_customer');
+    Route::post('/update_customer/{id}', [CustomerController::class, 'update'])->name('update_customer');
+    Route::delete('/delete_customer/{id}', [CustomerController::class, 'destroy'])->name('delete_customer');
 
 
     Route::get('/logout', [AuthController::class, 'do_logout'])->name('logout');

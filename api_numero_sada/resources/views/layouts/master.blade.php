@@ -67,5 +67,4 @@
     <!--end::Scrolltop-->
     @include('layouts.scripts')
 </body>
-
 </html>
