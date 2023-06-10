@@ -1,9 +1,9 @@
 import 'package:nsfutsal/features/credit/presentation/bloc/credit_bloc.dart';
 import 'package:nsfutsal/features/order/presentation/bloc/order_bloc.dart';
 import 'package:nsfutsal/features/profile/presentation/bloc/profile_bloc.dart';
-import 'package:nsfutsal/features/request_room/presentation/bloc/request_room_bloc.dart';
-import 'package:nsfutsal/features/room/presentation/bloc/room_bloc.dart';
-import 'package:nsfutsal/features/room_detail/presentation/bloc/room_detail_bloc.dart';
+import 'package:nsfutsal/features/booking_lapangan/presentation/bloc/booking_lapangan_bloc.dart';
+import 'package:nsfutsal/features/lapangan/presentation/bloc/lapangan_bloc.dart';
+import 'package:nsfutsal/features/lapangan_detail/presentation/bloc/lapangan_detail_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -37,13 +37,13 @@ class App extends StatelessWidget {
           create: (_) => ProductDetailBloc(),
         ),
         BlocProvider(create: (_) => CreditBloc()),
-        BlocProvider(create: (_) => RoomBloc()),
-        BlocProvider(create: (_) => RoomDetailBloc()),
+        BlocProvider(create: (_) => LapanganBloc()),
+        BlocProvider(create: (_) => LapanganDetailBloc()),
         BlocProvider(create: (_) => CartBloc()),
         BlocProvider(create: (_) => CheckoutBloc()),
         BlocProvider(create: (_) => ProfileBloc()),
         BlocProvider(create: (_) => OrderBloc()),
-        BlocProvider(create: (_) => RequestRoomBloc()),
+        BlocProvider(create: (_) => BookingLapanganBloc()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

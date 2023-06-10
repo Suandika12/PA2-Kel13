@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../../core/failure.dart';
-import '../../../../core/request.dart';
+import '../../../../core/Request.dart';
 import '../../../../core/service_locator.dart';
 import '../../../../services/user_cache_service.dart';
 import '../models/user_model.dart' as auth;

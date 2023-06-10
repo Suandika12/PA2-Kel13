@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import '../../../../core/failure.dart';
-import '../../../../core/request.dart';
+import '../../../../core/Request.dart';
 import '../../../../core/service_locator.dart';
 import '../../../../services/user_cache_service.dart';
 import '../../data/models/user_model.dart';
