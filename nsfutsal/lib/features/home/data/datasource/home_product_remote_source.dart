@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import '../../../../core/failure.dart';
-import '../../../../core/request.dart';
+import '../../../../core/Request.dart';
 import '../../../../core/service_locator.dart';
 import '../models/products/product_model.dart';
 

@@ -6,9 +6,9 @@ import 'package:nsfutsal/features/credit/presentation/screens/credit_checkout_su
 import 'package:nsfutsal/features/credit/presentation/screens/credit_screen.dart';
 import 'package:nsfutsal/features/order/presentation/screens/order_screen.dart';
 import 'package:nsfutsal/features/profile/presentation/screens/profile_screen.dart';
-import 'package:nsfutsal/features/request_room/presentation/screens/request_room_screen.dart';
-import 'package:nsfutsal/features/room/presentation/screens/room_screen.dart';
-import 'package:nsfutsal/features/room_detail/presentation/screens/room_detail_screen.dart';
+import 'package:nsfutsal/features/booking_lapangan/presentation/screens/booking_lapangan_screen.dart';
+import 'package:nsfutsal/features/lapangan/presentation/screen/lapangan_screen.dart';
+import 'package:nsfutsal/features/lapangan_detail/presentation/screens/lapangan_detail_screen.dart';
 
 import '../features/cart/presentation/screens/cart_screen.dart';
 import '../features/home/presentation/screens/home_screen.dart';
@@ -33,15 +33,15 @@ import '../features/splash/presentation/splash_screen.dart';
     AutoRoute<bool>(
         page: CreditCheckoutSuccessScreen,
         path: CreditCheckoutSuccessScreen.routeName),
-    AutoRoute<bool>(page: RoomScreen, path: RoomScreen.routeName),
-    AutoRoute<bool>(page: RoomDetailScreen, path: RoomDetailScreen.routeName),
+    AutoRoute<bool>(page: LapanganScreen, path: LapanganScreen.routeName),
+    AutoRoute<bool>(page: LapanganDetailScreen, path: LapanganDetailScreen.routeName),
     AutoRoute<bool>(page: CartScreen, path: CartScreen.routeName),
     AutoRoute<bool>(page: CheckoutScreen, path: CheckoutScreen.routeName),
     AutoRoute<bool>(
         page: CheckoutSuccessScreen, path: CheckoutSuccessScreen.routeName),
     AutoRoute<bool>(page: ProfileScreen, path: ProfileScreen.routeName),
     AutoRoute<bool>(page: OrderScreen, path: OrderScreen.routeName),
-    AutoRoute<bool>(page: RequestRoomScreen, path: RequestRoomScreen.routeName),
+    AutoRoute<bool>(page: BookingLapanganScreen, path: BookingLapanganScreen.routeName),
   ],
   replaceInRouteName: 'Page,Route',
 )

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:nsfutsal/core/request.dart';
+import 'package:nsfutsal/core/Request.dart';
 import 'package:nsfutsal/core/service_locator.dart';
 import 'package:flutter/foundation.dart';
 
@@ -15,13 +15,13 @@ class LapanganRemoteDataSourceImpl implements LapanganRemoteDataSource {
   @override
   Future<Either<Failure, LapanganList>> getLapangansFromServer() async {
     try {
-      final response = await request.get('/rooms');
+      final response = await request.get('/lapangans  ');
       if (response.statusCode == 200) {
         LapanganList lapanganList = [];
         final lapanganListMap = response.data['data'];
         for (var lapangan in lapanganListMap) {
           try {
-            lapanganList.add(Lapangan.fromJson(Lapangan));
+            lapanganList.add(Lapangan.fromJson(lapangan));
           } catch (e) {
             return const Left(
               ParsingFailure('Unable to parse the response'),

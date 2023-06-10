@@ -47,25 +47,25 @@ import '../features/register/data/datasource/register_remote_datasource.dart';
 import '../features/register/data/repository/register_user_repository.dart';
 import '../features/register/domain/repository/register_user_repository.dart';
 import '../features/register/domain/usecases/register_usecase.dart';
-import '../features/request_room/data/datasource/request_room_remote_source.dart';
-import '../features/request_room/data/repository/request_room_repository.dart';
-import '../features/request_room/domain/repository/request_room_repository.dart';
-import '../features/request_room/domain/usecases/cancel_request.dart';
-import '../features/request_room/domain/usecases/get_request_room.dart';
-import '../features/room/data/datasource/room_remote_source.dart';
-import '../features/room/data/datasource/room_user_local_data_source.dart';
-import '../features/room/data/repository/room_repository.dart';
-import '../features/room/domain/repository/room_repository.dart';
-import '../features/room/domain/usecases/get_local_user.dart' as room;
-import '../features/room/domain/usecases/get_rooms.dart';
-import '../features/room_detail/data/datasource/room_detail_remote_source.dart';
-import '../features/room_detail/data/repository/room_detail_repository.dart';
-import '../features/room_detail/domain/repository/room_detail_repository.dart';
-import '../features/room_detail/domain/usecases/get_detail_room.dart';
-import '../features/room_detail/domain/usecases/request_room.dart';
+import '../features/booking_lapangan/data/datasource/booking_lapangan_remote_source.dart';
+import '../features/booking_lapangan/data/repository/booking_lapangan_repository.dart';
+import '../features/booking_lapangan/domain/repository/bookinglapangan_repository.dart';
+import '../features/booking_lapangan/domain/usecases/cancel_booking.dart';
+import '../features/booking_lapangan/domain/usecases/get_booking_lapangan.dart';
+import '../features/lapangan/data/datasource/lapangan_remote_source.dart';
+import '../features/lapangan/data/datasource/lapangan_user_local_data_source.dart';
+import '../features/lapangan/data/repository/lapangan_repository.dart';
+import '../features/lapangan/domain/repository/lapangan_repository.dart';
+import '../features/lapangan/domain/usecases/get_local_user.dart' as room;
+import '../features/lapangan/domain/usecases/get_lapangan.dart';
+import '../features/lapangan_detail/data/datasource/lapangan_detail_remote_source.dart';
+import '../features/lapangan_detail/data/repository/lapangan_detail_repository.dart';
+import '../features/lapangan_detail/domain/repository/lapangan_detail_repository.dart';
+import '../features/lapangan_detail/domain/usecases/get_detail_lapangan.dart';
+import '../features/lapangan_detail/domain/usecases/booking_lapangan.dart';
 import '../features/splash/domain/usecase/check_user_login_status.dart';
 import '../services/user_cache_service.dart';
-import 'request.dart';
+import 'Request.dart';
 
 final serviceLocator = GetIt.instance;
 Future<void> setUpServiceLocator() async {
@@ -150,30 +150,30 @@ Future<void> setUpServiceLocator() async {
   serviceLocator.registerFactory<room.GetLocalUserUsecase>(
       () => room.GetLocalUserUsecase());
   serviceLocator
-      .registerFactory<GetRoomsFromServer>(() => GetRoomsFromServer());
+      .registerFactory<GetLapangansFromServer>(() => GetLapangansFromServer());
 
   // datasource
-  serviceLocator.registerFactory<RoomLocalUserDataSource>(
-      () => RoomLocalUserDataSourceImlp());
+  serviceLocator.registerFactory<LapanganLocalUserDataSource>(
+      () => LapanganLocalUserDataSourceImlp());
   serviceLocator
-      .registerFactory<RoomRemoteDataSource>(() => RoomRemoteDataSourceImpl());
+      .registerFactory<LapanganRemoteDataSource>(() => LapanganRemoteDataSourceImpl());
 // repositories
-  serviceLocator.registerFactory<RoomRepository>(() => RoomRepositoryImpl());
+  serviceLocator.registerFactory<LapanganRepository>(() => LapanganRepositoryImpl());
 
 // room detail
 // usecase
-  serviceLocator.registerFactory<GetRoomDetailFromServer>(
-      () => GetRoomDetailFromServer());
+  serviceLocator.registerFactory<GetLapanganDetailFromServer>(
+      () => GetLapanganDetailFromServer());
   serviceLocator
-      .registerFactory<RequestRoomUseCase>(() => RequestRoomUseCase());
+      .registerFactory<BookingLapanganUseCase>(() => BookingLapanganUseCase());
 
 // datasource
-  serviceLocator.registerFactory<RoomDetailRemoteDataSource>(
-      () => RoomDetailRemoteDataSourceImpl());
+  serviceLocator.registerFactory<LapanganDetailRemoteDataSource>(
+      () => LapanganDetailRemoteDataSourceImpl());
 
 // repositories
   serviceLocator
-      .registerFactory<RoomDetailRepository>(() => RoomDetailRepositoryImpl());
+      .registerFactory<LapanganDetailRepository>(() => LapanganDetailRepositoryImpl());
 // cart
 // usecase
   serviceLocator
@@ -224,17 +224,17 @@ Future<void> setUpServiceLocator() async {
 
 // request room
 // usecase
-  serviceLocator.registerFactory<GetRequestRoomsFromServer>(
-      () => GetRequestRoomsFromServer());
+  serviceLocator.registerFactory<GetBookingLapangansFromServer>(
+      () => GetBookingLapangansFromServer());
   serviceLocator
-      .registerFactory<CancelRequestUseCase>(() => CancelRequestUseCase());
+      .registerFactory<CancelBookingUseCase>(() => CancelBookingUseCase());
 // datasource
-  serviceLocator.registerFactory<RequestRoomRemoteDataSource>(
-      () => RequestRoomRemoteDataSourceImpl());
+  serviceLocator.registerFactory<BookingLapanganRemoteDataSource>(
+      () => BookingLapanganRemoteDataSourceImpl());
 
 // repositories
-  serviceLocator.registerFactory<RequestRoomRepository>(
-      () => RequestRoomRepositoryImpl());
+  serviceLocator.registerFactory<BookingLapanganRepository>(
+      () => BookingLapanganRepositoryImpl());
 
   // services
   serviceLocator.registerSingleton<UserCacheService>(UserCacheService());

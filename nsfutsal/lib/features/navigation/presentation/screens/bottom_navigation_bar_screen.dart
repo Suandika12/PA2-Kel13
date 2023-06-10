@@ -21,7 +21,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
       _selectedIndex = 0;
     } else if (AutoRouter.of(context).current.name == 'EventScreen') {
       _selectedIndex = 1;
-    } else if (AutoRouter.of(context).current.name == 'RoomScreen') {
+    } else if (AutoRouter.of(context).current.name == 'LapanganScreen') {
       _selectedIndex = 2;
     } else if (AutoRouter.of(context).current.name == 'CartScreen') {
       _selectedIndex = 3;
@@ -48,7 +48,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
           );
         } else if (index == 2) {
           AutoRouter.of(context).pushAndPopUntil(
-            const RoomScreen(),
+            const LapanganScreen(),
             predicate: (_) => false,
           );
         } else if (index == 3) {

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:nsfutsal/core/request.dart';
+import 'package:nsfutsal/core/Request.dart';
 import 'package:nsfutsal/core/service_locator.dart';
 import 'package:flutter/foundation.dart';
 

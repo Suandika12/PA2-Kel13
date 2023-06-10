@@ -56,7 +56,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           child: Image(
                             image: AssetImage('assets/images/bgc.jpg'),
                             fit: BoxFit.cover,
-
                           ),
                         ),
                         Column(
@@ -163,7 +162,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   CardItemMenu(
                                     onTap: () {
                                       AutoRouter.of(context).push(
-                                        const RequestRoomScreen(),
+                                        const BookingLapanganScreen(),
                                       );
                                     },
                                     icon: Icons.bookmark,

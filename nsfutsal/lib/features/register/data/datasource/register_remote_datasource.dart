@@ -3,7 +3,7 @@ import 'package:nsfutsal/features/register/data/models/user_register_model.dart'
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../../core/failure.dart';
-import '../../../../core/request.dart';
+import '../../../../core/Request.dart';
 import '../../../../core/service_locator.dart';
 import '../models/user_model.dart';
 

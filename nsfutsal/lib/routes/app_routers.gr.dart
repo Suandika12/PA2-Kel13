@@ -33,10 +33,10 @@ import '../features/product_detail/presentation/screens/product_detail_screen.da
     as _i5;
 import '../features/profile/presentation/screens/profile_screen.dart' as _i14;
 import '../features/register/presentation/screens/register_screen.dart' as _i3;
-import '../features/request_room/presentation/screens/request_room_screen.dart'
+import '../features/booking_lapangan/presentation/screens/booking_lapangan_screen.dart'
     as _i16;
-import '../features/room/presentation/screens/room_screen.dart' as _i9;
-import '../features/room_detail/presentation/screens/room_detail_screen.dart'
+import '../features/lapangan/presentation/screen/lapangan_screen.dart' as _i9;
+import '../features/lapangan_detail/presentation/screens/lapangan_detail_screen.dart'
     as _i10;
 import '../features/splash/presentation/splash_screen.dart' as _i1;
 
@@ -106,19 +106,19 @@ class FlutterRouter extends _i17.RootStackRouter {
         ),
       );
     },
-    RoomScreen.name: (routeData) {
+    LapanganScreen.name: (routeData) {
       return _i17.MaterialPageX<bool>(
         routeData: routeData,
-        child: const _i9.RoomScreen(),
+        child: const _i9.LapanganScreen(),
       );
     },
-    RoomDetailScreen.name: (routeData) {
-      final args = routeData.argsAs<RoomDetailScreenArgs>();
+    LapanganDetailScreen.name: (routeData) {
+      final args = routeData.argsAs<LapanganDetailScreenArgs>();
       return _i17.MaterialPageX<bool>(
         routeData: routeData,
-        child: _i10.RoomDetailScreen(
+        child: _i10.LapanganDetailScreen(
           key: args.key,
-          roomId: args.roomId,
+          lapanganId: args.lapanganId,
         ),
       );
     },
@@ -156,10 +156,10 @@ class FlutterRouter extends _i17.RootStackRouter {
         child: const _i15.OrderScreen(),
       );
     },
-    RequestRoomScreen.name: (routeData) {
+    BookingLapanganScreen.name: (routeData) {
       return _i17.MaterialPageX<bool>(
         routeData: routeData,
-        child: const _i16.RequestRoomScreen(),
+        child: const _i16.BookingLapanganScreen(),
       );
     },
   };
@@ -199,12 +199,12 @@ class FlutterRouter extends _i17.RootStackRouter {
           path: '/credit/checkout/success',
         ),
         _i17.RouteConfig(
-          RoomScreen.name,
-          path: '/room',
+          LapanganScreen.name,
+          path: '/lapangan',
         ),
         _i17.RouteConfig(
-          RoomDetailScreen.name,
-          path: '/room-detail',
+          LapanganDetailScreen.name,
+          path: '/lapangan-detail',
         ),
         _i17.RouteConfig(
           CartScreen.name,
@@ -227,8 +227,8 @@ class FlutterRouter extends _i17.RootStackRouter {
           path: '/order',
         ),
         _i17.RouteConfig(
-          RequestRoomScreen.name,
-          path: '/request-room',
+          BookingLapanganScreen.name,
+          path: '/booking-lapangan',
         ),
       ];
 }
@@ -398,48 +398,49 @@ class CreditCheckoutSuccessScreenArgs {
 }
 
 /// generated route for
-/// [_i9.RoomScreen]
-class RoomScreen extends _i17.PageRouteInfo<void> {
-  const RoomScreen()
+/// [_i9.LapanganScreen]
+class LapanganScreen extends _i17.PageRouteInfo<void> {
+  const LapanganScreen()
       : super(
-          RoomScreen.name,
-          path: '/room',
+          LapanganScreen.name,
+          path: '/lapangan',
         );
 
-  static const String name = 'RoomScreen';
+  static const String name = 'LapanganScreen';
 }
 
 /// generated route for
-/// [_i10.RoomDetailScreen]
-class RoomDetailScreen extends _i17.PageRouteInfo<RoomDetailScreenArgs> {
-  RoomDetailScreen({
+/// [_i10.LapanganDetailScreen]
+class LapanganDetailScreen
+    extends _i17.PageRouteInfo<LapanganDetailScreenArgs> {
+  LapanganDetailScreen({
     _i18.Key? key,
-    required int roomId,
+    required int lapanganId,
   }) : super(
-          RoomDetailScreen.name,
-          path: '/room-detail',
-          args: RoomDetailScreenArgs(
+          LapanganDetailScreen.name,
+          path: '/lapangan-detail',
+          args: LapanganDetailScreenArgs(
             key: key,
-            roomId: roomId,
+            lapanganId: lapanganId,
           ),
         );
 
-  static const String name = 'RoomDetailScreen';
+  static const String name = 'LapanganDetailScreen';
 }
 
-class RoomDetailScreenArgs {
-  const RoomDetailScreenArgs({
+class LapanganDetailScreenArgs {
+  const LapanganDetailScreenArgs({
     this.key,
-    required this.roomId,
+    required this.lapanganId,
   });
 
   final _i18.Key? key;
 
-  final int roomId;
+  final int lapanganId;
 
   @override
   String toString() {
-    return 'RoomDetailScreenArgs{key: $key, roomId: $roomId}';
+    return 'LapanganDetailScreenArgs{key: $key, lapanganId: $lapanganId}';
   }
 }
 
@@ -527,13 +528,13 @@ class OrderScreen extends _i17.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i16.RequestRoomScreen]
-class RequestRoomScreen extends _i17.PageRouteInfo<void> {
-  const RequestRoomScreen()
+/// [_i16.BookingLapanganScreen]
+class BookingLapanganScreen extends _i17.PageRouteInfo<void> {
+  const BookingLapanganScreen()
       : super(
-          RequestRoomScreen.name,
-          path: '/request-room',
+          BookingLapanganScreen.name,
+          path: '/Booking-lapangan',
         );
 
-  static const String name = 'RequestRoomScreen';
+  static const String name = 'BookingLapanganScreen';
 }
