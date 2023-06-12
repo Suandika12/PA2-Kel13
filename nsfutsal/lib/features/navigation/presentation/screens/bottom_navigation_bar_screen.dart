@@ -41,11 +41,6 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
             const HomeScreen(),
             predicate: (_) => false,
           );
-        } else if (index == 1) {
-          AutoRouter.of(context).pushAndPopUntil(
-            const CreditScreen(),
-            predicate: (_) => false,
-          );
         } else if (index == 2) {
           AutoRouter.of(context).pushAndPopUntil(
             const LapanganScreen(),

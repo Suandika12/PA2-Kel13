@@ -171,7 +171,8 @@
                                     </tbody>
                                 </table>
                                 <div class="d-flex justify-content-end align-items-center border-top-table p-3">
-                                    <button class="btn btn-secondary btn-sm">   <a href="{{ route('customer.index') }}">See All</a></button>
+                                    <a href="{{ route('customer.index') }}"></a><button
+                                        class="btn btn-secondary btn-sm">See All</button>
                                 </div>
                             </div>
                         </div>

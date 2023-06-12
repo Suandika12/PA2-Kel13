@@ -22,11 +22,10 @@
     <div class="d-flex flex-column flex-root">
         <div class="d-flex flex-column flex-lg-row-fluid py-10">
             <div class="d-flex flex-center flex-column flex-column-fluid">
-                <div class="w-lg-500px p-10 p-lg-15 mx-auto">
+                <div class="mt-2">
                     <form class="form w-100" novalidate="novalidate" id="form_login">
                         <div class="text-center mb-10">
                             <img src="{{asset("assets/images/logo.png")}}" style="width:200px;height:200px;"class="img-fluid  rounded-normal  darkmode-logo" alt="logo">
-
                             <h1 class="text-dark mb-3">Numero Sada Futsal</h1>
                         </div>
                         <div class="fv-row mb-10">

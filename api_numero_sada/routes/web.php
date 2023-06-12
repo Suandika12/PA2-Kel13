@@ -66,7 +66,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
     Route::get('/edit_customer/{id}', [CustomerController::class, 'edit'])->name('edit_customer');
     Route::post('/update_customer/{id}', [CustomerController::class, 'update'])->name('update_customer');
-    Route::delete('/delete_customer/{id}', [CustomerController::class, 'destroy'])->name('delete_customer');
+    // Route::delete('/delete_customer/{id}', [CustomerController::class, 'destroy'])->name('delete_customer');
 
 
     Route::get('/logout', [AuthController::class, 'do_logout'])->name('logout');

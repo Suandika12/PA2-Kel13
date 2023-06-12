@@ -68,19 +68,20 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $customer)
     {
         $validatedData = $request->validate([
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
         ]);
-        $customer = User::where('id',$id)->first();
-            $customer->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-            ]);
+
+        $customer->update($request->all());
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Customer updated successfully',
+            'redirect' => route('customer.index')
+        ]);
     }
 
     /**
@@ -89,9 +90,8 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $customer)
     {
-        $customer = User::destroy($id);
         $customer->delete();
 
         return response()->json([

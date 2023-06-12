@@ -5,10 +5,10 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Lapangan\LapanganResource;
-use App\Models\Lapangan;
+use App\Http\Resources\Event\EventResource;
+use App\Models\Event;
 
-class LapanganController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +18,11 @@ class LapanganController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-        $lapangans = Lapangan::where('name', 'like', "%$search%")->get();
-        
+        $events = Event::where('name', 'like', "%$search%")->get();
+
         return ResponseFormatter::success(
-            LapanganResource::collection($lapangans),
-            'Data list lapangan berhasil diambil'
+            EventResource::collection($events),
+            'Data list event berhasil diambil'
         );
     }
 
@@ -34,16 +34,16 @@ class LapanganController extends Controller
      */
     public function show($id)
     {
-        $lapangan = Lapangan::find($id);
-        if ($lapangan) {
+        $event = Event::find($id);
+        if ($event) {
             return ResponseFormatter::success(
-                new LapanganResource($lapangan),
-                'Data detail lapangan berhasil diambil'
+                new EventResource($event),
+                'Data detail event berhasil diambil'
             );
         } else {
             return ResponseFormatter::error(
                 null,
-                'Data lapangan tidak ditemukan',
+                'Data event tidak ditemukan',
                 404
             );
         }

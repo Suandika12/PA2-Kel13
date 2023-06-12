@@ -17,14 +17,14 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker()->mt_rand(1, 50),
-            'code' => $this->faker()->create(25),
-            'total' => $this->faker()->mt_rand(1, 100000),
-            'description' => $this->faker()->create(50), // password
-            'payment_method' => $this->faker()->create(25),
-            'status' => $this->faker()->create(25),
-            'created_at' => date('H:i:s', rand(1,54000)),
-            'updated_at' => date('H:i:s', rand(1,54000)),
+            'user_id' => $this->faker->numberBetween(1, 2),
+            'code' => $this->faker->regexify('[A-Za-z0-9]{25}'),
+            'total' => $this->faker->numberBetween(1, 100000),
+            'description' => $this->faker->text(50),
+            'payment_method' => $this->faker->word,
+            'status' => $this->faker->randomElement(['pending', 'processing', 'completed']),
+            'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
+            'updated_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];
     }
 }

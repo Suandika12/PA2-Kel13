@@ -219,6 +219,22 @@
                         </a>
                         <!--end:Menu link-->
                     </div>
+
+                    <div class="menu-item">
+                        <!--begin:Menu link-->
+                        <a class="menu-link {{ request()->is('customer') ? 'active' : '' }}"
+                            href="{{ route('customer.index') }}">
+                            <span class="menu-icon">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2a5 5 0 0 1 5 5v2a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5zM12 14c3.866 0 7 3.134 7 7M5 21h14a2 2 0 0 0 2-2v-1c0-3.866-3.134-7-7-7H10c-3.866 0-7 3.134-7 7v1a2 2 0 0 0 2 2z"fill="white"/>
+                                  </svg>
+                                                                                                
+                            </span>
+                            <span class="menu-title">Customer</span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
                 </div>
             <!--end::Menu-->
         </div>

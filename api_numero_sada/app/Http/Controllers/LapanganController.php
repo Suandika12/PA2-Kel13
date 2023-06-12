@@ -38,8 +38,8 @@ class LapanganController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'description' => 'required',
+            'name' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'description' => 'required|regex:/^[a-zA-Z\s]+$/',
             'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'status' => 'required',
         ]);
@@ -100,8 +100,8 @@ class LapanganController extends Controller
     public function update(Request $request, Lapangan $lapangan)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'description' => 'required',
+            'name' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'description' => 'required|regex:/^[a-zA-Z\s]+$/',
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'status' => 'required',
         ]);

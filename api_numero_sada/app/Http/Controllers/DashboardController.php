@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\User;
 use App\Models\Order;
-use DB;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -12,15 +12,20 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $denied = Order::where('status', 'like', "Denied")->count();
-        $pending = Order::where('status', 'like', "Pending")->limit(5)->get();
-        $processing = Order::where('status', 'like', "Processing")->count();
-        $canceled = Order::where('status', 'like', "Cancelled")->count();
-        $completed = Order::where('status','like',"Completed")->count();
-        $pendings = Order::where('status','like',"Pending")->count();
-        $user = User::where('name', 'not like', "Admin")->get();
-        $userTotal = User::where('name', 'not like', "Admin")->count();
-        $event = Event::all();
-        return view('pages.dashboard.index', compact('event','user','completed','pendings','pending','userTotal', 'denied','processing','canceled'));
+        $startDate = Carbon::now()->toDateString();
+    
+    $denied = Order::where('status', 'Denied')->whereDate('created_at', $startDate)->count();
+    $pending = Order::where('status', 'Pending')->limit(5)->get();
+    $processing = Order::where('status', 'Processing')->whereDate('created_at', $startDate)->count();
+    $canceled = Order::where('status', 'Cancelled')->whereDate('created_at', $startDate)->count();
+    $completed = Order::where('status', 'Completed')->whereDate('created_at', $startDate)->count();
+    $pendings = Order::where('status', 'Pending')->whereDate('created_at', $startDate)->count();
+    
+    $user = User::where('name', '!=', 'Admin')->get();
+    $userTotal = User::where('name', '!=', 'Admin')->count();
+    
+    $event = Event::all();
+    
+    return view('pages.dashboard.index', compact('event', 'user', 'completed', 'pendings', 'pending', 'userTotal', 'denied', 'processing', 'canceled'));
     }
 }

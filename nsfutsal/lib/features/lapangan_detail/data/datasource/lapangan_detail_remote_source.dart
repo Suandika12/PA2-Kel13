@@ -18,7 +18,7 @@ class LapanganDetailRemoteDataSourceImpl implements LapanganDetailRemoteDataSour
   Future<Either<Failure, Lapangan>> getLapanganDetailFromServer(
       {required int lapanganId}) async {
     try {
-      final response = await request.get('/lapangans/$lapanganId');
+      final response = await request.get('/lapangan/$lapanganId');
       if (response.statusCode == 200) {
         return Right(Lapangan.fromJson(response.data['data']));
       }

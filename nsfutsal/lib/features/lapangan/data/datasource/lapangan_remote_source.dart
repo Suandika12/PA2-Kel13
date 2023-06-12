@@ -15,7 +15,7 @@ class LapanganRemoteDataSourceImpl implements LapanganRemoteDataSource {
   @override
   Future<Either<Failure, LapanganList>> getLapangansFromServer() async {
     try {
-      final response = await request.get('/lapangans  ');
+      final response = await request.get('/lapangan');
       if (response.statusCode == 200) {
         LapanganList lapanganList = [];
         final lapanganListMap = response.data['data'];

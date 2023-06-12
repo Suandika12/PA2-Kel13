@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('title', 'Lapangan')
-@section('page', 'Lapangan')
+@section('title', 'Customer')
+@section('page', 'Customer')
 @section('breadcrumb')
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">
@@ -37,7 +37,7 @@
                                 </span>
                                 <!--end::Svg Icon-->
                                 <input type="text" data-kt-ecommerce-customer-filter="search"
-                                    class="form-control form-control-solid w-250px ps-14" placeholder="Search Lapangan" />
+                                    class="form-control form-control-solid w-250px ps-14" placeholder="Search Customer" />
                             </div>
                             <!--end::Search-->
                         </div>
@@ -181,7 +181,7 @@
                         }).then((function(t) {
                             if (t.value) {
                                 var url =
-                                    "{{ route('delete_customer', ':id') }}";
+                                    "{{ route('customer.destroy', ':id') }}";
                                 url = url.replace(':id', i.value);
                                 $.ajax({
                                     url: url,

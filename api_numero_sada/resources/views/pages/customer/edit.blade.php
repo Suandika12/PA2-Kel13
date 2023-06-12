@@ -18,15 +18,17 @@
     </ul>
     <!--end::Breadcrumb-->
 @endsection
+
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Post-->
         <div class="post d-flex flex-column-fluid" id="kt_post">
             <!--begin::Container-->
             <div id="kt_content_container" class="container-xxl">
-                <form id="kt_ecommerce_edit_category_form" class="form d-flex flex-column flex-lg-row"
+                <form id="kt_ecommerce_edit_customer_form" class="form d-flex flex-column flex-lg-row"
                     data-kt-redirect="{{ route('customer.index') }}" action="{{ route('customer.update', $customer->id) }}"
-                    method="POST">
+                    method="PUT">
+                    @csrf
                     <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
                         <!--begin::General options-->
                         <div class="card card-flush py-4">
@@ -75,12 +77,11 @@
                         <!--end::General options-->
                         <div class="d-flex justify-content-end">
                             <!--begin::Button-->
-                            <a href="{{ route('customer.index') }}}" id="kt_ecommerce_edit_product_cancel"
+                            <a href="{{ route('customer.index') }}" id="kt_ecommerce_edit_customer_cancel"
                                 class="btn btn-light me-5">Cancel</a>
                             <!--end::Button-->
                             <!--begin::Button-->
-                            <button type="submit" id="kt_ecommerce_edit_product_submit" class="btn btn-primary"
-                                data-kt-element="submit">
+                            <button type="submit" id="kt_ecommerce_edit_customer_submit" class="btn btn-primary">
                                 <span class="indicator-label">Save Changes</span>
                                 <span class="indicator-progress">Please wait...
                                     <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -96,17 +97,18 @@
         <!--end::Post-->
     </div>
 @endsection
+
 @section('scripts')
     <script>
         "use strict";
         // Class definition
         const KTFormControls = function() {
             // Base elements
-            const formEl = $('#kt_ecommerce_edit_category_form');;
+            const formEl = $('#kt_ecommerce_edit_customer_form');
 
             const _initAvatar = function() {
                 // init avatar
-                const imageInputElement = document.querySelector("#kt_ecommerce_edit_category_avatar");
+                const imageInputElement = document.querySelector("#kt_ecommerce_edit_customer_avatar");
                 new KTImageInput(imageInputElement);
             }
 
@@ -160,8 +162,7 @@
                                     btn.removeAttr("data-kt-indicator");
                                     btn.prop("disabled", false);
                                     if (result.isConfirmed) {
-                                        window.location.href = response
-                                            .redirect;
+                                        window.location.href = response.redirect;
                                     }
                                 });
                             }
@@ -190,7 +191,7 @@
         });
 
         // on submit form
-        $(document).on('submit', '#kt_ecommerce_edit_category_form', function(e) {
+        $(document).on('submit', '#kt_ecommerce_edit_customer_form', function(e) {
             e.preventDefault();
             KTFormControls.onSubmit();
         });

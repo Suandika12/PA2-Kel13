@@ -4,12 +4,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CartController;
-use App\Http\Controllers\API\RoomController;
+use App\Http\Controllers\API\LapanganController;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\CreditController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\BookingLapanganController;
+use App\Http\Controllers\API\EventController;
 use App\Http\Resources\Credit\CreditCollection;
+use App\Models\Event;
+use App\Models\Lapangan;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,13 +58,13 @@ Route::group([
     Route::post('/checkout', [CreditController::class, 'checkout']);
 });
 
-// Room Routes
+// Lapangan Routes
 Route::group([
     'middleware' => 'auth:sanctum',
-    'prefix' => 'rooms'
+    'prefix' => 'lapangan'
 ], function () {
-    Route::get('/', [RoomController::class, 'index']);
-    Route::get('/{id}', [RoomController::class, 'show']);
+    Route::get('/', [LapanganController::class, 'index']);
+    Route::get('/{id}', [LapanganController::class, 'show']);
 });
 
 // Cart Routes
@@ -96,7 +99,7 @@ Route::group([
 // Request Lapangan Routes
 Route::group([
     'middleware' => 'auth:sanctum',
-    'prefix' => 'request-rooms'
+    'prefix' => 'booking-lapapangans'
 ], function () {
     Route::get('/', [BookingLapanganController::class, 'index']);
     Route::get('/{id}', [BookingLapanganController::class, 'show']);
