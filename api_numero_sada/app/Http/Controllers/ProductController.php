@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use PDF;
+use Dompdf\Dompdf;
+use Illuminate\Support\Facades\View;
 
 class ProductController extends Controller
 {
@@ -161,5 +164,18 @@ class ProductController extends Controller
             'status' => 'success',
             'message' => 'Hidangan deleted successfully',
         ]);
+    }
+
+    public function exportpdf()
+    {
+
+        $products = Product::all(); // Mengambil semua data produk dari database
+        // $data = [
+        //     'title' => 'Data Hidangan',
+        //     'products' => $products
+        // ];
+        view()->share('products',$products);
+        $pdf = PDF::loadView('pages.products.data');
+        return $pdf->download('data-hidangan.pdf');
     }
 }

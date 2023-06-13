@@ -5,7 +5,7 @@
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">
         <!--begin::Item-->
-        <li class="breadcrumb-item text-muted">Hidangan</li>
+        <li class="breadcrumb-item text-muted">Dish</li>
         <!--end::Item-->
     </ul>
     <!--end::Breadcrumb-->
@@ -46,9 +46,11 @@
                         <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                             <!--begin::Add product-->
                             <a href="{{ route('products.create') }}" class="btn btn-primary">
-                                Add Hidangan</a>
+                                Add Dish</a>
                             <!--end::Add product-->
                         </div>
+                        <a href="{{ route('exportpdf') }}" class="btn btn-warning">
+                            Export Pdf</a>
                         <!--end::Card toolbar-->
                     </div>
                     <!--end::Card header-->
@@ -67,7 +69,7 @@
                                                 value="1" />
                                         </div>
                                     </th>
-                                    <th class="min-w-200px">Hidangan</th>
+                                    <th class="min-w-200px">Dish</th>
                                     <th class="text-end min-w-100px">SKU</th>
                                     <th class="text-end min-w-100px">Category</th>
                                     <th class="text-end min-w-70px">Qty</th>
@@ -195,7 +197,7 @@
                                 '[data-kt-ecommerce-product-filter="product_name"]')
                             .innerText,
                             o = n.querySelector(
-                                '[data-kt-ecommerce-product-filter="product_sku"]');
+                                '[data-kt-ecommerce-product-filter="product_id"]');
                         Swal.fire({
                             text: "Are you sure you want to delete " + r + "?",
                             icon: "warning",

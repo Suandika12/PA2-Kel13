@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('lapangans_id')->constrained()->cascadeOnDelete();
-            $table->text('description');
-            $table->string('status')->default('pending');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->enum('Opsi Pembayaran', ['Down Payment','Paid Off']);
+            $table->enum('status', ['Pending','Approved', 'Denied'])->default('Pending');
+            $table->dateTime('start_play');
+            $table->dateTime('end_play');
             $table->timestamps();
             $table->softDeletes();
         });

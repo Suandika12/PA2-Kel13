@@ -5,7 +5,7 @@
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">
         <!--begin::Item-->
-        <li class="breadcrumb-item text-muted">Lapangan</li>
+        <li class="breadcrumb-item text-muted">Field</li>
         <!--end::Item-->
     </ul>
     <!--end::Breadcrumb-->
@@ -46,7 +46,7 @@
                         <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                             <!--begin::Add lapangan-->
                             <a href="{{ route('lapangan.create') }}" class="btn btn-primary">
-                                Add Lapangan</a>
+                                Add Field</a>
                             <!--end::Add lapangan-->
                         </div>
                         <!--end::Card toolbar-->
@@ -67,7 +67,7 @@
                                                 value="1" />
                                         </div>
                                     </th>
-                                    <th class="min-w-250px">Lapangan</th>
+                                    <th class="min-w-250px">Field</th>
                                     <th class="min-w-125px">Status</th>
                                     <th class="text-end min-w-70px">Actions</th>
                                 </tr>

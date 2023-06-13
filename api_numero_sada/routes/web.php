@@ -48,6 +48,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::post('/orders/{id}/deny', [OrderController::class, 'deny'])->name('orders.deny');
     Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
 
+    Route::get('exportpdf', [ProductController::class, 'exportpdf'])->name('exportpdf');
+
 
     // booking lapangan
     Route::get('/booking-lapangan', [BookingLapanganController::class, 'index'])->name('booking-lapangan.index');
@@ -70,4 +72,12 @@ Route::group(['middleware' => ['role:admin']], function () {
 
 
     Route::get('/logout', [AuthController::class, 'do_logout'])->name('logout');
+
+
+    // booking lapangan
+    Route::get('/booking-lapangan', [BookingLapanganController::class, 'index'])->name('booking-lapangan.index');
+    Route::get('/booking-lapangan/{id}', [BookingLapanganController::class, 'show'])->name('booking-lapangan.show');
+    Route::post('/booking-lapangan/{id}/approve', [BookingLapanganController::class, 'approve'])->name('booking-lapangan.approve');
+    Route::post('/booking-lapangan/{id}/deny', [BookingLapanganController::class, 'deny'])->name('booking-lapangan.deny');
+    Route::delete('/booking-lapangan/{id}', [BookingLapanganController::class, 'destroy'])->name('booking-lapangan.destroy');
 });

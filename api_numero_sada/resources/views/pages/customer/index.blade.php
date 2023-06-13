@@ -61,7 +61,6 @@
                                                 value="1" />
                                         </div>
                                     </th>
-                                    <th class="min-w-250px">NIK</th>
                                     <th class="min-w-250px">Name</th>
                                     <th class="min-w-125px">Email</th>
                                     <th class="text-end min-w-70px">Created at</th>
@@ -82,11 +81,6 @@
                                                 data-kt-ecommerce-customer-filter="customer_id" />
                                         </div>
                                     </td>
-                                        <td>
-                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <div class="fs-7 fw-bold">{{ $item->nik }}</div>
-                                            </div>
-                                        </td>
                                         <!--end::Checkbox-->
                                         <!--begin::lapangan=-->
                                         <td>

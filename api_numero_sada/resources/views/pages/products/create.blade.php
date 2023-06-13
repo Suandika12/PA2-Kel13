@@ -144,14 +144,14 @@
                                 <!--begin::Input group-->
                                 <div class="mb-10 fv-row">
                                     <!--begin::Label-->
-                                    <label class="required form-label">Hidangan Name</label>
+                                    <label class="required form-label">Dish Name</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input type="text" name="name" class="form-control mb-2"
                                         placeholder="Hidangan Name" value="" />
                                     <!--end::Input-->
                                     <!--begin::Description-->
-                                    <div class="text-muted fs-7">A hidangan name is required and recommended to be unique.
+                                    <div class="text-muted fs-7">A Dish name is required and recommended to be unique.
                                     </div>
                                     <!--end::Description-->
                                 </div>

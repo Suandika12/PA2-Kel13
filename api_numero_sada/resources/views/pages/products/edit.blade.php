@@ -5,7 +5,7 @@
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">
         <!--begin::Item-->
-        <li class="breadcrumb-item text-muted">Hidangan</li>
+        <li class="breadcrumb-item text-muted">Dish</li>
         <!--end::Item-->
         <!--begin::Item-->
         <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
         </li>
         <!--end::Item-->
         <!--begin::Item-->
-        <li class="breadcrumb-item text-dark">Edit Hidangan</li>
+        <li class="breadcrumb-item text-dark">Edit Dish</li>
         <!--end::Item-->
     </ul>
     <!--end::Breadcrumb-->
@@ -147,14 +147,14 @@
                                 <!--begin::Input group-->
                                 <div class="mb-10 fv-row">
                                     <!--begin::Label-->
-                                    <label class="required form-label">Hidangan Name</label>
+                                    <label class="required form-label">Dish Name</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input type="text" name="name" class="form-control mb-2"
                                         placeholder="Product Name" value="{{ $product->name }}" />
                                     <!--end::Input-->
                                     <!--begin::Description-->
-                                    <div class="text-muted fs-7">A hidangan name is required and recommended to be unique.
+                                    <div class="text-muted fs-7">A Dish name is required and recommended to be unique.
                                     </div>
                                     <!--end::Description-->
                                 </div>

@@ -5,7 +5,7 @@
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">
         <!--begin::Item-->
-        <li class="breadcrumb-item text-muted">Lapangan</li>
+        <li class="breadcrumb-item text-muted">Field</li>
         <!--end::Item-->
         <!--begin::Item-->
         <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
         </li>
         <!--end::Item-->
         <!--begin::Item-->
-        <li class="breadcrumb-item text-dark">Add Lapangan</li>
+        <li class="breadcrumb-item text-dark">Add Field</li>
         <!--end::Item-->
     </ul>
     <!--end::Breadcrumb-->
@@ -91,7 +91,7 @@
                                 </div>
                                 <!--end::Image input-->
                                 <!--begin::Description-->
-                                <div class="text-muted fs-7">Set the lapangan thumbnail image. Only *.png, *.jpg and *.jpeg
+                                <div class="text-muted fs-7">Set the Field thumbnail image. Only *.png, *.jpg and *.jpeg
                                     image files are accepted</div>
                                 <!--end::Description-->
                             </div>
@@ -158,14 +158,14 @@
                                 <!--begin::Input group-->
                                 <div class="mb-10 fv-row">
                                     <!--begin::Label-->
-                                    <label class="required form-label">Lapangan Name</label>
+                                    <label class="required form-label">Field Name</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input type="text" name="name" class="form-control mb-2" placeholder="Lapangan Name"
                                         value="" />
                                     <!--end::Input-->
                                     <!--begin::Description-->
-                                    <div class="text-muted fs-7">A lapangan name is required and recommended to be unique.
+                                    <div class="text-muted fs-7">A Field name is required and recommended to be unique.
                                     </div>
                                     <!--end::Description-->
                                 </div>
