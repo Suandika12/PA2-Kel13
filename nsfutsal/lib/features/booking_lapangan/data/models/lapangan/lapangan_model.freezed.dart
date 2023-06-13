@@ -28,8 +28,7 @@ mixin _$Lapangan {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LapanganCopyWith<Lapangan> get copyWith =>
-      throw _privateConstructorUsedError;
+  $LapanganCopyWith<Lapangan> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -87,8 +86,7 @@ class _$LapanganCopyWithImpl<$Res, $Val extends Lapangan>
 
 /// @nodoc
 abstract class _$$_LapanganCopyWith<$Res> implements $LapanganCopyWith<$Res> {
-  factory _$$_LapanganCopyWith(
-          _$_Lapangan value, $Res Function(_$_Lapangan) then) =
+  factory _$$_LapanganCopyWith(_$_Lapangan value, $Res Function(_$_Lapangan) then) =
       __$$_LapanganCopyWithImpl<$Res>;
   @override
   @useResult
@@ -97,11 +95,9 @@ abstract class _$$_LapanganCopyWith<$Res> implements $LapanganCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LapanganCopyWithImpl<$Res>
-    extends _$LapanganCopyWithImpl<$Res, _$_Lapangan>
+class __$$_LapanganCopyWithImpl<$Res> extends _$LapanganCopyWithImpl<$Res, _$_Lapangan>
     implements _$$_LapanganCopyWith<$Res> {
-  __$$_LapanganCopyWithImpl(
-      _$_Lapangan _value, $Res Function(_$_Lapangan) _then)
+  __$$_LapanganCopyWithImpl(_$_Lapangan _value, $Res Function(_$_Lapangan) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -148,8 +144,7 @@ class _$_Lapangan implements _Lapangan {
       this.image = '',
       this.status = ''});
 
-  factory _$_Lapangan.fromJson(Map<String, dynamic> json) =>
-      _$$_LapanganFromJson(json);
+  factory _$_Lapangan.fromJson(Map<String, dynamic> json) => _$$_LapanganFromJson(json);
 
   @override
   @JsonKey()
@@ -226,6 +221,5 @@ abstract class _Lapangan implements Lapangan {
   String get status;
   @override
   @JsonKey(ignore: true)
-  _$$_LapanganCopyWith<_$_Lapangan> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_LapanganCopyWith<_$_Lapangan> get copyWith => throw _privateConstructorUsedError;
 }

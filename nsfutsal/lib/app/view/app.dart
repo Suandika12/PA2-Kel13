@@ -1,4 +1,4 @@
-
+import 'package:nsfutsal/features/credit/presentation/bloc/credit_bloc.dart';
 import 'package:nsfutsal/features/order/presentation/bloc/order_bloc.dart';
 import 'package:nsfutsal/features/profile/presentation/bloc/profile_bloc.dart';
 import 'package:nsfutsal/features/booking_lapangan/presentation/bloc/booking_lapangan_bloc.dart';
@@ -36,6 +36,7 @@ class App extends StatelessWidget {
         BlocProvider(
           create: (_) => ProductDetailBloc(),
         ),
+        BlocProvider(create: (_) => CreditBloc()),
         BlocProvider(create: (_) => LapanganBloc()),
         BlocProvider(create: (_) => LapanganDetailBloc()),
         BlocProvider(create: (_) => CartBloc()),

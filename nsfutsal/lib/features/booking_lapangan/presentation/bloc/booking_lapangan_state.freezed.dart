@@ -21,7 +21,7 @@ mixin _$BookingLapanganState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<BookingLapangan> bookingLapanganList) loaded,
+    required TResult Function(List<BookingLapangan> bookingLapangan) loaded,
     required TResult Function(String message) cancelled,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,7 +30,7 @@ mixin _$BookingLapanganState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(List<BookingLapangan> bookingLapanganList)? loaded,
+    TResult? Function(List<BookingLapangan> bookingLapangan)? loaded,
     TResult? Function(String message)? cancelled,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ mixin _$BookingLapanganState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<BookingLapangan> bookingLapanganList)? loaded,
+    TResult Function(List<BookingLapangan> bookingLapangan)? loaded,
     TResult Function(String message)? cancelled,
     required TResult orElse(),
   }) =>
@@ -76,14 +76,13 @@ mixin _$BookingLapanganState {
 
 /// @nodoc
 abstract class $BookingLapanganStateCopyWith<$Res> {
-  factory $BookingLapanganStateCopyWith(BookingLapanganState value,
-          $Res Function(BookingLapanganState) then) =
+  factory $BookingLapanganStateCopyWith(
+          BookingLapanganState value, $Res Function(BookingLapanganState) then) =
       _$BookingLapanganStateCopyWithImpl<$Res, BookingLapanganState>;
 }
 
 /// @nodoc
-class _$BookingLapanganStateCopyWithImpl<$Res,
-        $Val extends BookingLapanganState>
+class _$BookingLapanganStateCopyWithImpl<$Res, $Val extends BookingLapanganState>
     implements $BookingLapanganStateCopyWith<$Res> {
   _$BookingLapanganStateCopyWithImpl(this._value, this._then);
 
@@ -95,19 +94,16 @@ class _$BookingLapanganStateCopyWithImpl<$Res,
 
 /// @nodoc
 abstract class _$$BookingLapanganInitialStateCopyWith<$Res> {
-  factory _$$BookingLapanganInitialStateCopyWith(
-          _$BookingLapanganInitialState value,
+  factory _$$BookingLapanganInitialStateCopyWith(_$BookingLapanganInitialState value,
           $Res Function(_$BookingLapanganInitialState) then) =
       __$$BookingLapanganInitialStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$BookingLapanganInitialStateCopyWithImpl<$Res>
-    extends _$BookingLapanganStateCopyWithImpl<$Res,
-        _$BookingLapanganInitialState>
+    extends _$BookingLapanganStateCopyWithImpl<$Res, _$BookingLapanganInitialState>
     implements _$$BookingLapanganInitialStateCopyWith<$Res> {
-  __$$BookingLapanganInitialStateCopyWithImpl(
-      _$BookingLapanganInitialState _value,
+  __$$BookingLapanganInitialStateCopyWithImpl(_$BookingLapanganInitialState _value,
       $Res Function(_$BookingLapanganInitialState) _then)
       : super(_value, _then);
 }
@@ -138,7 +134,7 @@ class _$BookingLapanganInitialState implements BookingLapanganInitialState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<BookingLapangan> bookingLapanganList) loaded,
+    required TResult Function(List<BookingLapangan> bookingLapangan) loaded,
     required TResult Function(String message) cancelled,
   }) {
     return initial();
@@ -150,7 +146,7 @@ class _$BookingLapanganInitialState implements BookingLapanganInitialState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(List<BookingLapangan> bookingLapanganList)? loaded,
+    TResult? Function(List<BookingLapangan> bookingLapangan)? loaded,
     TResult? Function(String message)? cancelled,
   }) {
     return initial?.call();
@@ -162,7 +158,7 @@ class _$BookingLapanganInitialState implements BookingLapanganInitialState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<BookingLapangan> bookingLapanganList)? loaded,
+    TResult Function(List<BookingLapangan> bookingLapangan)? loaded,
     TResult Function(String message)? cancelled,
     required TResult orElse(),
   }) {
@@ -219,19 +215,16 @@ abstract class BookingLapanganInitialState implements BookingLapanganState {
 
 /// @nodoc
 abstract class _$$BookingLapanganLoadingStateCopyWith<$Res> {
-  factory _$$BookingLapanganLoadingStateCopyWith(
-          _$BookingLapanganLoadingState value,
+  factory _$$BookingLapanganLoadingStateCopyWith(_$BookingLapanganLoadingState value,
           $Res Function(_$BookingLapanganLoadingState) then) =
       __$$BookingLapanganLoadingStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$BookingLapanganLoadingStateCopyWithImpl<$Res>
-    extends _$BookingLapanganStateCopyWithImpl<$Res,
-        _$BookingLapanganLoadingState>
+    extends _$BookingLapanganStateCopyWithImpl<$Res, _$BookingLapanganLoadingState>
     implements _$$BookingLapanganLoadingStateCopyWith<$Res> {
-  __$$BookingLapanganLoadingStateCopyWithImpl(
-      _$BookingLapanganLoadingState _value,
+  __$$BookingLapanganLoadingStateCopyWithImpl(_$BookingLapanganLoadingState _value,
       $Res Function(_$BookingLapanganLoadingState) _then)
       : super(_value, _then);
 }
@@ -262,7 +255,7 @@ class _$BookingLapanganLoadingState implements BookingLapanganLoadingState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<BookingLapangan> bookingLapanganList) loaded,
+    required TResult Function(List<BookingLapangan> bookingLapangan) loaded,
     required TResult Function(String message) cancelled,
   }) {
     return loading();
@@ -274,7 +267,7 @@ class _$BookingLapanganLoadingState implements BookingLapanganLoadingState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(List<BookingLapangan> bookingLapanganList)? loaded,
+    TResult? Function(List<BookingLapangan> bookingLapangan)? loaded,
     TResult? Function(String message)? cancelled,
   }) {
     return loading?.call();
@@ -286,7 +279,7 @@ class _$BookingLapanganLoadingState implements BookingLapanganLoadingState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<BookingLapangan> bookingLapanganList)? loaded,
+    TResult Function(List<BookingLapangan> bookingLapangan)? loaded,
     TResult Function(String message)? cancelled,
     required TResult orElse(),
   }) {
@@ -343,8 +336,7 @@ abstract class BookingLapanganLoadingState implements BookingLapanganState {
 
 /// @nodoc
 abstract class _$$BookingLapanganErrorStateCopyWith<$Res> {
-  factory _$$BookingLapanganErrorStateCopyWith(
-          _$BookingLapanganErrorState value,
+  factory _$$BookingLapanganErrorStateCopyWith(_$BookingLapanganErrorState value,
           $Res Function(_$BookingLapanganErrorState) then) =
       __$$BookingLapanganErrorStateCopyWithImpl<$Res>;
   @useResult
@@ -353,8 +345,7 @@ abstract class _$$BookingLapanganErrorStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$BookingLapanganErrorStateCopyWithImpl<$Res>
-    extends _$BookingLapanganStateCopyWithImpl<$Res,
-        _$BookingLapanganErrorState>
+    extends _$BookingLapanganStateCopyWithImpl<$Res, _$BookingLapanganErrorState>
     implements _$$BookingLapanganErrorStateCopyWith<$Res> {
   __$$BookingLapanganErrorStateCopyWithImpl(_$BookingLapanganErrorState _value,
       $Res Function(_$BookingLapanganErrorState) _then)
@@ -401,9 +392,9 @@ class _$BookingLapanganErrorState implements BookingLapanganErrorState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BookingLapanganErrorStateCopyWith<_$BookingLapanganErrorState>
-      get copyWith => __$$BookingLapanganErrorStateCopyWithImpl<
-          _$BookingLapanganErrorState>(this, _$identity);
+  _$$BookingLapanganErrorStateCopyWith<_$BookingLapanganErrorState> get copyWith =>
+      __$$BookingLapanganErrorStateCopyWithImpl<_$BookingLapanganErrorState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -411,7 +402,7 @@ class _$BookingLapanganErrorState implements BookingLapanganErrorState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<BookingLapangan> bookingLapanganList) loaded,
+    required TResult Function(List<BookingLapangan> bookingLapangan) loaded,
     required TResult Function(String message) cancelled,
   }) {
     return error(message);
@@ -423,7 +414,7 @@ class _$BookingLapanganErrorState implements BookingLapanganErrorState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(List<BookingLapangan> bookingLapanganList)? loaded,
+    TResult? Function(List<BookingLapangan> bookingLapangan)? loaded,
     TResult? Function(String message)? cancelled,
   }) {
     return error?.call(message);
@@ -435,7 +426,7 @@ class _$BookingLapanganErrorState implements BookingLapanganErrorState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<BookingLapangan> bookingLapanganList)? loaded,
+    TResult Function(List<BookingLapangan> bookingLapangan)? loaded,
     TResult Function(String message)? cancelled,
     required TResult orElse(),
   }) {
@@ -492,14 +483,13 @@ abstract class BookingLapanganErrorState implements BookingLapanganState {
 
   String get message;
   @JsonKey(ignore: true)
-  _$$BookingLapanganErrorStateCopyWith<_$BookingLapanganErrorState>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$BookingLapanganErrorStateCopyWith<_$BookingLapanganErrorState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$BookingLapanganLoadedStateCopyWith<$Res> {
-  factory _$$BookingLapanganLoadedStateCopyWith(
-          _$BookingLapanganLoadedState value,
+  factory _$$BookingLapanganLoadedStateCopyWith(_$BookingLapanganLoadedState value,
           $Res Function(_$BookingLapanganLoadedState) then) =
       __$$BookingLapanganLoadedStateCopyWithImpl<$Res>;
   @useResult
@@ -508,11 +498,9 @@ abstract class _$$BookingLapanganLoadedStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$BookingLapanganLoadedStateCopyWithImpl<$Res>
-    extends _$BookingLapanganStateCopyWithImpl<$Res,
-        _$BookingLapanganLoadedState>
+    extends _$BookingLapanganStateCopyWithImpl<$Res, _$BookingLapanganLoadedState>
     implements _$$BookingLapanganLoadedStateCopyWith<$Res> {
-  __$$BookingLapanganLoadedStateCopyWithImpl(
-      _$BookingLapanganLoadedState _value,
+  __$$BookingLapanganLoadedStateCopyWithImpl(_$BookingLapanganLoadedState _value,
       $Res Function(_$BookingLapanganLoadedState) _then)
       : super(_value, _then);
 
@@ -540,8 +528,7 @@ class _$BookingLapanganLoadedState implements BookingLapanganLoadedState {
   final List<BookingLapangan> _bookingLapanganList;
   @override
   List<BookingLapangan> get bookingLapanganList {
-    if (_bookingLapanganList is EqualUnmodifiableListView)
-      return _bookingLapanganList;
+    if (_bookingLapanganList is EqualUnmodifiableListView) return _bookingLapanganList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_bookingLapanganList);
   }
@@ -567,9 +554,9 @@ class _$BookingLapanganLoadedState implements BookingLapanganLoadedState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BookingLapanganLoadedStateCopyWith<_$BookingLapanganLoadedState>
-      get copyWith => __$$BookingLapanganLoadedStateCopyWithImpl<
-          _$BookingLapanganLoadedState>(this, _$identity);
+  _$$BookingLapanganLoadedStateCopyWith<_$BookingLapanganLoadedState> get copyWith =>
+      __$$BookingLapanganLoadedStateCopyWithImpl<_$BookingLapanganLoadedState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -577,7 +564,7 @@ class _$BookingLapanganLoadedState implements BookingLapanganLoadedState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<BookingLapangan> bookingLapanganList) loaded,
+    required TResult Function(List<BookingLapangan> bookingLapangan) loaded,
     required TResult Function(String message) cancelled,
   }) {
     return loaded(bookingLapanganList);
@@ -589,7 +576,7 @@ class _$BookingLapanganLoadedState implements BookingLapanganLoadedState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(List<BookingLapangan> bookingLapanganList)? loaded,
+    TResult? Function(List<BookingLapangan> bookingLapangan)? loaded,
     TResult? Function(String message)? cancelled,
   }) {
     return loaded?.call(bookingLapanganList);
@@ -601,7 +588,7 @@ class _$BookingLapanganLoadedState implements BookingLapanganLoadedState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<BookingLapangan> bookingLapanganList)? loaded,
+    TResult Function(List<BookingLapangan> bookingLapangan)? loaded,
     TResult Function(String message)? cancelled,
     required TResult orElse(),
   }) {
@@ -659,8 +646,8 @@ abstract class BookingLapanganLoadedState implements BookingLapanganState {
 
   List<BookingLapangan> get bookingLapanganList;
   @JsonKey(ignore: true)
-  _$$BookingLapanganLoadedStateCopyWith<_$BookingLapanganLoadedState>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$BookingLapanganLoadedStateCopyWith<_$BookingLapanganLoadedState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -675,11 +662,9 @@ abstract class _$$BookingLapanganCancelledStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$BookingLapanganCancelledStateCopyWithImpl<$Res>
-    extends _$BookingLapanganStateCopyWithImpl<$Res,
-        _$BookingLapanganCancelledState>
+    extends _$BookingLapanganStateCopyWithImpl<$Res, _$BookingLapanganCancelledState>
     implements _$$BookingLapanganCancelledStateCopyWith<$Res> {
-  __$$BookingLapanganCancelledStateCopyWithImpl(
-      _$BookingLapanganCancelledState _value,
+  __$$BookingLapanganCancelledStateCopyWithImpl(_$BookingLapanganCancelledState _value,
       $Res Function(_$BookingLapanganCancelledState) _then)
       : super(_value, _then);
 
@@ -734,7 +719,7 @@ class _$BookingLapanganCancelledState implements BookingLapanganCancelledState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<BookingLapangan> bookingLapanganList) loaded,
+    required TResult Function(List<BookingLapangan> bookingLapangan) loaded,
     required TResult Function(String message) cancelled,
   }) {
     return cancelled(message);
@@ -746,7 +731,7 @@ class _$BookingLapanganCancelledState implements BookingLapanganCancelledState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(List<BookingLapangan> bookingLapanganList)? loaded,
+    TResult? Function(List<BookingLapangan> bookingLapangan)? loaded,
     TResult? Function(String message)? cancelled,
   }) {
     return cancelled?.call(message);
@@ -758,7 +743,7 @@ class _$BookingLapanganCancelledState implements BookingLapanganCancelledState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<BookingLapangan> bookingLapanganList)? loaded,
+    TResult Function(List<BookingLapangan> bookingLapangan)? loaded,
     TResult Function(String message)? cancelled,
     required TResult orElse(),
   }) {

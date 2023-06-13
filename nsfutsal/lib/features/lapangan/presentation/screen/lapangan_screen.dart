@@ -54,7 +54,7 @@ class _LapanganScreenState extends State<LapanganScreen> {
                 backgroundColor: chocolate2,
                 elevation: 0,
                 title: Text(
-                  'Booking Lapangan',
+                  'Pinjam Ruangan',
                   style: TextStyle(
                     color: white,
                     fontSize: 20,
@@ -117,7 +117,7 @@ class _LapanganScreenState extends State<LapanganScreen> {
                         alignment: Alignment.centerLeft,
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: const Text(
-                          'Daftar Lapangan',
+                          'All Rooms',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 18,

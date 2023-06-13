@@ -49,22 +49,19 @@ class _LapanganItemState extends State<LapanganItem> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   // image
-                Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.grey.withOpacity(0.5),
-                    ),
-                    image: DecorationImage(
-                      image: NetworkImage(
-                          widget.lapanganList[index].image.parseBaseUrlImage),
-                      fit: BoxFit.cover,
+                  // image lapangan
+                  Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: NetworkImage(
+                            widget.lapanganList[index].image.parseBaseUrlImage),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
                   const SizedBox(height: 10),
                   Text(
                     widget.lapanganList[index].name,

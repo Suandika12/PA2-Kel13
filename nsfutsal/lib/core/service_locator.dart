@@ -1,3 +1,4 @@
+import 'package:nsfutsal/features/credit/domain/usecases/checkout_usecase.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,6 +14,10 @@ import '../features/checkout/data/repository/checkout_repository.dart';
 import '../features/checkout/domain/repository/checkout_repository.dart';
 import '../features/checkout/domain/usecases/checkout_usecase.dart';
 import '../features/checkout/domain/usecases/get_cart.dart' as checkout;
+import '../features/credit/data/datasource/credit_remote_source.dart';
+import '../features/credit/data/repository/credit_repository.dart';
+import '../features/credit/domain/repository/credit_repository.dart';
+import '../features/credit/domain/usecases/get_credits.dart';
 import '../features/home/data/datasource/home_product_remote_source.dart'
     as home;
 import '../features/home/data/datasource/home_user_local_data_source.dart';
@@ -127,6 +132,18 @@ Future<void> setUpServiceLocator() async {
 
 // credit
 // usecase
+  serviceLocator
+      .registerFactory<GetCreditsFromServer>(() => GetCreditsFromServer());
+  serviceLocator
+      .registerFactory<CreditCheckoutUseCase>(() => CreditCheckoutUseCase());
+
+// datasource
+  serviceLocator.registerFactory<CreditsRemoteDataSource>(
+      () => CreditsRemoteDataSourceImpl());
+// repositories
+  serviceLocator
+      .registerFactory<CreditRepository>(() => CreditRepositoryImpl());
+
 // room
 // room user
 // usecase

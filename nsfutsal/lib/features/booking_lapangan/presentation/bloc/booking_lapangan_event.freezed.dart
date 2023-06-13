@@ -27,14 +27,14 @@ mixin _$BookingLapanganEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String status)? getBookingLapangansFromServer,
-    TResult? Function(String status, BookingLapangan bookingLapangan)?
+    TResult? Function(String status, BookingLapangan BookingLapangan)?
         cancelBooking,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String status)? getBookingLapangansFromServer,
-    TResult Function(String status, BookingLapangan bookingLapangan)?
+    TResult Function(String status, BookingLapangan BookingLapangan)?
         cancelBooking,
     required TResult orElse(),
   }) =>
@@ -170,7 +170,7 @@ class _$GetBookingLapangansEvent implements GetBookingLapangansEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String status) getBookingLapangansFromServer,
-    required TResult Function(String status, BookingLapangan bookingLapangan)
+    required TResult Function(String status, BookingLapangan BookingLapangan)
         cancelBooking,
   }) {
     return getBookingLapangansFromServer(status);
@@ -180,7 +180,7 @@ class _$GetBookingLapangansEvent implements GetBookingLapangansEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String status)? getBookingLapangansFromServer,
-    TResult? Function(String status, BookingLapangan bookingLapangan)?
+    TResult? Function(String status, BookingLapangan BookingLapangan)?
         cancelBooking,
   }) {
     return getBookingLapangansFromServer?.call(status);
@@ -190,7 +190,7 @@ class _$GetBookingLapangansEvent implements GetBookingLapangansEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String status)? getBookingLapangansFromServer,
-    TResult Function(String status, BookingLapangan bookingLapangan)?
+    TResult Function(String status, BookingLapangan BookingLapangan)?
         cancelBooking,
     required TResult orElse(),
   }) {
@@ -307,7 +307,7 @@ class _$CancelBookingEvent implements CancelBookingEvent {
 
   @override
   String toString() {
-    return 'BookingLapanganEvent.cancelBooking(status: $status, bookingLapangan: $bookingLapangan)';
+    return 'BookingLapanganEvent.cancelBooking(status: $status, BookingLapangan: $BookingLapangan)';
   }
 
   @override
@@ -316,12 +316,12 @@ class _$CancelBookingEvent implements CancelBookingEvent {
         (other.runtimeType == runtimeType &&
             other is _$CancelBookingEvent &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.bookingLapangan, bookingLapangan) ||
-                other.bookingLapangan == bookingLapangan));
+            (identical(other.bookingLapangan, BookingLapangan) ||
+                other.bookingLapangan == BookingLapangan));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, bookingLapangan);
+  int get hashCode => Object.hash(runtimeType, status, BookingLapangan);
 
   @JsonKey(ignore: true)
   @override

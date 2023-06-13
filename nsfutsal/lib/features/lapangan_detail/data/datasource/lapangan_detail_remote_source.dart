@@ -7,12 +7,14 @@ import '../../../../core/failure.dart';
 import '../../domain/entities/booking_lapangan_entity.dart';
 
 abstract class LapanganDetailRemoteDataSource {
-  Future<Either<Failure, Lapangan>> getLapanganDetailFromServer({required int lapanganId});
+  Future<Either<Failure, Lapangan>> getLapanganDetailFromServer(
+      {required int lapanganId});
   Future<Either<Failure, String>> bookingLapangan(
       BookingLapanganEntity bookingLapanganEntity);
 }
 
-class LapanganDetailRemoteDataSourceImpl implements LapanganDetailRemoteDataSource {
+class LapanganDetailRemoteDataSourceImpl
+    implements LapanganDetailRemoteDataSource {
   final Request request = serviceLocator<Request>();
   @override
   Future<Either<Failure, Lapangan>> getLapanganDetailFromServer(

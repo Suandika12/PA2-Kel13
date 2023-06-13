@@ -1,9 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
-import '../../../../routes/app_routers.gr.dart';
 import '../../../../shared/theme.dart';
 import '../bloc/order_bloc.dart';
 import '../bloc/order_event.dart';
@@ -46,7 +44,7 @@ class _OrderScreenState extends State<OrderScreen> {
       appBar: AppBar(
         backgroundColor: chocolate2,
         elevation: 0,
-        title: const Text(
+        title: Text(
           'History Orders',
           style: TextStyle(
             color: Colors.white,
@@ -56,15 +54,11 @@ class _OrderScreenState extends State<OrderScreen> {
         ),
         leading: IconButton(
           icon: Icon(
-            Icons.arrow_back,
-            color: white,
-            size: 30,
+            Icons.arrow_back_ios,
+            color: Colors.white,
           ),
           onPressed: () {
-            AutoRouter.of(context).pushAndPopUntil(
-              const HomeScreen(),
-              predicate: (_) => false,
-            );
+            Navigator.pop(context);
           },
         ),
       ),
