@@ -45,6 +45,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
     Route::post('/orders/{id}/process', [OrderController::class, 'process'])->name('orders.process');
+    Route::post('/orders/{id}/completed', [OrderController::class, 'completed'])->name('orders.completed');
     Route::post('/orders/{id}/deny', [OrderController::class, 'deny'])->name('orders.deny');
     Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
 

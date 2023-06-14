@@ -79,10 +79,6 @@
                             <div class="separator my-2"></div>
                             <!--end::Menu separator-->
                             <!--begin::Menu item-->
-                            <div class="menu-item px-5">
-                                <a href="javascript:;" class="menu-link px-5">My
-                                    Profile</a>
-                            </div>
                             <!--end::Menu item-->
 
                             <!--begin::Menu separator-->
@@ -199,7 +195,7 @@
                                 <path d="M19.3333 0H2.41667C1.0875 0 0 1.1625 0 2.58333V20.6667C0 22.0875 1.0875 23.25 2.41667 23.25H19.3333C20.6625 23.25 21.75 22.0875 21.75 20.6667V2.58333C21.75 1.1625 20.6625 0 19.3333 0ZM4.83333 5.16667H7.25V7.75H4.83333V5.16667ZM4.83333 10.3333H7.25V12.9167H4.83333V10.3333ZM4.83333 15.5H7.25V18.0833H4.83333V15.5ZM16.9167 18.0833H9.66667V15.5H16.9167V18.0833ZM16.9167 12.9167H9.66667V10.3333H16.9167V12.9167ZM16.9167 7.75H9.66667V5.16667H16.9167V7.75Z" fill="white"/>
                                 </svg>                                
                         </span>
-                        <span class="menu-title">Booking Lapangan</span>
+                        <span class="menu-title">Field Booking</span>
                     </a>
                     <!--end:Menu link-->
                 </div>

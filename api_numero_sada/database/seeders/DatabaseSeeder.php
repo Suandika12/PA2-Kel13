@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Order;
+use App\Models\BookingLapangan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
         //     RoleSeeder::class,
         //     UserSeeder::class,
         // ]);
-        Order::factory()->count(30)->create();
+        // Order::factory()->count(30)->create();
+        BookingLapangan::factory()->count(30)->create();
     }
 }

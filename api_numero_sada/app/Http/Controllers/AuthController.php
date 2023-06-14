@@ -24,10 +24,10 @@ class AuthController extends Controller
     public function do_login(Request $request)
     {
         $messages = [
-            'email.required' => 'Email harus diisi',
-            'email.email' => 'Email tidak valid',
-            'password.required' => 'Password harus diisi',
-            'password.min' => 'Password minimal 8 karakter',
+            'email.required' => 'Email is required',
+            'email.email' => 'Invalid Email',
+            'password.required' => 'Password is required',
+            'password.min' => 'Password minimum 8 characters',
         ];
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
@@ -54,20 +54,20 @@ class AuthController extends Controller
                 if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
                     return response()->json([
                         'alert' => 'success',
-                        'message' => 'Selamat datang ' . Auth::user()->name,
+                        'message' => 'Welcome ' . Auth::user()->name,
                         'callback' => 'reload',
                     ]);
                 }
             } else {
                 return response()->json([
                     'alert' => 'error',
-                    'message' => 'Maaf, Password Salah.',
+                    'message' => 'Sorry, Wrong Password',
                 ]);
             }
         } else {
             return response()->json([
                 'alert' => 'error',
-                'message' => 'Maaf, Email Salah.',
+                'message' => 'Sorry, Wrong Email',
             ]);
         }
     }

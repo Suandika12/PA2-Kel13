@@ -34,7 +34,7 @@ body {
 <table>
   <tr>
     <th>Dish</th>
-    <th>SKU</th>
+    <th>Dish Code</th>
     <th>Category</th>
     <th>Qty</th>
     <th>Price</th>

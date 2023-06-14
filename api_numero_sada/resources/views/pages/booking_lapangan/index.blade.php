@@ -1,11 +1,11 @@
 @extends('layouts.master')
-@section('title', 'Booking Lapangan')
-@section('page', 'Booking Lapangan')
+@section('title', 'Field Booking')
+@section('page', 'Field Booking')
 @section('breadcrumb')
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">
         <!--begin::Item-->
-        <li class="breadcrumb-item text-muted">Booking Lapangan</li>
+        <li class="breadcrumb-item text-muted">Field Booking</li>
         <!--end::Item-->
     </ul>
     <!--end::Breadcrumb-->
@@ -25,6 +25,8 @@
                         <div class="card-title">
                             <!--begin::Search-->
                             <!--end::Search-->
+                            <input type="text" data-kt-ecommerce-booking-filter="search"
+                                    class="form-control form-control-solid w-250px ps-14" placeholder="Search Booking Field" />
                         </div>
                         <!--end::Card title-->
                         <!--begin::Card toolbar-->
@@ -35,7 +37,7 @@
                     <!--begin::Card body-->
                     <div class="card-body pt-0">
                         <!--begin::Table-->
-                        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_sales_table">
+                        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_booking_table">
                             <!--begin::Table head-->
                             <thead>
                                 <!--begin::Table row-->
@@ -43,7 +45,7 @@
                                     <th class="w-10px pe-2">
                                         <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
                                             <input class="form-check-input" type="checkbox" data-kt-check="true"
-                                                data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
+                                                data-kt-check-target="#kt_ecommerce_booking_table .form-check-input"
                                                 value="1" />
                                         </div>
                                     </th>
@@ -64,7 +66,7 @@
                                         <!--begin::Checkbox-->
                                         <td>
                                             <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input" type="checkbox" value={{ $request->id }} />
+                                                <input data-kt-ecommerce-booking-filter="booking_id" class="form-check-input" type="checkbox" value={{ $request->id }} />
                                             </div>
                                         </td>
                                         <!--end::Checkbox-->
@@ -72,13 +74,16 @@
                                         <!--end::Request ID=-->
                                         <!--begin::Customer=-->
                                         <td>
-                                            <div class="d-flex align-items-center">
+                                            {{-- <div class="d-flex align-items-center">
                                                 <div class="ms-5">
                                                     <!--begin::Title-->
                                                     <a href="javascript:;"
                                                         class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $request->user->name }}</a>
                                                     <!--end::Title-->
                                                 </div>
+                                            </div> --}}
+                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                                <div class="fs-7 fw-bold" data-kt-ecommerce-booking-filter="booking_name">{{ $request->user->name }}</div>
                                             </div>
                                         </td>
                                         <!--end::Customer=-->
@@ -158,9 +163,11 @@
                                                         class="menu-link px-3">Denied</a>
                                                 </div>
                                                 <div class="menu-item px-3">
-                                                    <a href="javascript:;"
+                                                    {{-- <a href="javascript:;"
                                                         onclick="handle_delete('{{ route('booking-lapangan.destroy', $request->id) }}');;"
-                                                        class="menu-link px-3">Hapus Permintaan</a>
+                                                        class="menu-link px-3">Hapus Permintaan</a> --}}
+                                                        <a href="javascript:;" class="menu-link px-3"
+                                                        data-kt-ecommerce-booking-filter="delete_row">Delete</a>
                                                 </div>
                                                 <!--end::Menu item-->
 
@@ -185,4 +192,106 @@
         <!--end::Post-->
     </div>
     <!--end::Content-->
+    @section('scripts')
+    <script>
+        "use strict";
+        var KTAppEcommercebooking = function() {
+            var t, e, n = () => {
+                t.querySelectorAll('[data-kt-ecommerce-booking-filter="delete_row"]').forEach((t => {
+                    t.addEventListener("click", (function(t) {
+                        t.preventDefault();
+                        const n = t.target.closest("tr"),
+                            o = n.querySelector(
+                                '[data-kt-ecommerce-booking-filter="booking_name"]')
+                            .innerText,
+                            i = n.querySelector(
+                                '[data-kt-ecommerce-booking-filter="booking_id"]');
+                        Swal.fire({
+                            text: "Are you sure you want to delete " + o + "?",
+                            icon: "warning",
+                            showCancelButton: !0,
+                            buttonsStyling: !1,
+                            confirmButtonText: "Yes, delete!",
+                            cancelButtonText: "No, cancel",
+                            customClass: {
+                                confirmButton: "btn fw-bold btn-danger",
+                                cancelButton: "btn fw-bold btn-active-light-primary"
+                            }
+                        }).then((function(t) {
+                            if (t.value) {
+                                var url =
+                                    "{{ route('booking-lapangan.destroy', ':id') }}";
+                                url = url.replace(':id', i.value);
+                                $.ajax({
+                                    url: url,
+                                    type: "DELETE",
+                                    data: {
+                                        _token: "{{ csrf_token() }}"
+                                    },
+                                    success: function(response) {
+                                        Swal.fire({
+                                            text: "You have deleted " +
+                                                o + "!.",
+                                            icon: "success",
+                                            buttonsStyling:
+                                                !1,
+                                            confirmButtonText: "Ok, got it!",
+                                            customClass: {
+                                                confirmButton: "btn fw-bold btn-primary"
+                                            }
+                                        }).then((function() {
+                                            e.row($(n))
+                                                .remove()
+                                                .draw()
+                                        }))
+                                    }
+                                })
+                            } else {
+                                "cancel" === t.dismiss && Swal.fire({
+                                    text: o + " was not deleted.",
+                                    icon: "error",
+                                    buttonsStyling: !1,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {
+                                        confirmButton: "btn fw-bold btn-primary"
+                                    }
+                                })
+                            }
+                        }))
+                    }))
+                }))
+            };
+            return {
+                init: function() {
+                    (t = document.querySelector("#kt_ecommerce_booking_table")) && ((e = $(t).DataTable({
+                            info: !1,
+                            order: [],
+                            pageLength: 10,
+                            columnDefs: [{
+                                    orderable: !1,
+                                    targets: 0
+                                },
+                                {
+                                    orderable: !1,
+                                    targets: 1
+                                },
+                                {
+                                    orderable: !1,
+                                    targets: 2
+                                }
+                            ],
+                        })).on("draw", (function() {
+                            n()
+                        })), document.querySelector('[data-kt-ecommerce-booking-filter="search"]')
+                        .addEventListener("keyup", (function(t) {
+                            e.search(t.target.value).draw()
+                        })), n())
+                }
+            }
+        }();
+        KTUtil.onDOMContentLoaded((function() {
+            KTAppEcommercebooking.init()
+        }));
+    </script>
+@endsection
 @endsection

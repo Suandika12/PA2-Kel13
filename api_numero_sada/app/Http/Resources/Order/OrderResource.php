@@ -20,7 +20,7 @@ class OrderResource extends JsonResource
             'code' => $this->code,
             'total' => doubleval($this->total),
             'paymentMethod' => $this->payment_method,
-            'description' => $this->description,
+            'alamat' => $this->alamat,
             'orderDetails' => OrderDetailResource::collection($this->orderDetails),
             'status' => $this->status,
             'createdAt' => Carbon::parse($this->created_at)->format('d F Y'),

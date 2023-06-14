@@ -111,7 +111,7 @@
                     <div class="card-body-list">
                         <ul class="list-style-3 mb-0">
                             @if($pendings == 0)
-                                <h5 class="mb-0 font-weight-bold text-center">Tidak ada</h5>
+                                <h5 class="mb-0 font-weight-bold text-center">No Data</h5>
                             @endif 
 
                             @foreach($pending as $orders)

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('lapangans_id')->constrained()->cascadeOnDelete();
-            $table->enum('Opsi Pembayaran', ['Down Payment','Paid Off']);
+            $table->enum('opsi_pembayaran', ['Down Payment','Paid Off']);
             $table->enum('status', ['Pending','Approved', 'Denied'])->default('Pending');
             $table->dateTime('start_play');
             $table->dateTime('end_play');

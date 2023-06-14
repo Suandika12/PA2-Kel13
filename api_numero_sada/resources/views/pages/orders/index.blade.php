@@ -44,7 +44,7 @@
                         </div>
                         <!--end::Card title-->
                         <!--begin::Card toolbar-->
-                        <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+                        {{-- <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                             <!--begin::Flatpickr-->
                             <div class="input-group w-250px">
                                 <input class="form-control form-control-solid rounded rounded-end-0"
@@ -79,14 +79,14 @@
                                 </select>
                                 <!--end::Select2-->
                             </div>
-                        </div>
+                        </div> --}}
                         <!--end::Card toolbar-->
                     </div>
                     <!--end::Card header-->
                     <!--begin::Card body-->
                     <div class="card-body pt-0">
                         <!--begin::Table-->
-                        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_sales_table">
+                        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_order_table">
                             <!--begin::Table head-->
                             <thead>
                                 <!--begin::Table row-->
@@ -94,15 +94,13 @@
                                     <th class="w-10px pe-2">
                                         <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
                                             <input class="form-check-input" type="checkbox" data-kt-check="true"
-                                                data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
+                                                data-kt-check-target="#kt_ecommerce_order_table .form-check-input"
                                                 value="1" />
                                         </div>
                                     </th>
-                                    <th class="min-w-100px">Order ID</th>
-                                    <th class="min-w-175px">Customer</th>
+                                    <th class="min-w-175px">Customer Name</th>
                                     <th class="min-w-125px">Description</th>
                                     <th class="text-end min-w-70px">Status</th>
-                                    <th class="text-end min-w-100px">Total</th>
                                     <th class="text-end min-w-100px">Actions</th>
                                 </tr>
                                 <!--end::Table row-->
@@ -114,16 +112,15 @@
                                     <!--begin::Table row-->
                                     <tr>
                                         <!--begin::Checkbox-->
-                                        <td>
-                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input" type="checkbox" value={{ $order->id }} />
-                                            </div>
-                                        </td>
                                         <!--end::Checkbox-->
                                         <!--begin::Order ID=-->
-                                        <td data-kt-ecommerce-order-filter="order_id">
-                                            <a href="{{ route('orders.show', $order->id) }}"
-                                                class="text-gray-800 text-hover-primary fw-bold">{{ $order->id }}</a>
+                                        <td>
+                                            {{-- <a href="{{ route('orders.show', $order->id) }}"
+                                                class="text-gray-800 text-hover-primary fw-bold" data-kt-ecommerce-lapangan-filter="order_id">{{ $order->id }}</a> --}}
+                                                <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                                    <input class="form-check-input" type="checkbox" value={{ $order->id }}
+                                                        data-kt-ecommerce-order-filter="order_id" />
+                                                </div>
                                         </td>
                                         <!--end::Order ID=-->
                                         <!--begin::Customer=-->
@@ -131,7 +128,7 @@
                                             <div class="ms-5">
                                                 <!--begin::Title-->
                                                 <a href="javascript:;"
-                                                    class="text-gray-800 text-hover-primary fs-5 fw-bold">{{ $order->user->name }}</a>
+                                                    class="text-gray-800 text-hover-primary fs-5 fw-bold" data-kt-ecommerce-order-filter="order_name">{{ $order->user->name }}</a>
                                                 <!--end::Title-->
                                             </div>
                                         </td>
@@ -142,7 +139,7 @@
                                                 <!--begin::Description=-->
                                                 <div class="d-flex flex-stack mb-2">
                                                     <span class="text-gray-400 me-2">Description:</span>
-                                                    <span class="text-gray-600 fw-bold">{{ $order->description }}</span>
+                                                    <span class="text-gray-600 fw-bold">{{ $order->buktipembayaran }}</span>
                                                 </div>
                                                 <!--end::Description=-->
                                                 <!--begin::Date=-->
@@ -188,11 +185,6 @@
                                         </td>
                                         <!--end::Status=-->
                                         <!--begin::Total=-->
-                                        <td class="text-end pe-0">
-                                            <span class="fw-bold">Rp.
-                                                {{ number_format($order->total, 0, ',', '.') }}
-                                            </span>
-                                        </td>
                                         <!--end::Total=-->
                                         <!--begin::Action=-->
                                         <td class="text-end">
@@ -234,6 +226,9 @@
                                                         <div class="menu-item px-3">
                                                             <a href="{{ route('orders.show', $order->id) }}"
                                                                 class="menu-link px-3">View</a>
+                                                        </div>
+                                                        <div class="menu-item px-3">
+                                                            <a href="javascript:;" onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{route('orders.completed',$order->id)}}');" class="menu-link px-3">Completed</a>
                                                         </div>   
                                                         <div class="menu-item px-3">
                                                                 <a href="javascript:;" onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{route('orders.process',$order->id)}}');" class="menu-link px-3">Processing</a>
@@ -241,9 +236,12 @@
                                                             <div class="menu-item px-3">
                                                                 <a href="javascript:;" onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{route('orders.deny',$order->id)}}');" class="menu-link px-3">Denied</a>
                                                             </div>
-                                                            <div class="menu-item px-3">
+                                                            {{-- <div class="menu-item px-3">
                                                                 <a href="javascript:;" onclick="handle_delete('{{route('orders.destroy',$order->id)}}');;" class="menu-link px-3">Hapus Order</a>                                                         
-                                                    </div>
+                                                            </div> --}}
+                                                            <div class="menu-item px-3">
+                                                                <a href="javascript:;" data-kt-ecommerce-order-filter="delete_row" class="menu-link px-3">Hapus Order</a>                                                         
+                                                            </div>
                                                 </div>
                                                 <!--end::Menu item-->
 
@@ -268,4 +266,106 @@
         <!--end::Post-->
     </div>
     <!--end::Content-->
+    @section('scripts')
+    <script>
+        "use strict";
+        var KTAppEcommerceorder = function() {
+            var t, e, n = () => {
+                t.querySelectorAll('[data-kt-ecommerce-order-filter="delete_row"]').forEach((t => {
+                    t.addEventListener("click", (function(t) {
+                        t.preventDefault();
+                        const n = t.target.closest("tr"),
+                            o = n.querySelector(
+                                '[data-kt-ecommerce-order-filter="order_name"]')
+                            .innerText,
+                            i = n.querySelector(
+                                '[data-kt-ecommerce-order-filter="order_id"]');
+                        Swal.fire({
+                            text: "Are you sure you want to delete " + o + "?",
+                            icon: "warning",
+                            showCancelButton: !0,
+                            buttonsStyling: !1,
+                            confirmButtonText: "Yes, delete!",
+                            cancelButtonText: "No, cancel",
+                            customClass: {
+                                confirmButton: "btn fw-bold btn-danger",
+                                cancelButton: "btn fw-bold btn-active-light-primary"
+                            }
+                        }).then((function(t) {
+                            if (t.value) {
+                                var url =
+                                    "{{ route('orders.destroy', ':id') }}";
+                                url = url.replace(':id', i.value);
+                                $.ajax({
+                                    url: url,
+                                    type: "DELETE",
+                                    data: {
+                                        _token: "{{ csrf_token() }}"
+                                    },
+                                    success: function(response) {
+                                        Swal.fire({
+                                            text: "You have deleted " +
+                                                o + "!.",
+                                            icon: "success",
+                                            buttonsStyling:
+                                                !1,
+                                            confirmButtonText: "Ok, got it!",
+                                            customClass: {
+                                                confirmButton: "btn fw-bold btn-primary"
+                                            }
+                                        }).then((function() {
+                                            e.row($(n))
+                                                .remove()
+                                                .draw()
+                                        }))
+                                    }
+                                })
+                            } else {
+                                "cancel" === t.dismiss && Swal.fire({
+                                    text: o + " was not deleted.",
+                                    icon: "error",
+                                    buttonsStyling: !1,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {
+                                        confirmButton: "btn fw-bold btn-primary"
+                                    }
+                                })
+                            }
+                        }))
+                    }))
+                }))
+            };
+            return {
+                init: function() {
+                    (t = document.querySelector("#kt_ecommerce_order_table")) && ((e = $(t).DataTable({
+                            info: !1,
+                            order: [],
+                            pageLength: 10,
+                            columnDefs: [{
+                                    orderable: !1,
+                                    targets: 0
+                                },
+                                {
+                                    orderable: !1,
+                                    targets: 1
+                                },
+                                {
+                                    orderable: !1,
+                                    targets: 2
+                                }
+                            ],
+                        })).on("draw", (function() {
+                            n()
+                        })), document.querySelector('[data-kt-ecommerce-order-filter="search"]')
+                        .addEventListener("keyup", (function(t) {
+                            e.search(t.target.value).draw()
+                        })), n())
+                }
+            }
+        }();
+        KTUtil.onDOMContentLoaded((function() {
+            KTAppEcommerceorder.init()
+        }));
+    </script>
+@endsection
 @endsection

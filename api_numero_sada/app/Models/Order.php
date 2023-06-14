@@ -15,6 +15,7 @@ class Order extends Model
         'status',
         'total',
         'payment_method',
+        'alamat'
     ];
 
     public function user()

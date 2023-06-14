@@ -58,7 +58,7 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb p-0 mb-0">
-                                <h4 class="font-weight-bold">Daftar event</h4>
+                                <h4 class="font-weight-bold">Event List</h4>
                             </ol>
                         </nav>
                     </div>

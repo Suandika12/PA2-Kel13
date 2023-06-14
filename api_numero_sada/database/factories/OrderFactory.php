@@ -17,10 +17,10 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween(1, 2),
+            'user_id' => $this->faker->numberBetween(1, 10),
             'code' => $this->faker->regexify('[A-Za-z0-9]{25}'),
             'total' => $this->faker->numberBetween(1, 100000),
-            'description' => $this->faker->text(50),
+            'buktipembayaran' => $this->faker->text(50),
             'payment_method' => $this->faker->word,
             'status' => $this->faker->randomElement(['pending', 'processing', 'completed']),
             'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),

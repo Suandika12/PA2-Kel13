@@ -25,6 +25,6 @@ class BookingLapangan extends Model
 
     public function lapangan()
     {
-        return $this->belongsTo(Room::class);
+        return $this->belongsTo(Lapangan::class);
     }
 }

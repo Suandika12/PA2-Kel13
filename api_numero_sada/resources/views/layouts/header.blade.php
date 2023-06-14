@@ -84,30 +84,6 @@
                     <!--begin::Actions-->
                     <div class="d-flex">
                         <!--begin::Notifications-->
-                        <div class="d-flex align-items-center">
-                            <!--begin::Menu- wrapper-->
-                            <a href="#" onclick="tombol_notif();"
-                                class="btn btn-sm btn-icon btn-icon-muted btn-active-icon-primary"
-                                data-kt-menu-trigger="click" data-kt-menu-attach="parent"
-                                data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
-                                <!--begin::Svg Icon | path: icons/duotune/general/gen022.svg-->
-                                <i class="fas fa-bell"></i>
-                                <span id="top-notification-number" class="top-notification-number"></span>
-                            </a>
-                            <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px"
-                                data-kt-menu="true">
-                                <div class="d-flex flex-column bgi-no-repeat rounded-top"
-                                    style="background-image:url('{{ asset('keenthemes/media/patterns/pattern-1.jpg') }}')">
-                                    <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications
-                                        <span id="top-notification-number" class="top-notification-number"></span>
-                                        <span>Reports</span>
-                                    </h3>
-                                </div>
-                                <div class="navi navi-hover scroll-y mh-325px my-5 px-8" id="notification_items">
-
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!--begin::Theme mode-->

@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('title', 'Lapangan')
-@section('page', 'Lapangan')
+@section('title', 'Field')
+@section('page', 'Field')
 @section('breadcrumb')
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">
@@ -37,7 +37,7 @@
                                 </span>
                                 <!--end::Svg Icon-->
                                 <input type="text" data-kt-ecommerce-lapangan-filter="search"
-                                    class="form-control form-control-solid w-250px ps-14" placeholder="Search Lapangan" />
+                                    class="form-control form-control-solid w-250px ps-14" placeholder="Field Search" />
                             </div>
                             <!--end::Search-->
                         </div>

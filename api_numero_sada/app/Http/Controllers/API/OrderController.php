@@ -68,7 +68,7 @@ class OrderController extends Controller
             $product->quantity -= $cart->quantity;
             $product->save();
         }
-        $data['description'] = $request->description;
+        $data['alamat'] = $request->alamat;
         $data['payment_method'] = $request->payment_method;
         $data['status'] = 'Pending';
         $order = Order::create($data);

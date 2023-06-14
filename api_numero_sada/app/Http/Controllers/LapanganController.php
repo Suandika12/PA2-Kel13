@@ -38,8 +38,8 @@ class LapanganController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|regex:/^[a-zA-Z\s]+$/',
-            'description' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'name' => 'required',
+            'description' => 'required',
             'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'status' => 'required',
         ]);
@@ -63,7 +63,7 @@ class LapanganController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Lapangan created successfully',
+            'message' => 'Field created successfully',
             'redirect' => route('lapangan.index')
         ]);
     }
@@ -100,8 +100,8 @@ class LapanganController extends Controller
     public function update(Request $request, Lapangan $lapangan)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|regex:/^[a-zA-Z\s]+$/',
-            'description' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'name' => 'required',
+            'description' => 'required',
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'status' => 'required',
         ]);
@@ -131,7 +131,7 @@ class LapanganController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Lapangan updated successfully',
+            'message' => 'Field updated successfully',
             'redirect' => route('lapangan.index')
         ]);
     }
@@ -153,7 +153,7 @@ class LapanganController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Lapangan deleted successfully',
+            'message' => 'Field deleted successfully',
         ]);
     }
 }

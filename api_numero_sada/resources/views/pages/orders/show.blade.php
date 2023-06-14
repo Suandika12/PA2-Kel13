@@ -38,36 +38,10 @@
                             </li>
                             <!--end:::Tab item-->
                             <!--begin:::Tab item-->
-                            <li class="nav-item">
-                                <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
-                                    href="#kt_ecommerce_sales_order_history">Order History</a>
-                            </li>
                             <!--end:::Tab item-->
                         </ul>
                         <!--end:::Tabs-->
                         <!--begin::Button-->
-                        <a href="../../demo8/dist/apps/ecommerce/sales/listing.html"
-                            class="btn btn-icon btn-light btn-sm ms-auto me-lg-n7">
-                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr074.svg-->
-                            <span class="svg-icon svg-icon-2">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M11.2657 11.4343L15.45 7.25C15.8642 6.83579 15.8642 6.16421 15.45 5.75C15.0358 5.33579 14.3642 5.33579 13.95 5.75L8.40712 11.2929C8.01659 11.6834 8.01659 12.3166 8.40712 12.7071L13.95 18.25C14.3642 18.6642 15.0358 18.6642 15.45 18.25C15.8642 17.8358 15.8642 17.1642 15.45 16.75L11.2657 12.5657C10.9533 12.2533 10.9533 11.7467 11.2657 11.4343Z"
-                                        fill="currentColor" />
-                                </svg>
-                            </span>
-                            <!--end::Svg Icon-->
-                        </a>
-                        <!--end::Button-->
-                        <!--begin::Button-->
-                        <a href="../../demo8/dist/apps/ecommerce/sales/edit-order.html"
-                            class="btn btn-success btn-sm me-lg-n7">Edit Order</a>
-                        <!--end::Button-->
-                        <!--begin::Button-->
-                        <a href="../../demo8/dist/apps/ecommerce/sales/add-order.html" class="btn btn-primary btn-sm">Add
-                            New Order</a>
-                        <!--end::Button-->
                     </div>
                     <!--begin::Order summary-->
                     <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
@@ -76,7 +50,7 @@
                             <!--begin::Card header-->
                             <div class="card-header">
                                 <div class="card-title">
-                                    <h2>Order Details (#14534)</h2>
+                                    <h2>Order Details ({{$order->code}})</h2>
                                 </div>
                             </div>
                             <!--end::Card header-->
@@ -106,7 +80,7 @@
                                                         <!--end::Svg Icon-->Date Added
                                                     </div>
                                                 </td>
-                                                <td class="fw-bold text-end">23/11/2022</td>
+                                                <td class="fw-bold text-end">{{$order->created_at}}</td>
                                             </tr>
                                             <!--end::Date-->
                                             <!--begin::Payment method-->
@@ -131,32 +105,11 @@
                                                         <!--end::Svg Icon-->Payment Method
                                                     </div>
                                                 </td>
-                                                <td class="fw-bold text-end">Online
-                                                    <img src="assets/media/svg/card-logos/visa.svg" class="w-50px ms-2" />
+                                                <td class="fw-bold text-end">{{$order->payment_method}}
                                                 </td>
                                             </tr>
                                             <!--end::Payment method-->
                                             <!--begin::Date-->
-                                            <tr>
-                                                <td class="text-muted">
-                                                    <div class="d-flex align-items-center">
-                                                        <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm006.svg-->
-                                                        <span class="svg-icon svg-icon-2 me-2">
-                                                            <svg width="24" height="24" viewBox="0 0 24 24"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M20 8H16C15.4 8 15 8.4 15 9V16H10V17C10 17.6 10.4 18 11 18H16C16 16.9 16.9 16 18 16C19.1 16 20 16.9 20 18H21C21.6 18 22 17.6 22 17V13L20 8Z"
-                                                                    fill="currentColor" />
-                                                                <path opacity="0.3"
-                                                                    d="M20 18C20 19.1 19.1 20 18 20C16.9 20 16 19.1 16 18C16 16.9 16.9 16 18 16C19.1 16 20 16.9 20 18ZM15 4C15 3.4 14.6 3 14 3H3C2.4 3 2 3.4 2 4V13C2 13.6 2.4 14 3 14H15V4ZM6 16C4.9 16 4 16.9 4 18C4 19.1 4.9 20 6 20C7.1 20 8 19.1 8 18C8 16.9 7.1 16 6 16Z"
-                                                                    fill="currentColor" />
-                                                            </svg>
-                                                        </span>
-                                                        <!--end::Svg Icon-->Shipping Method
-                                                    </div>
-                                                </td>
-                                                <td class="fw-bold text-end">Flat Shipping Rate</td>
-                                            </tr>
                                             <!--end::Date-->
                                         </tbody>
                                         <!--end::Table body-->
@@ -207,19 +160,10 @@
                                                 <td class="fw-bold text-end">
                                                     <div class="d-flex align-items-center justify-content-end">
                                                         <!--begin:: Avatar -->
-                                                        <div class="symbol symbol-circle symbol-25px overflow-hidden me-3">
-                                                            <a
-                                                                href="../../demo8/dist/apps/ecommerce/customers/details.html">
-                                                                <div class="symbol-label">
-                                                                    <img src="assets/media/avatars/300-23.jpg"
-                                                                        alt="Dan Wilson" class="w-100" />
-                                                                </div>
-                                                            </a>
-                                                        </div>
                                                         <!--end::Avatar-->
                                                         <!--begin::Name-->
                                                         <a href="../../demo8/dist/apps/ecommerce/customers/details.html"
-                                                            class="text-gray-600 text-hover-primary">Dan Wilson</a>
+                                                            class="text-gray-600 text-hover-primary">{{ $order->user->name }}</a>
                                                         <!--end::Name-->
                                                     </div>
                                                 </td>
@@ -246,7 +190,7 @@
                                                 </td>
                                                 <td class="fw-bold text-end">
                                                     <a href="../../demo8/dist/apps/user-management/users/view.html"
-                                                        class="text-gray-600 text-hover-primary">dam@consilting.com</a>
+                                                        class="text-gray-600 text-hover-primary">{{ $order->user->email }}</a>
                                                 </td>
                                             </tr>
                                             <!--end::Payment method-->
@@ -268,7 +212,7 @@
                                                         <!--end::Svg Icon-->Phone
                                                     </div>
                                                 </td>
-                                                <td class="fw-bold text-end">+6141 234 567</td>
+                                                <td class="fw-bold text-end">{{ $order->user->phone }}</td>
                                             </tr>
                                             <!--end::Date-->
                                         </tbody>
@@ -281,113 +225,6 @@
                         </div>
                         <!--end::Customer details-->
                         <!--begin::Documents-->
-                        <div class="card card-flush py-4 flex-row-fluid">
-                            <!--begin::Card header-->
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <h2>Documents</h2>
-                                </div>
-                            </div>
-                            <!--end::Card header-->
-                            <!--begin::Card body-->
-                            <div class="card-body pt-0">
-                                <div class="table-responsive">
-                                    <!--begin::Table-->
-                                    <table class="table align-middle table-row-bordered mb-0 fs-6 gy-5 min-w-300px">
-                                        <!--begin::Table body-->
-                                        <tbody class="fw-semibold text-gray-600">
-                                            <!--begin::Invoice-->
-                                            <tr>
-                                                <td class="text-muted">
-                                                    <div class="d-flex align-items-center">
-                                                        <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm008.svg-->
-                                                        <span class="svg-icon svg-icon-2 me-2">
-                                                            <svg width="24" height="24" viewBox="0 0 24 24"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path opacity="0.3"
-                                                                    d="M18 21.6C16.3 21.6 15 20.3 15 18.6V2.50001C15 2.20001 14.6 1.99996 14.3 2.19996L13 3.59999L11.7 2.3C11.3 1.9 10.7 1.9 10.3 2.3L9 3.59999L7.70001 2.3C7.30001 1.9 6.69999 1.9 6.29999 2.3L5 3.59999L3.70001 2.3C3.50001 2.1 3 2.20001 3 3.50001V18.6C3 20.3 4.3 21.6 6 21.6H18Z"
-                                                                    fill="currentColor" />
-                                                                <path
-                                                                    d="M12 12.6H11C10.4 12.6 10 12.2 10 11.6C10 11 10.4 10.6 11 10.6H12C12.6 10.6 13 11 13 11.6C13 12.2 12.6 12.6 12 12.6ZM9 11.6C9 11 8.6 10.6 8 10.6H6C5.4 10.6 5 11 5 11.6C5 12.2 5.4 12.6 6 12.6H8C8.6 12.6 9 12.2 9 11.6ZM9 7.59998C9 6.99998 8.6 6.59998 8 6.59998H6C5.4 6.59998 5 6.99998 5 7.59998C5 8.19998 5.4 8.59998 6 8.59998H8C8.6 8.59998 9 8.19998 9 7.59998ZM13 7.59998C13 6.99998 12.6 6.59998 12 6.59998H11C10.4 6.59998 10 6.99998 10 7.59998C10 8.19998 10.4 8.59998 11 8.59998H12C12.6 8.59998 13 8.19998 13 7.59998ZM13 15.6C13 15 12.6 14.6 12 14.6H10C9.4 14.6 9 15 9 15.6C9 16.2 9.4 16.6 10 16.6H12C12.6 16.6 13 16.2 13 15.6Z"
-                                                                    fill="currentColor" />
-                                                                <path
-                                                                    d="M15 18.6C15 20.3 16.3 21.6 18 21.6C19.7 21.6 21 20.3 21 18.6V12.5C21 12.2 20.6 12 20.3 12.2L19 13.6L17.7 12.3C17.3 11.9 16.7 11.9 16.3 12.3L15 13.6V18.6Z"
-                                                                    fill="currentColor" />
-                                                            </svg>
-                                                        </span>
-                                                        <!--end::Svg Icon-->Invoice
-                                                        <i class="fas fa-exclamation-circle ms-2 fs-7"
-                                                            data-bs-toggle="tooltip" title=""
-                                                            data-bs-original-title="View the invoice generated by this order."></i>
-                                                    </div>
-                                                </td>
-                                                <td class="fw-bold text-end">
-                                                    <a href="../../demo8/dist/apps/invoices/view/invoice-3.html"
-                                                        class="text-gray-600 text-hover-primary">#INV-000414</a>
-                                                </td>
-                                            </tr>
-                                            <!--end::Invoice-->
-                                            <!--begin::Shipping-->
-                                            <tr>
-                                                <td class="text-muted">
-                                                    <div class="d-flex align-items-center">
-                                                        <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm006.svg-->
-                                                        <span class="svg-icon svg-icon-2 me-2">
-                                                            <svg width="24" height="24" viewBox="0 0 24 24"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M20 8H16C15.4 8 15 8.4 15 9V16H10V17C10 17.6 10.4 18 11 18H16C16 16.9 16.9 16 18 16C19.1 16 20 16.9 20 18H21C21.6 18 22 17.6 22 17V13L20 8Z"
-                                                                    fill="currentColor" />
-                                                                <path opacity="0.3"
-                                                                    d="M20 18C20 19.1 19.1 20 18 20C16.9 20 16 19.1 16 18C16 16.9 16.9 16 18 16C19.1 16 20 16.9 20 18ZM15 4C15 3.4 14.6 3 14 3H3C2.4 3 2 3.4 2 4V13C2 13.6 2.4 14 3 14H15V4ZM6 16C4.9 16 4 16.9 4 18C4 19.1 4.9 20 6 20C7.1 20 8 19.1 8 18C8 16.9 7.1 16 6 16Z"
-                                                                    fill="currentColor" />
-                                                            </svg>
-                                                        </span>
-                                                        <!--end::Svg Icon-->Shipping
-                                                        <i class="fas fa-exclamation-circle ms-2 fs-7"
-                                                            data-bs-toggle="tooltip" title=""
-                                                            data-bs-original-title="View the shipping manifest generated by this order."></i>
-                                                    </div>
-                                                </td>
-                                                <td class="fw-bold text-end">
-                                                    <a href="#"
-                                                        class="text-gray-600 text-hover-primary">#SHP-0025410</a>
-                                                </td>
-                                            </tr>
-                                            <!--end::Shipping-->
-                                            <!--begin::Rewards-->
-                                            <tr>
-                                                <td class="text-muted">
-                                                    <div class="d-flex align-items-center">
-                                                        <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm011.svg-->
-                                                        <span class="svg-icon svg-icon-2 me-2">
-                                                            <svg width="24" height="24" viewBox="0 0 24 24"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path opacity="0.3"
-                                                                    d="M21.6 11.2L19.3 8.89998V5.59993C19.3 4.99993 18.9 4.59993 18.3 4.59993H14.9L12.6 2.3C12.2 1.9 11.6 1.9 11.2 2.3L8.9 4.59993H5.6C5 4.59993 4.6 4.99993 4.6 5.59993V8.89998L2.3 11.2C1.9 11.6 1.9 12.1999 2.3 12.5999L4.6 14.9V18.2C4.6 18.8 5 19.2 5.6 19.2H8.9L11.2 21.5C11.6 21.9 12.2 21.9 12.6 21.5L14.9 19.2H18.2C18.8 19.2 19.2 18.8 19.2 18.2V14.9L21.5 12.5999C22 12.1999 22 11.6 21.6 11.2Z"
-                                                                    fill="currentColor" />
-                                                                <path
-                                                                    d="M11.3 9.40002C11.3 10.2 11.1 10.9 10.7 11.3C10.3 11.7 9.8 11.9 9.2 11.9C8.8 11.9 8.40001 11.8 8.10001 11.6C7.80001 11.4 7.50001 11.2 7.40001 10.8C7.20001 10.4 7.10001 10 7.10001 9.40002C7.10001 8.80002 7.20001 8.4 7.30001 8C7.40001 7.6 7.7 7.29998 8 7.09998C8.3 6.89998 8.7 6.80005 9.2 6.80005C9.5 6.80005 9.80001 6.9 10.1 7C10.4 7.1 10.6 7.3 10.8 7.5C11 7.7 11.1 8.00005 11.2 8.30005C11.3 8.60005 11.3 9.00002 11.3 9.40002ZM10.1 9.40002C10.1 8.80002 10 8.39998 9.90001 8.09998C9.80001 7.79998 9.6 7.70007 9.2 7.70007C9 7.70007 8.8 7.80002 8.7 7.90002C8.6 8.00002 8.50001 8.2 8.40001 8.5C8.40001 8.7 8.30001 9.10002 8.30001 9.40002C8.30001 9.80002 8.30001 10.1 8.40001 10.4C8.40001 10.6 8.5 10.8 8.7 11C8.8 11.1 9 11.2001 9.2 11.2001C9.5 11.2001 9.70001 11.1 9.90001 10.8C10 10.4 10.1 10 10.1 9.40002ZM14.9 7.80005L9.40001 16.7001C9.30001 16.9001 9.10001 17.1 8.90001 17.1C8.80001 17.1 8.70001 17.1 8.60001 17C8.50001 16.9 8.40001 16.8001 8.40001 16.7001C8.40001 16.6001 8.4 16.5 8.5 16.4L14 7.5C14.1 7.3 14.2 7.19998 14.3 7.09998C14.4 6.99998 14.5 7 14.6 7C14.7 7 14.8 6.99998 14.9 7.09998C15 7.19998 15 7.30002 15 7.40002C15.2 7.30002 15.1 7.50005 14.9 7.80005ZM16.6 14.2001C16.6 15.0001 16.4 15.7 16 16.1C15.6 16.5 15.1 16.7001 14.5 16.7001C14.1 16.7001 13.7 16.6 13.4 16.4C13.1 16.2 12.8 16 12.7 15.6C12.5 15.2 12.4 14.8001 12.4 14.2001C12.4 13.3001 12.6 12.7 12.9 12.3C13.2 11.9 13.7 11.7001 14.5 11.7001C14.8 11.7001 15.1 11.8 15.4 11.9C15.7 12 15.9 12.2 16.1 12.4C16.3 12.6 16.4 12.9001 16.5 13.2001C16.6 13.4001 16.6 13.8001 16.6 14.2001ZM15.4 14.1C15.4 13.5 15.3 13.1 15.2 12.9C15.1 12.6 14.9 12.5 14.5 12.5C14.3 12.5 14.1 12.6001 14 12.7001C13.9 12.8001 13.8 13.0001 13.7 13.2001C13.6 13.4001 13.6 13.8 13.6 14.1C13.6 14.7 13.7 15.1 13.8 15.4C13.9 15.7 14.1 15.8 14.5 15.8C14.8 15.8 15 15.7 15.2 15.4C15.3 15.2 15.4 14.7 15.4 14.1Z"
-                                                                    fill="currentColor" />
-                                                            </svg>
-                                                        </span>
-                                                        <!--end::Svg Icon-->Reward Points
-                                                        <i class="fas fa-exclamation-circle ms-2 fs-7"
-                                                            data-bs-toggle="tooltip" title=""
-                                                            data-bs-original-title="Reward value earned by customer when purchasing this order."></i>
-                                                    </div>
-                                                </td>
-                                                <td class="fw-bold text-end">600</td>
-                                            </tr>
-                                            <!--end::Rewards-->
-                                        </tbody>
-                                        <!--end::Table body-->
-                                    </table>
-                                    <!--end::Table-->
-                                </div>
-                            </div>
-                            <!--end::Card body-->
-                        </div>
                         <!--end::Documents-->
                     </div>
                     <!--end::Order summary-->
@@ -408,15 +245,12 @@
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Payment Address</h2>
+                                                <h2>Payment</h2>
                                             </div>
                                         </div>
                                         <!--end::Card header-->
                                         <!--begin::Card body-->
-                                        <div class="card-body pt-0">Unit 1/23 Hastings Road,
-                                            <br />Melbourne 3000,
-                                            <br />Victoria,
-                                            <br />Australia.
+                                        <div class="card-body pt-0">{{ $order->buktipembayaran }}
                                         </div>
                                         <!--end::Card body-->
                                     </div>
@@ -431,15 +265,12 @@
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Shipping Address</h2>
+                                                <h2>Delivery Address</h2>
                                             </div>
                                         </div>
                                         <!--end::Card header-->
                                         <!--begin::Card body-->
-                                        <div class="card-body pt-0">Unit 1/23 Hastings Road,
-                                            <br />Melbourne 3000,
-                                            <br />Victoria,
-                                            <br />Australia.
+                                        <div class="card-body pt-0">{{ $order->buktipembayaran }}
                                         </div>
                                         <!--end::Card body-->
                                     </div>
@@ -450,8 +281,37 @@
                                     <!--begin::Card header-->
                                     <div class="card-header">
                                         <div class="card-title">
-                                            <h2>Order #14534</h2>
+                                            <h2>Order</h2>
                                         </div>
+                                        <div class="card-title">
+                                            <a href="#" class="btn btn-sm btn-dark btn-active-dark-primary"
+                                                data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
+                                                <span class="svg-icon svg-icon-5 m-0">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z"
+                                                            fill="currentColor" />
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
+                                        data-kt-menu="true">
+                                            <div class="menu-item px-3">
+                                                <a href="javascript:;" onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{route('orders.completed',$order->id)}}');" class="menu-link px-3">Completed</a>
+                                            </div>   
+                                            <div class="menu-item px-3">
+                                                <a href="javascript:;" onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{route('orders.process',$order->id)}}');" class="menu-link px-3">Processing</a>
+                                            </div>
+                                            <div class="menu-item px-3">
+                                                <a href="javascript:;" onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{route('orders.deny',$order->id)}}');" class="menu-link px-3">Denied</a>
+                                            </div>
+                                            {{-- <div class="menu-item px-3">
+                                                <a href="javascript:;" data-kt-ecommerce-order-filter="delete_row" class="menu-link px-3">Hapus Order</a>                                                         
+                                            </div> --}}
+                                        </div>
+                                    </div>
                                     </div>
                                     <!--end::Card header-->
                                     <!--begin::Card body-->
@@ -473,104 +333,62 @@
                                                 <!--begin::Table body-->
                                                 <tbody class="fw-semibold text-gray-600">
                                                     <!--begin::Products-->
+                                                    <?php $total = 0; ?> <!-- Inisialisasi variabel total di luar loop -->
+                                                    @foreach($product as $products)
                                                     <tr>
                                                         <!--begin::Product-->
                                                         <td>
                                                             <div class="d-flex align-items-center">
                                                                 <!--begin::Thumbnail-->
-                                                                <a href="../../demo8/dist/apps/ecommerce/catalog/edit-product.html"
-                                                                    class="symbol symbol-50px">
+                                                                <a class="symbol symbol-50px">
                                                                     <span class="symbol-label"
-                                                                        style="background-image:url(assets/media//stock/ecommerce/1.gif);"></span>
+                                                                        style="background-image:url('{{ asset('images/products/' . $products->image) }}')"></span>
                                                                 </a>
                                                                 <!--end::Thumbnail-->
                                                                 <!--begin::Title-->
                                                                 <div class="ms-5">
-                                                                    <a href="../../demo8/dist/apps/ecommerce/catalog/edit-product.html"
-                                                                        class="fw-bold text-gray-600 text-hover-primary">Product
-                                                                        1</a>
-                                                                    <div class="fs-7 text-muted">Delivery Date: 23/11/2022
-                                                                    </div>
+                                                                    <a class="fw-bold text-gray-600 text-hover-primary">{{ $products->name }}</a>
+                                                                    {{-- <div class="fs-7 text-muted">Delivery Date: 23/11/2022
+                                                                    </div> --}}
                                                                 </div>
                                                                 <!--end::Title-->
                                                             </div>
                                                         </td>
                                                         <!--end::Product-->
                                                         <!--begin::SKU-->
-                                                        <td class="text-end">02752009</td>
+                                                        <td class="text-end">{{ $products->sku }}</td>
                                                         <!--end::SKU-->
                                                         <!--begin::Quantity-->
-                                                        <td class="text-end">2</td>
+                                                        <td class="text-end">{{ $products->quantity }}</td>
                                                         <!--end::Quantity-->
                                                         <!--begin::Price-->
-                                                        <td class="text-end">$120.00</td>
+                                                        <td class="text-end">Rp.{{number_format($products->price, 0, ',', '.')}}</td>
                                                         <!--end::Price-->
                                                         <!--begin::Total-->
-                                                        <td class="text-end">$240.00</td>
+                                                        <td class="text-end">Rp.{{number_format($products->price * $products->quantity)}}</td>
                                                         <!--end::Total-->
+                                                        <?php
+                                                            $total += $products->price * $products->quantity; // Menambahkan harga setiap produk ke variabel total
+                                                        ?>
                                                     </tr>
-                                                    <tr>
-                                                        <!--begin::Product-->
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <!--begin::Thumbnail-->
-                                                                <a href="../../demo8/dist/apps/ecommerce/catalog/edit-product.html"
-                                                                    class="symbol symbol-50px">
-                                                                    <span class="symbol-label"
-                                                                        style="background-image:url(assets/media//stock/ecommerce/100.gif);"></span>
-                                                                </a>
-                                                                <!--end::Thumbnail-->
-                                                                <!--begin::Title-->
-                                                                <div class="ms-5">
-                                                                    <a href="../../demo8/dist/apps/ecommerce/catalog/edit-product.html"
-                                                                        class="fw-bold text-gray-600 text-hover-primary">Footwear</a>
-                                                                    <div class="fs-7 text-muted">Delivery Date: 23/11/2022
-                                                                    </div>
-                                                                </div>
-                                                                <!--end::Title-->
-                                                            </div>
-                                                        </td>
-                                                        <!--end::Product-->
-                                                        <!--begin::SKU-->
-                                                        <td class="text-end">02194005</td>
-                                                        <!--end::SKU-->
-                                                        <!--begin::Quantity-->
-                                                        <td class="text-end">1</td>
-                                                        <!--end::Quantity-->
-                                                        <!--begin::Price-->
-                                                        <td class="text-end">$24.00</td>
-                                                        <!--end::Price-->
-                                                        <!--begin::Total-->
-                                                        <td class="text-end">$24.00</td>
-                                                        <!--end::Total-->
-                                                    </tr>
+                                                    @endforeach
                                                     <!--end::Products-->
                                                     <!--begin::Subtotal-->
-                                                    <tr>
-                                                        <td colspan="4" class="text-end">Subtotal</td>
-                                                        <td class="text-end">$264.00</td>
-                                                    </tr>
-                                                    <!--end::Subtotal-->
-                                                    <!--begin::VAT-->
-                                                    <tr>
-                                                        <td colspan="4" class="text-end">VAT (0%)</td>
-                                                        <td class="text-end">$0.00</td>
-                                                    </tr>
-                                                    <!--end::VAT-->
-                                                    <!--begin::Shipping-->
-                                                    <tr>
-                                                        <td colspan="4" class="text-end">Shipping Rate</td>
-                                                        <td class="text-end">$5.00</td>
-                                                    </tr>
                                                     <!--end::Shipping-->
                                                     <!--begin::Grand total-->
                                                     <tr>
                                                         <td colspan="4" class="fs-3 text-dark text-end">Grand Total
                                                         </td>
-                                                        <td class="text-dark fs-3 fw-bolder text-end">$269.00</td>
+                                                        <td class="text-dark fs-3 fw-bolder text-end">Rp.
+                                                            {{ number_format($total, 0, ',', '.') }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            
+                                                        </td>
                                                     </tr>
                                                     <!--end::Grand total-->
-                                                </tbody>
+                                                </tbody>                                                
                                                 <!--end::Table head-->
                                             </table>
                                             <!--end::Table-->
@@ -580,264 +398,12 @@
                                 </div>
                                 <!--end::Product List-->
                             </div>
+                                
+                                
                             <!--end::Orders-->
                         </div>
                         <!--end::Tab pane-->
                         <!--begin::Tab pane-->
-                        <div class="tab-pane fade" id="kt_ecommerce_sales_order_history" role="tab-panel">
-                            <!--begin::Orders-->
-                            <div class="d-flex flex-column gap-7 gap-lg-10">
-                                <!--begin::Order history-->
-                                <div class="card card-flush py-4 flex-row-fluid">
-                                    <!--begin::Card header-->
-                                    <div class="card-header">
-                                        <div class="card-title">
-                                            <h2>Order History</h2>
-                                        </div>
-                                    </div>
-                                    <!--end::Card header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body pt-0">
-                                        <div class="table-responsive">
-                                            <!--begin::Table-->
-                                            <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
-                                                <!--begin::Table head-->
-                                                <thead>
-                                                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                                                        <th class="min-w-100px">Date Added</th>
-                                                        <th class="min-w-175px">Comment</th>
-                                                        <th class="min-w-70px">Order Status</th>
-                                                        <th class="min-w-100px">Customer Notifed</th>
-                                                    </tr>
-                                                </thead>
-                                                <!--end::Table head-->
-                                                <!--begin::Table body-->
-                                                <tbody class="fw-semibold text-gray-600">
-                                                    <tr>
-                                                        <!--begin::Date-->
-                                                        <td>23/11/2022</td>
-                                                        <!--end::Date-->
-                                                        <!--begin::Comment-->
-                                                        <td>Order completed</td>
-                                                        <!--end::Comment-->
-                                                        <!--begin::Status-->
-                                                        <td>
-                                                            <!--begin::Badges-->
-                                                            <div class="badge badge-light-success">Completed</div>
-                                                            <!--end::Badges-->
-                                                        </td>
-                                                        <!--end::Status-->
-                                                        <!--begin::Customer Notified-->
-                                                        <td>No</td>
-                                                        <!--end::Customer Notified-->
-                                                    </tr>
-                                                    <tr>
-                                                        <!--begin::Date-->
-                                                        <td>22/11/2022</td>
-                                                        <!--end::Date-->
-                                                        <!--begin::Comment-->
-                                                        <td>Order received by customer</td>
-                                                        <!--end::Comment-->
-                                                        <!--begin::Status-->
-                                                        <td>
-                                                            <!--begin::Badges-->
-                                                            <div class="badge badge-light-success">Delivered</div>
-                                                            <!--end::Badges-->
-                                                        </td>
-                                                        <!--end::Status-->
-                                                        <!--begin::Customer Notified-->
-                                                        <td>Yes</td>
-                                                        <!--end::Customer Notified-->
-                                                    </tr>
-                                                    <tr>
-                                                        <!--begin::Date-->
-                                                        <td>21/11/2022</td>
-                                                        <!--end::Date-->
-                                                        <!--begin::Comment-->
-                                                        <td>Order shipped from warehouse</td>
-                                                        <!--end::Comment-->
-                                                        <!--begin::Status-->
-                                                        <td>
-                                                            <!--begin::Badges-->
-                                                            <div class="badge badge-light-primary">Delivering</div>
-                                                            <!--end::Badges-->
-                                                        </td>
-                                                        <!--end::Status-->
-                                                        <!--begin::Customer Notified-->
-                                                        <td>Yes</td>
-                                                        <!--end::Customer Notified-->
-                                                    </tr>
-                                                    <tr>
-                                                        <!--begin::Date-->
-                                                        <td>20/11/2022</td>
-                                                        <!--end::Date-->
-                                                        <!--begin::Comment-->
-                                                        <td>Payment received</td>
-                                                        <!--end::Comment-->
-                                                        <!--begin::Status-->
-                                                        <td>
-                                                            <!--begin::Badges-->
-                                                            <div class="badge badge-light-primary">Processing</div>
-                                                            <!--end::Badges-->
-                                                        </td>
-                                                        <!--end::Status-->
-                                                        <!--begin::Customer Notified-->
-                                                        <td>No</td>
-                                                        <!--end::Customer Notified-->
-                                                    </tr>
-                                                    <tr>
-                                                        <!--begin::Date-->
-                                                        <td>19/11/2022</td>
-                                                        <!--end::Date-->
-                                                        <!--begin::Comment-->
-                                                        <td>Pending payment</td>
-                                                        <!--end::Comment-->
-                                                        <!--begin::Status-->
-                                                        <td>
-                                                            <!--begin::Badges-->
-                                                            <div class="badge badge-light-warning">Pending</div>
-                                                            <!--end::Badges-->
-                                                        </td>
-                                                        <!--end::Status-->
-                                                        <!--begin::Customer Notified-->
-                                                        <td>No</td>
-                                                        <!--end::Customer Notified-->
-                                                    </tr>
-                                                    <tr>
-                                                        <!--begin::Date-->
-                                                        <td>18/11/2022</td>
-                                                        <!--end::Date-->
-                                                        <!--begin::Comment-->
-                                                        <td>Payment method updated</td>
-                                                        <!--end::Comment-->
-                                                        <!--begin::Status-->
-                                                        <td>
-                                                            <!--begin::Badges-->
-                                                            <div class="badge badge-light-warning">Pending</div>
-                                                            <!--end::Badges-->
-                                                        </td>
-                                                        <!--end::Status-->
-                                                        <!--begin::Customer Notified-->
-                                                        <td>No</td>
-                                                        <!--end::Customer Notified-->
-                                                    </tr>
-                                                    <tr>
-                                                        <!--begin::Date-->
-                                                        <td>17/11/2022</td>
-                                                        <!--end::Date-->
-                                                        <!--begin::Comment-->
-                                                        <td>Payment method expired</td>
-                                                        <!--end::Comment-->
-                                                        <!--begin::Status-->
-                                                        <td>
-                                                            <!--begin::Badges-->
-                                                            <div class="badge badge-light-danger">Failed</div>
-                                                            <!--end::Badges-->
-                                                        </td>
-                                                        <!--end::Status-->
-                                                        <!--begin::Customer Notified-->
-                                                        <td>Yes</td>
-                                                        <!--end::Customer Notified-->
-                                                    </tr>
-                                                    <tr>
-                                                        <!--begin::Date-->
-                                                        <td>16/11/2022</td>
-                                                        <!--end::Date-->
-                                                        <!--begin::Comment-->
-                                                        <td>Pending payment</td>
-                                                        <!--end::Comment-->
-                                                        <!--begin::Status-->
-                                                        <td>
-                                                            <!--begin::Badges-->
-                                                            <div class="badge badge-light-warning">Pending</div>
-                                                            <!--end::Badges-->
-                                                        </td>
-                                                        <!--end::Status-->
-                                                        <!--begin::Customer Notified-->
-                                                        <td>No</td>
-                                                        <!--end::Customer Notified-->
-                                                    </tr>
-                                                    <tr>
-                                                        <!--begin::Date-->
-                                                        <td>15/11/2022</td>
-                                                        <!--end::Date-->
-                                                        <!--begin::Comment-->
-                                                        <td>Order received</td>
-                                                        <!--end::Comment-->
-                                                        <!--begin::Status-->
-                                                        <td>
-                                                            <!--begin::Badges-->
-                                                            <div class="badge badge-light-warning">Pending</div>
-                                                            <!--end::Badges-->
-                                                        </td>
-                                                        <!--end::Status-->
-                                                        <!--begin::Customer Notified-->
-                                                        <td>Yes</td>
-                                                        <!--end::Customer Notified-->
-                                                    </tr>
-                                                </tbody>
-                                                <!--end::Table head-->
-                                            </table>
-                                            <!--end::Table-->
-                                        </div>
-                                    </div>
-                                    <!--end::Card body-->
-                                </div>
-                                <!--end::Order history-->
-                                <!--begin::Order data-->
-                                <div class="card card-flush py-4 flex-row-fluid">
-                                    <!--begin::Card header-->
-                                    <div class="card-header">
-                                        <div class="card-title">
-                                            <h2>Order Data</h2>
-                                        </div>
-                                    </div>
-                                    <!--end::Card header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body pt-0">
-                                        <div class="table-responsive">
-                                            <!--begin::Table-->
-                                            <table class="table align-middle table-row-bordered mb-0 fs-6 gy-5">
-                                                <!--begin::Table body-->
-                                                <tbody class="fw-semibold text-gray-600">
-                                                    <!--begin::IP address-->
-                                                    <tr>
-                                                        <td class="text-muted">IP Address</td>
-                                                        <td class="fw-bold text-end">172.68.221.26</td>
-                                                    </tr>
-                                                    <!--end::IP address-->
-                                                    <!--begin::Forwarded IP-->
-                                                    <tr>
-                                                        <td class="text-muted">Forwarded IP</td>
-                                                        <td class="fw-bold text-end">89.201.163.49</td>
-                                                    </tr>
-                                                    <!--end::Forwarded IP-->
-                                                    <!--begin::User agent-->
-                                                    <tr>
-                                                        <td class="text-muted">User Agent</td>
-                                                        <td class="fw-bold text-end">Mozilla/5.0 (Windows NT 10.0; Win64;
-                                                            x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110
-                                                            Safari/537.36</td>
-                                                    </tr>
-                                                    <!--end::User agent-->
-                                                    <!--begin::Accept language-->
-                                                    <tr>
-                                                        <td class="text-muted">Accept Language</td>
-                                                        <td class="fw-bold text-end">en-GB,en-US;q=0.9,en;q=0.8</td>
-                                                    </tr>
-                                                    <!--end::Accept language-->
-                                                </tbody>
-                                                <!--end::Table body-->
-                                            </table>
-                                            <!--end::Table-->
-                                        </div>
-                                    </div>
-                                    <!--end::Card body-->
-                                </div>
-                                <!--end::Order data-->
-                            </div>
-                            <!--end::Orders-->
-                        </div>
                         <!--end::Tab pane-->
                     </div>
                     <!--end::Tab content-->

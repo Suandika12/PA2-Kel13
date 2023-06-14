@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Edit Customer')
-@section('page', 'Hidangan')
+@section('page', 'Customer')
 @section('breadcrumb')
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">

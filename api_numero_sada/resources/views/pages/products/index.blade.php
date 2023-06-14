@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('title', 'Hidangan')
-@section('page', 'Hidangan')
+@section('title', 'Dish')
+@section('page', 'Dish')
 @section('breadcrumb')
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">
@@ -37,7 +37,7 @@
                                 </span>
                                 <!--end::Svg Icon-->
                                 <input type="text" data-kt-ecommerce-product-filter="search"
-                                    class="form-control form-control-solid w-250px ps-14" placeholder="Search Hidangan" id="search_hidangan"/>
+                                    class="form-control form-control-solid w-250px ps-14" placeholder="Search Dish" id="search_hidangan"/>
                             </div>
                             <!--end::Search-->
                         </div>
@@ -70,7 +70,7 @@
                                         </div>
                                     </th>
                                     <th class="min-w-200px">Dish</th>
-                                    <th class="text-end min-w-100px">SKU</th>
+                                    <th class="text-end min-w-100px">Dish Code</th>
                                     <th class="text-end min-w-100px">Category</th>
                                     <th class="text-end min-w-70px">Qty</th>
                                     <th class="text-end min-w-100px">Price</th>

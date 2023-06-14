@@ -69,7 +69,7 @@ class ProductController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Hidangan created successfully',
+            'message' => 'Dish created successfully',
             'redirect' => route('products.index')
         ]);
     }
@@ -140,7 +140,7 @@ class ProductController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Hidangan updated successfully',
+            'message' => 'Dish updated successfully',
             'redirect' => route('products.index')
         ]);
     }
@@ -162,7 +162,7 @@ class ProductController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Hidangan deleted successfully',
+            'message' => 'Dish deleted successfully',
         ]);
     }
 
