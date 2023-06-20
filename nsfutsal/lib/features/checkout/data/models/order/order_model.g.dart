@@ -12,6 +12,7 @@ _$_OrderModel _$$_OrderModelFromJson(Map<String, dynamic> json) =>
       code: json['code'] as String,
       total: (json['total'] as num).toDouble(),
       paymentMethod: json['paymentMethod'] as String,
+      alamat: json['alamat'] as String,
     );
 
 Map<String, dynamic> _$$_OrderModelToJson(_$_OrderModel instance) =>
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$_OrderModelToJson(_$_OrderModel instance) =>
       'code': instance.code,
       'total': instance.total,
       'paymentMethod': instance.paymentMethod,
+      'alamat': instance.alamat,
     };

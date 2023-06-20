@@ -52,7 +52,8 @@ mixin _$LapanganEvent {
 
 /// @nodoc
 abstract class $LapanganEventCopyWith<$Res> {
-  factory $LapanganEventCopyWith(LapanganEvent value, $Res Function(LapanganEvent) then) =
+  factory $LapanganEventCopyWith(
+          LapanganEvent value, $Res Function(LapanganEvent) then) =
       _$LapanganEventCopyWithImpl<$Res, LapanganEvent>;
 }
 

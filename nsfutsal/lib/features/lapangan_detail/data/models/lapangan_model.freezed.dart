@@ -22,13 +22,15 @@ Lapangan _$LapanganFromJson(Map<String, dynamic> json) {
 mixin _$Lapangan {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  String get opsiPembayaran => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
+  int get price => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LapanganCopyWith<Lapangan> get copyWith => throw _privateConstructorUsedError;
+  $LapanganCopyWith<Lapangan> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -37,7 +39,12 @@ abstract class $LapanganCopyWith<$Res> {
       _$LapanganCopyWithImpl<$Res, Lapangan>;
   @useResult
   $Res call(
-      {int id, String name, String description, String image, String status});
+      {int id,
+      String name,
+      String opsiPembayaran,
+      String image,
+      String status,
+      int price});
 }
 
 /// @nodoc
@@ -55,9 +62,10 @@ class _$LapanganCopyWithImpl<$Res, $Val extends Lapangan>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? description = null,
+    Object? opsiPembayaran = null,
     Object? image = null,
     Object? status = null,
+    Object? price = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -68,9 +76,9 @@ class _$LapanganCopyWithImpl<$Res, $Val extends Lapangan>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
+      opsiPembayaran: null == opsiPembayaran
+          ? _value.opsiPembayaran
+          : opsiPembayaran // ignore: cast_nullable_to_non_nullable
               as String,
       image: null == image
           ? _value.image
@@ -80,24 +88,36 @@ class _$LapanganCopyWithImpl<$Res, $Val extends Lapangan>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$_LapanganCopyWith<$Res> implements $LapanganCopyWith<$Res> {
-  factory _$$_LapanganCopyWith(_$_Lapangan value, $Res Function(_$_Lapangan) then) =
+  factory _$$_LapanganCopyWith(
+          _$_Lapangan value, $Res Function(_$_Lapangan) then) =
       __$$_LapanganCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {int id, String name, String description, String image, String status});
+      {int id,
+      String name,
+      String opsiPembayaran,
+      String image,
+      String status,
+      int price});
 }
 
 /// @nodoc
-class __$$_LapanganCopyWithImpl<$Res> extends _$LapanganCopyWithImpl<$Res, _$_Lapangan>
+class __$$_LapanganCopyWithImpl<$Res>
+    extends _$LapanganCopyWithImpl<$Res, _$_Lapangan>
     implements _$$_LapanganCopyWith<$Res> {
-  __$$_LapanganCopyWithImpl(_$_Lapangan _value, $Res Function(_$_Lapangan) _then)
+  __$$_LapanganCopyWithImpl(
+      _$_Lapangan _value, $Res Function(_$_Lapangan) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -105,9 +125,10 @@ class __$$_LapanganCopyWithImpl<$Res> extends _$LapanganCopyWithImpl<$Res, _$_La
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? description = null,
+    Object? opsiPembayaran = null,
     Object? image = null,
     Object? status = null,
+    Object? price = null,
   }) {
     return _then(_$_Lapangan(
       id: null == id
@@ -118,9 +139,9 @@ class __$$_LapanganCopyWithImpl<$Res> extends _$LapanganCopyWithImpl<$Res, _$_La
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
+      opsiPembayaran: null == opsiPembayaran
+          ? _value.opsiPembayaran
+          : opsiPembayaran // ignore: cast_nullable_to_non_nullable
               as String,
       image: null == image
           ? _value.image
@@ -130,6 +151,10 @@ class __$$_LapanganCopyWithImpl<$Res> extends _$LapanganCopyWithImpl<$Res, _$_La
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -140,11 +165,13 @@ class _$_Lapangan implements _Lapangan {
   _$_Lapangan(
       {this.id = 0,
       this.name = '',
-      this.description = '',
+      this.opsiPembayaran = '',
       this.image = '',
-      this.status = ''});
+      this.status = '',
+      this.price = 0});
 
-  factory _$_Lapangan.fromJson(Map<String, dynamic> json) => _$$_LapanganFromJson(json);
+  factory _$_Lapangan.fromJson(Map<String, dynamic> json) =>
+      _$$_LapanganFromJson(json);
 
   @override
   @JsonKey()
@@ -154,17 +181,20 @@ class _$_Lapangan implements _Lapangan {
   final String name;
   @override
   @JsonKey()
-  final String description;
+  final String opsiPembayaran;
   @override
   @JsonKey()
   final String image;
   @override
   @JsonKey()
   final String status;
+  @override
+  @JsonKey()
+  final int price;
 
   @override
   String toString() {
-    return 'Lapangan(id: $id, name: $name, description: $description, image: $image, status: $status)';
+    return 'Lapangan(id: $id, name: $name, opsiPembayaran: $opsiPembayaran, image: $image, status: $status, price: $price)';
   }
 
   @override
@@ -174,16 +204,17 @@ class _$_Lapangan implements _Lapangan {
             other is _$_Lapangan &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            (identical(other.opsiPembayaran, opsiPembayaran) ||
+                other.opsiPembayaran == opsiPembayaran) &&
             (identical(other.image, image) || other.image == image) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.price, price) || other.price == price));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, name, description, image, status);
+      Object.hash(runtimeType, id, name, opsiPembayaran, image, status, price);
 
   @JsonKey(ignore: true)
   @override
@@ -203,9 +234,10 @@ abstract class _Lapangan implements Lapangan {
   factory _Lapangan(
       {final int id,
       final String name,
-      final String description,
+      final String opsiPembayaran,
       final String image,
-      final String status}) = _$_Lapangan;
+      final String status,
+      final int price}) = _$_Lapangan;
 
   factory _Lapangan.fromJson(Map<String, dynamic> json) = _$_Lapangan.fromJson;
 
@@ -214,12 +246,15 @@ abstract class _Lapangan implements Lapangan {
   @override
   String get name;
   @override
-  String get description;
+  String get opsiPembayaran;
   @override
   String get image;
   @override
   String get status;
   @override
+  int get price;
+  @override
   @JsonKey(ignore: true)
-  _$$_LapanganCopyWith<_$_Lapangan> get copyWith => throw _privateConstructorUsedError;
+  _$$_LapanganCopyWith<_$_Lapangan> get copyWith =>
+      throw _privateConstructorUsedError;
 }

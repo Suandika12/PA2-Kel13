@@ -14,12 +14,10 @@ const List<String> status = [
   'Pending',
   'Denied',
   'Approved',
-  'Completed',
-  'Cancelled',
 ];
 
 class BookingLapanganScreen extends StatefulWidget {
-  static const String routeName = '/Booking-lapangan';
+  static const String routeName = '/booking-lapangan';
   const BookingLapanganScreen({super.key});
 
   @override
@@ -44,7 +42,7 @@ class _BookingLapanganScreenState extends State<BookingLapanganScreen> {
         appBar: AppBar(
           backgroundColor: chocolate2,
           elevation: 0,
-          title: Text(
+          title: const Text(
             'History Bookings',
             style: TextStyle(
               color: Colors.white,
@@ -53,7 +51,7 @@ class _BookingLapanganScreenState extends State<BookingLapanganScreen> {
             ),
           ),
           leading: IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios,
               color: Colors.white,
             ),
@@ -129,8 +127,9 @@ class _BookingLapanganScreenState extends State<BookingLapanganScreen> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height - 200,
-                    child: BlocConsumer<BookingLapanganBloc, BookingLapanganState>(
-                        listener: (context, state) {
+                    child:
+                        BlocConsumer<BookingLapanganBloc, BookingLapanganState>(
+                            listener: (context, state) {
                       if (state is BookingLapanganErrorState) {
                         EasyLoading.showError(state.message);
                       } else if (state is BookingLapanganCancelledState) {
@@ -182,7 +181,8 @@ class _BookingLapanganScreenState extends State<BookingLapanganScreen> {
                                 itemBuilder: (context, index) {
                                   return BookingItem(
                                     status: statusValue,
-                                    bookingLapangan: state.bookingLapanganList[index],
+                                    bookingLapangan:
+                                        state.bookingLapanganList[index],
                                   );
                                 },
                               );

@@ -34,7 +34,7 @@ class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
       return Left(ConnectionFailure(response.data['message']));
     } catch (e) {
       return const Left(
-        Exception('Exception Occured in LoginRemoteDataSourceImpl'),
+        Exception('Username or Password wrong'),
       );
     }
   }

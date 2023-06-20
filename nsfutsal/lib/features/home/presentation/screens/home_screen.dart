@@ -53,62 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Container(
                   child: Column(
                     children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        color: chocolate2,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Hi, ${state.user.name}',
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Selamat Datang di aplikasi NSfutsal',
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const Spacer(),
-                                // icon notification bell with how many notifications
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    const FaIcon(FontAwesomeIcons.bell).icon,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                // profile picture
-                                Container(
-                                  margin: const EdgeInsets.only(right: 10),
-                                  child: const CircleAvatar(
-                                    radius: 20,
-                                    backgroundImage:
-                                        AssetImage('assets/images/blank.png'),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                          ],
-                        ),
-                      ),
                       const SizedBox(height: 30),
 
                       const SizedBox(height: 20),
@@ -116,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         alignment: Alignment.centerLeft,
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: const Text(
-                          'Daftar Hidangan',
+                          'Dish List',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 18,

@@ -7,5 +7,5 @@ import '../../data/models/order/order_model.dart';
 abstract class CheckoutRepository {
   Future<Either<Failure, CartList>> getCartFromServer();
   double getTotalPrice(CartList cartList);
-  Future<Either<Failure, OrderModel>> checkout(String paymentMethod);
+  Future<Either<Failure, OrderModel>> checkout(String paymentMethod,String alamat);
 }

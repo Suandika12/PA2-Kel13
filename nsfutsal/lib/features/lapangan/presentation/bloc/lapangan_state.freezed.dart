@@ -21,7 +21,8 @@ mixin _$LapanganState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Lapangan> lapanganList, User user) loadedState,
+    required TResult Function(List<Lapangan> lapanganList, User user)
+        loadedState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,7 +71,8 @@ mixin _$LapanganState {
 
 /// @nodoc
 abstract class $LapanganStateCopyWith<$Res> {
-  factory $LapanganStateCopyWith(LapanganState value, $Res Function(LapanganState) then) =
+  factory $LapanganStateCopyWith(
+          LapanganState value, $Res Function(LapanganState) then) =
       _$LapanganStateCopyWithImpl<$Res, LapanganState>;
 }
 
@@ -87,8 +89,8 @@ class _$LapanganStateCopyWithImpl<$Res, $Val extends LapanganState>
 
 /// @nodoc
 abstract class _$$LapanganInitialStateCopyWith<$Res> {
-  factory _$$LapanganInitialStateCopyWith(
-          _$LapanganInitialState value, $Res Function(_$LapanganInitialState) then) =
+  factory _$$LapanganInitialStateCopyWith(_$LapanganInitialState value,
+          $Res Function(_$LapanganInitialState) then) =
       __$$LapanganInitialStateCopyWithImpl<$Res>;
 }
 
@@ -96,8 +98,8 @@ abstract class _$$LapanganInitialStateCopyWith<$Res> {
 class __$$LapanganInitialStateCopyWithImpl<$Res>
     extends _$LapanganStateCopyWithImpl<$Res, _$LapanganInitialState>
     implements _$$LapanganInitialStateCopyWith<$Res> {
-  __$$LapanganInitialStateCopyWithImpl(
-      _$LapanganInitialState _value, $Res Function(_$LapanganInitialState) _then)
+  __$$LapanganInitialStateCopyWithImpl(_$LapanganInitialState _value,
+      $Res Function(_$LapanganInitialState) _then)
       : super(_value, _then);
 }
 
@@ -126,7 +128,8 @@ class _$LapanganInitialState implements LapanganInitialState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Lapangan> lapanganList, User user) loadedState,
+    required TResult Function(List<Lapangan> lapanganList, User user)
+        loadedState,
   }) {
     return initial();
   }
@@ -201,8 +204,8 @@ abstract class LapanganInitialState implements LapanganState {
 
 /// @nodoc
 abstract class _$$LapanganLoadingStateCopyWith<$Res> {
-  factory _$$LapanganLoadingStateCopyWith(
-          _$LapanganLoadingState value, $Res Function(_$LapanganLoadingState) then) =
+  factory _$$LapanganLoadingStateCopyWith(_$LapanganLoadingState value,
+          $Res Function(_$LapanganLoadingState) then) =
       __$$LapanganLoadingStateCopyWithImpl<$Res>;
 }
 
@@ -210,8 +213,8 @@ abstract class _$$LapanganLoadingStateCopyWith<$Res> {
 class __$$LapanganLoadingStateCopyWithImpl<$Res>
     extends _$LapanganStateCopyWithImpl<$Res, _$LapanganLoadingState>
     implements _$$LapanganLoadingStateCopyWith<$Res> {
-  __$$LapanganLoadingStateCopyWithImpl(
-      _$LapanganLoadingState _value, $Res Function(_$LapanganLoadingState) _then)
+  __$$LapanganLoadingStateCopyWithImpl(_$LapanganLoadingState _value,
+      $Res Function(_$LapanganLoadingState) _then)
       : super(_value, _then);
 }
 
@@ -240,7 +243,8 @@ class _$LapanganLoadingState implements LapanganLoadingState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Lapangan> lapanganList, User user) loadedState,
+    required TResult Function(List<Lapangan> lapanganList, User user)
+        loadedState,
   }) {
     return loading();
   }
@@ -315,8 +319,8 @@ abstract class LapanganLoadingState implements LapanganState {
 
 /// @nodoc
 abstract class _$$LapanganErrorStateCopyWith<$Res> {
-  factory _$$LapanganErrorStateCopyWith(
-          _$LapanganErrorState value, $Res Function(_$LapanganErrorState) then) =
+  factory _$$LapanganErrorStateCopyWith(_$LapanganErrorState value,
+          $Res Function(_$LapanganErrorState) then) =
       __$$LapanganErrorStateCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
@@ -372,7 +376,8 @@ class _$LapanganErrorState implements LapanganErrorState {
   @override
   @pragma('vm:prefer-inline')
   _$$LapanganErrorStateCopyWith<_$LapanganErrorState> get copyWith =>
-      __$$LapanganErrorStateCopyWithImpl<_$LapanganErrorState>(this, _$identity);
+      __$$LapanganErrorStateCopyWithImpl<_$LapanganErrorState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -380,7 +385,8 @@ class _$LapanganErrorState implements LapanganErrorState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Lapangan> lapanganList, User user) loadedState,
+    required TResult Function(List<Lapangan> lapanganList, User user)
+        loadedState,
   }) {
     return error(message);
   }
@@ -460,8 +466,8 @@ abstract class LapanganErrorState implements LapanganState {
 
 /// @nodoc
 abstract class _$$LapanganLoadedStateCopyWith<$Res> {
-  factory _$$LapanganLoadedStateCopyWith(
-          _$LapanganLoadedState value, $Res Function(_$LapanganLoadedState) then) =
+  factory _$$LapanganLoadedStateCopyWith(_$LapanganLoadedState value,
+          $Res Function(_$LapanganLoadedState) then) =
       __$$LapanganLoadedStateCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Lapangan> lapanganList, User user});
@@ -532,7 +538,8 @@ class _$LapanganLoadedState implements LapanganLoadedState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LapanganLoadedState &&
-            const DeepCollectionEquality().equals(other._lapanganList, _lapanganList) &&
+            const DeepCollectionEquality()
+                .equals(other._lapanganList, _lapanganList) &&
             (identical(other.user, user) || other.user == user));
   }
 
@@ -544,7 +551,8 @@ class _$LapanganLoadedState implements LapanganLoadedState {
   @override
   @pragma('vm:prefer-inline')
   _$$LapanganLoadedStateCopyWith<_$LapanganLoadedState> get copyWith =>
-      __$$LapanganLoadedStateCopyWithImpl<_$LapanganLoadedState>(this, _$identity);
+      __$$LapanganLoadedStateCopyWithImpl<_$LapanganLoadedState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -552,7 +560,8 @@ class _$LapanganLoadedState implements LapanganLoadedState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Lapangan> lapanganList, User user) loadedState,
+    required TResult Function(List<Lapangan> lapanganList, User user)
+        loadedState,
   }) {
     return loadedState(lapanganList, user);
   }

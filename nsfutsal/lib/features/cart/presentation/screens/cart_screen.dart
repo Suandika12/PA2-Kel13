@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import '../../../../routes/app_routers.gr.dart';
 import '../../../../shared/theme.dart';
+import '../../../navigation/presentation/screens/bottom_navigation_bar_screen.dart';
 import '../../domain/entities/product_cart_entity.dart';
 import '../bloc/cart_event.dart';
 import '../bloc/cart_state.dart';
@@ -35,9 +36,9 @@ class _CartScreenState extends State<CartScreen> {
     return SafeArea(
       child: BlocConsumer<CartBloc, CartState>(
         listener: (context, state) {
-          // if (state is CartErrorState) {
-          //   EasyLoading.showError(state.message);
-          // }
+          if (state is CartErrorState) {
+            EasyLoading.showError(state.message);
+          }
         },
         builder: (context, state) {
           if (state is CartErrorState) {
@@ -56,27 +57,6 @@ class _CartScreenState extends State<CartScreen> {
             );
           } else if (state is CartLoadedState) {
             return Scaffold(
-              appBar: AppBar(
-                backgroundColor: chocolate2,
-                elevation: 0,
-                title: Text(
-                  'Keranjang',
-                  style: TextStyle(
-                    color: white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                leading: IconButton(
-                  icon: Icon(
-                    Icons.arrow_back_ios,
-                    color: dark,
-                  ),
-                  onPressed: () {
-                    AutoRouter.of(context).pop();
-                  },
-                ),
-              ),
               body: SingleChildScrollView(
                 child: Container(
                   margin: const EdgeInsets.only(top: 20),
@@ -335,6 +315,7 @@ class _CartScreenState extends State<CartScreen> {
                   ],
                 ),
               ),
+              bottomNavigationBar: const NavigationBarScreen(),
             );
           } else {
             // show easy loading
@@ -413,3 +394,25 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 }
+
+
+//  state.cartList.isNotEmpty
+//                         ? Container(
+//                             margin: const EdgeInsets.only(
+//                                 top: 20, left: 10, right: 10),
+//                             color: chocolate,
+//                             child: CustomFilledButton(
+//                               onPressed: () {
+//                                 AutoRouter.of(context)
+//                                     .push(const CheckoutScreen());
+//                               },
+//                               gradient: gradient,
+//                               text: 'Checkout',
+//                             ),
+//                           )
+//                         : Container(),
+//                   ],
+//                 ),
+//               ),
+//               bottomNavigationBar: const NavigationBarScreen(),
+//             );

@@ -21,7 +21,6 @@ User _$UserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$User {
   int get id => throw _privateConstructorUsedError;
-  String get nik => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
@@ -41,7 +40,6 @@ abstract class $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String nik,
       String name,
       String email,
       String password,
@@ -64,7 +62,6 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @override
   $Res call({
     Object? id = null,
-    Object? nik = null,
     Object? name = null,
     Object? email = null,
     Object? password = null,
@@ -77,10 +74,6 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      nik: null == nik
-          ? _value.nik
-          : nik // ignore: cast_nullable_to_non_nullable
-              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -117,7 +110,6 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String nik,
       String name,
       String email,
       String password,
@@ -136,7 +128,6 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   @override
   $Res call({
     Object? id = null,
-    Object? nik = null,
     Object? name = null,
     Object? email = null,
     Object? password = null,
@@ -149,10 +140,6 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      nik: null == nik
-          ? _value.nik
-          : nik // ignore: cast_nullable_to_non_nullable
-              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -186,7 +173,6 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 class _$_User implements _User {
   _$_User(
       {this.id = 0,
-      this.nik = '',
       this.name = '',
       this.email = '',
       this.password = '',
@@ -199,9 +185,6 @@ class _$_User implements _User {
   @override
   @JsonKey()
   final int id;
-  @override
-  @JsonKey()
-  final String nik;
   @override
   @JsonKey()
   final String name;
@@ -223,7 +206,7 @@ class _$_User implements _User {
 
   @override
   String toString() {
-    return 'User(id: $id, nik: $nik, name: $name, email: $email, password: $password, phone: $phone, avatar: $avatar, token: $token)';
+    return 'User(id: $id, name: $name, email: $email, password: $password, phone: $phone, avatar: $avatar, token: $token)';
   }
 
   @override
@@ -232,7 +215,6 @@ class _$_User implements _User {
         (other.runtimeType == runtimeType &&
             other is _$_User &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.nik, nik) || other.nik == nik) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
@@ -244,8 +226,8 @@ class _$_User implements _User {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, nik, name, email, password, phone, avatar, token);
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, email, password, phone, avatar, token);
 
   @JsonKey(ignore: true)
   @override
@@ -264,7 +246,6 @@ class _$_User implements _User {
 abstract class _User implements User {
   factory _User(
       {final int id,
-      final String nik,
       final String name,
       final String email,
       final String password,
@@ -276,8 +257,6 @@ abstract class _User implements User {
 
   @override
   int get id;
-  @override
-  String get nik;
   @override
   String get name;
   @override

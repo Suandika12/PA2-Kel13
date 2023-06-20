@@ -6,7 +6,6 @@ part 'user_register_model.g.dart';
 class UserRegister with _$UserRegister {
   factory UserRegister({
     @Default(0) int id,
-    @Default('') String nik,
     @Default('') String name,
     @Default('') String email,
     @Default('') String password,

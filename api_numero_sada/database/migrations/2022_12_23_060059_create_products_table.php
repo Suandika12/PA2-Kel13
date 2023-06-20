@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->double('price', 8, 2)->constraint('price > 0');
             $table->integer('quantity')->constraint('quantity > 0');
             $table->string('image')->nullable();
-            $table->string('category')->constraint('category in ("Makanan", "Minuman", "Snack", "Pulsa")');
+            $table->string('category')->constraint('category in ("Food", "Drink")');
             $table->timestamps();
             $table->softDeletes();
         });

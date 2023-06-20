@@ -21,7 +21,6 @@ UserRegister _$UserRegisterFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserRegister {
   int get id => throw _privateConstructorUsedError;
-  String get nik => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
@@ -45,7 +44,6 @@ abstract class $UserRegisterCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String nik,
       String name,
       String email,
       String password,
@@ -70,7 +68,6 @@ class _$UserRegisterCopyWithImpl<$Res, $Val extends UserRegister>
   @override
   $Res call({
     Object? id = null,
-    Object? nik = null,
     Object? name = null,
     Object? email = null,
     Object? password = null,
@@ -85,10 +82,6 @@ class _$UserRegisterCopyWithImpl<$Res, $Val extends UserRegister>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      nik: null == nik
-          ? _value.nik
-          : nik // ignore: cast_nullable_to_non_nullable
-              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -135,7 +128,6 @@ abstract class _$$_UserRegisterCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      String nik,
       String name,
       String email,
       String password,
@@ -158,7 +150,6 @@ class __$$_UserRegisterCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? nik = null,
     Object? name = null,
     Object? email = null,
     Object? password = null,
@@ -173,10 +164,6 @@ class __$$_UserRegisterCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      nik: null == nik
-          ? _value.nik
-          : nik // ignore: cast_nullable_to_non_nullable
-              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -218,7 +205,6 @@ class __$$_UserRegisterCopyWithImpl<$Res>
 class _$_UserRegister implements _UserRegister {
   _$_UserRegister(
       {this.id = 0,
-      this.nik = '',
       this.name = '',
       this.email = '',
       this.password = '',
@@ -234,9 +220,6 @@ class _$_UserRegister implements _UserRegister {
   @override
   @JsonKey()
   final int id;
-  @override
-  @JsonKey()
-  final String nik;
   @override
   @JsonKey()
   final String name;
@@ -264,7 +247,7 @@ class _$_UserRegister implements _UserRegister {
 
   @override
   String toString() {
-    return 'UserRegister(id: $id, nik: $nik, name: $name, email: $email, password: $password, phone: $phone, avatar: $avatar, token: $token, password_confirmation: $password_confirmation, role: $role)';
+    return 'UserRegister(id: $id, name: $name, email: $email, password: $password, phone: $phone, avatar: $avatar, token: $token, password_confirmation: $password_confirmation, role: $role)';
   }
 
   @override
@@ -273,7 +256,6 @@ class _$_UserRegister implements _UserRegister {
         (other.runtimeType == runtimeType &&
             other is _$_UserRegister &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.nik, nik) || other.nik == nik) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
@@ -288,8 +270,8 @@ class _$_UserRegister implements _UserRegister {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, nik, name, email, password,
-      phone, avatar, token, password_confirmation, role);
+  int get hashCode => Object.hash(runtimeType, id, name, email, password, phone,
+      avatar, token, password_confirmation, role);
 
   @JsonKey(ignore: true)
   @override
@@ -308,7 +290,6 @@ class _$_UserRegister implements _UserRegister {
 abstract class _UserRegister implements UserRegister {
   factory _UserRegister(
       {final int id,
-      final String nik,
       final String name,
       final String email,
       final String password,
@@ -323,8 +304,6 @@ abstract class _UserRegister implements UserRegister {
 
   @override
   int get id;
-  @override
-  String get nik;
   @override
   String get name;
   @override

@@ -9,6 +9,7 @@ class OrderModel with _$OrderModel {
     required String code,
     required double total,
     required String paymentMethod,
+    required String alamat,
   }) = _OrderModel;
 
   factory OrderModel.fromJson(Map<String, Object?> json) =>

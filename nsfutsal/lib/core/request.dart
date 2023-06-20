@@ -1,11 +1,16 @@
-import 'package:nsfutsal/shared/strings.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+
+import '../shared/strings.dart';
 
 class Request {
   final Dio _dio = Dio();
   Request() {
     updateDioInterceptors();
+  }
+
+  void updateContentType(String contentType) {
+    _dio.options.headers['content-type'] = contentType;
   }
 
   void updateAuthorization(String token) {
@@ -48,8 +53,9 @@ class Request {
   }
 
   // requests
-  Future<Response> get(String path) async {
-    return await _dio.get(path);
+  Future<Response> get(String path,
+      {Map<String, dynamic>? queryParameters}) async {
+    return await _dio.get(path, queryParameters: queryParameters);
   }
 
   Future<Response> post(String path, {Object? data}) async {

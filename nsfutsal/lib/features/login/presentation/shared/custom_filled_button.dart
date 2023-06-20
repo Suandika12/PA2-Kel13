@@ -45,7 +45,7 @@ class CustomFilledButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
+          backgroundColor: const Color.fromARGB(0, 8, 105, 231),
           elevation: 0,
           padding: const EdgeInsets.symmetric(
             vertical: 15,

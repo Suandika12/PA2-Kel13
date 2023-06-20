@@ -13,23 +13,26 @@ import 'checkout_item.dart';
 
 const List<String> _paymentMethods = [
   'Cash on Delivery',
-  'Credit Card',
-  'Debit Card',
-  'Mobile Banking',
+];
+const List<String> _lokasi = [
+  'Balige',
+  'Laguboti',
 ];
 
 class CheckoutScreen extends StatefulWidget {
   static const String routeName = '/checkout';
-  const CheckoutScreen({super.key});
+
+  const CheckoutScreen({Key? key}) : super(key: key);
 
   @override
   State<CheckoutScreen> createState() => _CheckoutScreenState();
 }
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
-  double deliveryCharge = 10000;
   double totalAmount = 0;
   String _selectedPaymentMethod = '';
+  String _alamat = '';
+  String _selectedLokasi = '';
 
   @override
   void initState() {
@@ -154,26 +157,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
-                                  'Delivery Charges',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  'Rp. $deliveryCharge',
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 20),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(
                                   'Total',
                                   style: TextStyle(
                                     fontSize: 18,
@@ -181,7 +164,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   ),
                                 ),
                                 Text(
-                                  'Rp. ${state.totalPrice + deliveryCharge}',
+                                  'Rp. ${state.totalPrice}',
                                   style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
@@ -193,6 +176,78 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         ),
                       ),
                       const SizedBox(height: 20),
+                      Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.2),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Lokasi Pembayaran',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            // divider
+                            Divider(
+                              color: Colors.grey.withOpacity(0.2),
+                              thickness: 2,
+                            ),
+                            // List of payment method
+                            ListView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: _lokasi.length,
+                              itemBuilder: (context, index) {
+                                return InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      _selectedLokasi = _lokasi[index];
+                                    });
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        _lokasi[index],
+                                        style: TextStyle(
+                                          color: dark,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      Radio(
+                                        value: _lokasi[index],
+                                        groupValue: _selectedLokasi,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            _selectedLokasi = value!;
+                                          });
+                                        },
+                                        activeColor: chocolate,
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+
                       // payment method
                       Container(
                         padding: const EdgeInsets.all(20),
@@ -266,6 +321,46 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         ),
                       ),
                       const SizedBox(height: 20),
+                      // address input
+                      Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.2),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Location where we can deliver',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            TextField(
+                              onChanged: (value) {
+                                setState(() {
+                                  _alamat = value;
+                                });
+                              },
+                              decoration: const InputDecoration(
+                                hintText: 'Enter your delivery address',
+                                border: OutlineInputBorder(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
@@ -287,7 +382,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Total: Rp. ${state.totalPrice + deliveryCharge}',
+                      'Total: Rp. ${state.totalPrice}',
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -298,9 +393,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       onPressed: () {
                         if (_selectedPaymentMethod.isEmpty) {
                           EasyLoading.showError('Please select payment method');
+                        } else if (_alamat.isEmpty) {
+                          EasyLoading.showError(
+                              'Please enter delivery address');
                         } else {
                           context.read<CheckoutBloc>().add(CheckoutCartEvent(
-                              paymentMethod: _selectedPaymentMethod));
+                              paymentMethod: _selectedPaymentMethod,
+                              alamat: _alamat));
                         }
                       },
                       width: 150,

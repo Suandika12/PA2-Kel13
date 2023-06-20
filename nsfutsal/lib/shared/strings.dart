@@ -1,4 +1,4 @@
-const baseUrl = 'http://192.168.214.120/api_numero_sada/public';
+const baseUrl = 'http://192.168.191.120/api_numero_sada/public';
 const baseUrlApi = '$baseUrl/api';
 const baseUrlImage = baseUrl;
 

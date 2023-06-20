@@ -106,3 +106,27 @@ Route::group([
     Route::post('/store', [BookingLapanganController::class, 'store']);
     Route::put('/cancel/{id}', [BookingLapanganController::class, 'cancel']);
 });
+
+// Lapangan Routes
+Route::group([
+    'middleware' => 'auth:sanctum',
+    'prefix' => 'event'
+], function () {
+    Route::get('/', [EventController::class, 'index']);
+    Route::get('/{id}', [EventController::class, 'show']);
+});
+// Lapangan Routes
+Route::group([
+    'prefix' => 'lapangan_guest'
+], function () {
+    Route::get('/', [LapanganController::class, 'index']);
+    Route::get('/{id}', [LapanganController::class, 'show']);
+});
+
+// Product Routes
+Route::group([
+    'prefix' => 'products_guest'
+], function () {
+    Route::get('/', [ProductController::class, 'index']);
+    Route::get('/{id}', [ProductController::class, 'show']);
+});

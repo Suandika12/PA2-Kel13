@@ -72,7 +72,7 @@ class OrderController extends Controller
         $data['payment_method'] = $request->payment_method;
         $data['status'] = 'Pending';
         $order = Order::create($data);
-
+        
         foreach ($carts as $cart) {
             OrderDetail::create([
                 'order_id' => $order->id,
@@ -98,7 +98,7 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
         if ($order) {
-            $order->status = 'Cancel';
+            $order->status = 'Cancelled';
             $order->save();
             return ResponseFormatter::success(
                 OrderResource::make($order),

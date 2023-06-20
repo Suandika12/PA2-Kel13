@@ -3,16 +3,18 @@ import 'package:flutter/material.dart';
 
 import '../../../../routes/app_routers.gr.dart';
 import '../../../../shared/theme.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class NavigationBarScreen extends StatefulWidget {
-  const NavigationBarScreen({super.key});
+  const NavigationBarScreen({Key? key}) : super(key: key);
 
   @override
   State<NavigationBarScreen> createState() => _NavigationBarScreenState();
 }
 
 class _NavigationBarScreenState extends State<NavigationBarScreen> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
+
   @override
   void initState() {
     super.initState();
@@ -37,28 +39,24 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
     } else {
       setState(() {
         if (index == 0) {
-          AutoRouter.of(context).pushAndPopUntil(
+          AutoRouter.of(context).push(
             const HomeScreen(),
-            predicate: (_) => false,
           );
         } else if (index == 1) {
-          AutoRouter.of(context).pushAndPopUntil(
-            const CreditScreen(),
-            predicate: (_) => false,
+          AutoRouter.of(context).push(
+            const EventScreen(),
           );
         } else if (index == 2) {
-          AutoRouter.of(context).pushAndPopUntil(
+          AutoRouter.of(context).push(
             const LapanganScreen(),
-            predicate: (_) => false,
           );
         } else if (index == 3) {
           AutoRouter.of(context).push(
             const CartScreen(),
           );
         } else if (index == 4) {
-          AutoRouter.of(context).pushAndPopUntil(
+          AutoRouter.of(context).push(
             const ProfileScreen(),
-            predicate: (_) => false,
           );
         }
       });
@@ -67,37 +65,26 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: _selectedIndex,
+    return CurvedNavigationBar(
+      index: _selectedIndex,
       items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.fastfood),
-          label: 'Hidangan',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.calendar_month),
-          label: 'Event',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.apartment),
-          label: 'Lapangan',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_cart),
-          label: 'Keranjang',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile',
-        ),
+        Icon(Icons.fastfood,
+            color: Colors.white), // Ubah warna ikon menjadi putih
+        Icon(Icons.calendar_month, color: Colors.white),
+        Icon(Icons.home, color: Colors.white),
+        Icon(Icons.shopping_cart, color: Colors.white),
+        Icon(Icons.person, color: Colors.white),
       ],
       onTap: (index) {
         _onItemTapped(index);
       },
-      selectedItemColor: chocolate,
-      unselectedItemColor: Colors.grey,
-      showUnselectedLabels: true,
-      type: BottomNavigationBarType.fixed,
+      color: chocolate,
+      buttonBackgroundColor: chocolate,
+      backgroundColor: Colors.transparent,
+      animationCurve:
+          Curves.easeOutQuad, // Mengganti animasi ke Curves.easeOutQuad
+      animationDuration: const Duration(
+          milliseconds: 400), // Mengganti durasi animasi menjadi 400 milidetik
     );
   }
 }

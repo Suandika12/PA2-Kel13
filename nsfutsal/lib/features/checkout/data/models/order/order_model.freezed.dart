@@ -24,6 +24,7 @@ mixin _$OrderModel {
   String get code => throw _privateConstructorUsedError;
   double get total => throw _privateConstructorUsedError;
   String get paymentMethod => throw _privateConstructorUsedError;
+  String get alamat => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,8 @@ abstract class $OrderModelCopyWith<$Res> {
           OrderModel value, $Res Function(OrderModel) then) =
       _$OrderModelCopyWithImpl<$Res, OrderModel>;
   @useResult
-  $Res call({int id, String code, double total, String paymentMethod});
+  $Res call(
+      {int id, String code, double total, String paymentMethod, String alamat});
 }
 
 /// @nodoc
@@ -57,6 +59,7 @@ class _$OrderModelCopyWithImpl<$Res, $Val extends OrderModel>
     Object? code = null,
     Object? total = null,
     Object? paymentMethod = null,
+    Object? alamat = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -75,6 +78,10 @@ class _$OrderModelCopyWithImpl<$Res, $Val extends OrderModel>
           ? _value.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
               as String,
+      alamat: null == alamat
+          ? _value.alamat
+          : alamat // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -87,7 +94,8 @@ abstract class _$$_OrderModelCopyWith<$Res>
       __$$_OrderModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String code, double total, String paymentMethod});
+  $Res call(
+      {int id, String code, double total, String paymentMethod, String alamat});
 }
 
 /// @nodoc
@@ -105,6 +113,7 @@ class __$$_OrderModelCopyWithImpl<$Res>
     Object? code = null,
     Object? total = null,
     Object? paymentMethod = null,
+    Object? alamat = null,
   }) {
     return _then(_$_OrderModel(
       id: null == id
@@ -123,6 +132,10 @@ class __$$_OrderModelCopyWithImpl<$Res>
           ? _value.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
               as String,
+      alamat: null == alamat
+          ? _value.alamat
+          : alamat // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -134,7 +147,8 @@ class _$_OrderModel implements _OrderModel {
       {required this.id,
       required this.code,
       required this.total,
-      required this.paymentMethod});
+      required this.paymentMethod,
+      required this.alamat});
 
   factory _$_OrderModel.fromJson(Map<String, dynamic> json) =>
       _$$_OrderModelFromJson(json);
@@ -147,10 +161,12 @@ class _$_OrderModel implements _OrderModel {
   final double total;
   @override
   final String paymentMethod;
+  @override
+  final String alamat;
 
   @override
   String toString() {
-    return 'OrderModel(id: $id, code: $code, total: $total, paymentMethod: $paymentMethod)';
+    return 'OrderModel(id: $id, code: $code, total: $total, paymentMethod: $paymentMethod, alamat: $alamat)';
   }
 
   @override
@@ -162,12 +178,14 @@ class _$_OrderModel implements _OrderModel {
             (identical(other.code, code) || other.code == code) &&
             (identical(other.total, total) || other.total == total) &&
             (identical(other.paymentMethod, paymentMethod) ||
-                other.paymentMethod == paymentMethod));
+                other.paymentMethod == paymentMethod) &&
+            (identical(other.alamat, alamat) || other.alamat == alamat));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, code, total, paymentMethod);
+  int get hashCode =>
+      Object.hash(runtimeType, id, code, total, paymentMethod, alamat);
 
   @JsonKey(ignore: true)
   @override
@@ -188,7 +206,8 @@ abstract class _OrderModel implements OrderModel {
       {required final int id,
       required final String code,
       required final double total,
-      required final String paymentMethod}) = _$_OrderModel;
+      required final String paymentMethod,
+      required final String alamat}) = _$_OrderModel;
 
   factory _OrderModel.fromJson(Map<String, dynamic> json) =
       _$_OrderModel.fromJson;
@@ -201,6 +220,8 @@ abstract class _OrderModel implements OrderModel {
   double get total;
   @override
   String get paymentMethod;
+  @override
+  String get alamat;
   @override
   @JsonKey(ignore: true)
   _$$_OrderModelCopyWith<_$_OrderModel> get copyWith =>

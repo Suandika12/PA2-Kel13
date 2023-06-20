@@ -1,4 +1,4 @@
-$("body").on("contextmenu", "img", function(e) {
+$("body").on("contextmenu", "img", function (e) {
     return false;
 });
 $('img').attr('draggable', false);
@@ -7,25 +7,25 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-function main_content(obj){
+function main_content(obj) {
     $("#content_list").hide();
     $("#content_input").hide();
     $("#content_detail").hide();
     $("#" + obj).show();
 }
-function load_input(url){
-    $.get(url, {}, function(result) {
+function load_input(url) {
+    $.get(url, {}, function (result) {
         $('#content_input').html(result);
         main_content('content_input');
     }, "html");
 }
-function load_detail(url){
-    $.get(url, {}, function(result) {
+function load_detail(url) {
+    $.get(url, {}, function (result) {
         $('#content_detail').html(result);
         main_content('content_detail');
     }, "html");
 }
-function handle_confirm(title, confirm_title, deny_title, method, route){
+function handle_confirm(title, confirm_title, deny_title, method, route) {
     Swal.fire({
         title: title,
         showDenyButton: true,
@@ -38,7 +38,7 @@ function handle_confirm(title, confirm_title, deny_title, method, route){
                 type: method,
                 url: route,
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     $('#datatables').DataTable().ajax.reload();
                     Swal.fire(response.message, '', response.alert)
                 }
@@ -48,7 +48,7 @@ function handle_confirm(title, confirm_title, deny_title, method, route){
         }
     });
 }
-function handle_open_modal(url,modal,content){
+function handle_open_modal(url, modal, content) {
     $.ajax({
         type: "POST",
         url: url,
@@ -61,8 +61,8 @@ function handle_open_modal(url,modal,content){
         },
     });
 }
-function handle_save_modal(tombol, form, url, method, modal){
-    $(tombol).submit(function() {
+function handle_save_modal(tombol, form, url, method, modal) {
+    $(tombol).submit(function () {
         return false;
     });
     let data = $(form).serialize();
@@ -74,15 +74,15 @@ function handle_save_modal(tombol, form, url, method, modal){
         url: url,
         data: data,
         dataType: 'json',
-        beforeSend: function() {
+        beforeSend: function () {
         },
-        success: function(response) {
+        success: function (response) {
             loaded();
             if (response.alert == "success") {
                 success_toastr(response.message);
                 $(form)[0].reset();
                 $('#datatables').DataTable().ajax.reload();
-                setTimeout(function() {
+                setTimeout(function () {
                     $(modal).modal('hide');
                     $(tombol).prop("disabled", false);
                     $(tombol).removeAttr("data-kt-indicator");
@@ -90,7 +90,7 @@ function handle_save_modal(tombol, form, url, method, modal){
                 }, 2000);
             } else {
                 error_toastr(response.message);
-                setTimeout(function() {
+                setTimeout(function () {
                     $(tombol).prop("disabled", false);
                     $(tombol).removeAttr("data-kt-indicator");
                 }, 2000);
@@ -98,8 +98,8 @@ function handle_save_modal(tombol, form, url, method, modal){
         },
     });
 }
-function handle_export_modal(tombol, modal){
-    $(tombol).submit(function() {
+function handle_export_modal(tombol, modal) {
+    $(tombol).submit(function () {
         return false;
     });
     $(tombol).prop("disabled", true);
@@ -109,7 +109,7 @@ function handle_export_modal(tombol, modal){
     $(tombol).prop("disabled", false);
     $(tombol).removeAttr("data-kt-indicator");
 }
-function handle_save(tombol, form, url, method, title){
+function handle_save(tombol, form, url, method, title) {
     $(tombol).submit(function () {
         return false;
     });
@@ -121,20 +121,20 @@ function handle_save(tombol, form, url, method, title){
         url: url,
         data: data,
         dataType: 'json',
-        beforeSend: function() {
+        beforeSend: function () {
         },
         success: function (response) {
-            if (response.alert=="success") {
-                Swal.fire({ text: response.message, icon: "success", buttonsStyling: !1, confirmButtonText: "Ok, Mengerti!", customClass: { confirmButton: "btn btn-primary" } });
+            if (response.alert == "success") {
+                Swal.fire({ text: response.message, icon: "success", buttonsStyling: !1, confirmButtonText: "Ok, Understand!", customClass: { confirmButton: "btn btn-primary" } });
                 $(form)[0].reset();
                 setTimeout(function () {
                     $(tombol).prop("disabled", false);
-                        $(tombol).html(title);
-                        main_content('content_list');
-                        $('#datatables').DataTable().ajax.reload();
+                    $(tombol).html(title);
+                    main_content('content_list');
+                    $('#datatables').DataTable().ajax.reload();
                 }, 2000);
             } else {
-                Swal.fire({ text: response.message, icon: "error", buttonsStyling: !1, confirmButtonText: "Ok, Mengerti!", customClass: { confirmButton: "btn btn-primary" } });
+                Swal.fire({ text: response.message, icon: "error", buttonsStyling: !1, confirmButtonText: "Ok, Understand!", customClass: { confirmButton: "btn btn-primary" } });
                 setTimeout(function () {
                     $(tombol).prop("disabled", false);
                     $(tombol).html(title);
@@ -143,8 +143,8 @@ function handle_save(tombol, form, url, method, title){
         },
     });
 }
-function handle_upload(tombol, form, url, method){
-    $(document).one('submit', form, function(e) {
+function handle_upload(tombol, form, url, method) {
+    $(document).one('submit', form, function (e) {
         let data = new FormData(this);
         data.append('_method', method);
         $(tombol).prop("disabled", true);
@@ -160,15 +160,15 @@ function handle_upload(tombol, form, url, method){
             resetForm: true,
             processData: false,
             dataType: 'json',
-            beforeSend: function() {
+            beforeSend: function () {
 
             },
-            success: function(response) {
+            success: function (response) {
                 loaded();
                 if (response.alert == "success") {
                     success_toastr(response.message);
                     $(form)[0].reset();
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $(tombol).prop("disabled", false);
                         $(tombol).removeAttr("data-kt-indicator");
                         main_content('content_list');
@@ -176,7 +176,7 @@ function handle_upload(tombol, form, url, method){
                     }, 2000);
                 } else {
                     error_toastr(response.message);
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $(tombol).prop("disabled", false);
                         $(tombol).removeAttr("data-kt-indicator");
                     }, 2000);

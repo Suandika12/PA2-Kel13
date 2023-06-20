@@ -19,19 +19,19 @@ mixin _$CheckoutEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCart,
-    required TResult Function(String paymentMethod) checkout,
+    required TResult Function(String paymentMethod, String alamat) checkout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCart,
-    TResult? Function(String paymentMethod)? checkout,
+    TResult? Function(String paymentMethod, String alamat)? checkout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCart,
-    TResult Function(String paymentMethod)? checkout,
+    TResult Function(String paymentMethod, String alamat)? checkout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +113,7 @@ class _$GetCartEvent implements GetCartEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCart,
-    required TResult Function(String paymentMethod) checkout,
+    required TResult Function(String paymentMethod, String alamat) checkout,
   }) {
     return getCart();
   }
@@ -122,7 +122,7 @@ class _$GetCartEvent implements GetCartEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCart,
-    TResult? Function(String paymentMethod)? checkout,
+    TResult? Function(String paymentMethod, String alamat)? checkout,
   }) {
     return getCart?.call();
   }
@@ -131,7 +131,7 @@ class _$GetCartEvent implements GetCartEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCart,
-    TResult Function(String paymentMethod)? checkout,
+    TResult Function(String paymentMethod, String alamat)? checkout,
     required TResult orElse(),
   }) {
     if (getCart != null) {
@@ -182,7 +182,7 @@ abstract class _$$CheckoutCartEventCopyWith<$Res> {
           _$CheckoutCartEvent value, $Res Function(_$CheckoutCartEvent) then) =
       __$$CheckoutCartEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({String paymentMethod});
+  $Res call({String paymentMethod, String alamat});
 }
 
 /// @nodoc
@@ -197,11 +197,16 @@ class __$$CheckoutCartEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? paymentMethod = null,
+    Object? alamat = null,
   }) {
     return _then(_$CheckoutCartEvent(
       paymentMethod: null == paymentMethod
           ? _value.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
+              as String,
+      alamat: null == alamat
+          ? _value.alamat
+          : alamat // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -210,14 +215,17 @@ class __$$CheckoutCartEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CheckoutCartEvent implements CheckoutCartEvent {
-  const _$CheckoutCartEvent({required this.paymentMethod});
+  const _$CheckoutCartEvent(
+      {required this.paymentMethod, required this.alamat});
 
   @override
   final String paymentMethod;
+  @override
+  final String alamat;
 
   @override
   String toString() {
-    return 'CheckoutEvent.checkout(paymentMethod: $paymentMethod)';
+    return 'CheckoutEvent.checkout(paymentMethod: $paymentMethod, alamat: $alamat)';
   }
 
   @override
@@ -226,11 +234,12 @@ class _$CheckoutCartEvent implements CheckoutCartEvent {
         (other.runtimeType == runtimeType &&
             other is _$CheckoutCartEvent &&
             (identical(other.paymentMethod, paymentMethod) ||
-                other.paymentMethod == paymentMethod));
+                other.paymentMethod == paymentMethod) &&
+            (identical(other.alamat, alamat) || other.alamat == alamat));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, paymentMethod);
+  int get hashCode => Object.hash(runtimeType, paymentMethod, alamat);
 
   @JsonKey(ignore: true)
   @override
@@ -242,29 +251,29 @@ class _$CheckoutCartEvent implements CheckoutCartEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCart,
-    required TResult Function(String paymentMethod) checkout,
+    required TResult Function(String paymentMethod, String alamat) checkout,
   }) {
-    return checkout(paymentMethod);
+    return checkout(paymentMethod, alamat);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCart,
-    TResult? Function(String paymentMethod)? checkout,
+    TResult? Function(String paymentMethod, String alamat)? checkout,
   }) {
-    return checkout?.call(paymentMethod);
+    return checkout?.call(paymentMethod, alamat);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCart,
-    TResult Function(String paymentMethod)? checkout,
+    TResult Function(String paymentMethod, String alamat)? checkout,
     required TResult orElse(),
   }) {
     if (checkout != null) {
-      return checkout(paymentMethod);
+      return checkout(paymentMethod, alamat);
     }
     return orElse();
   }
@@ -302,10 +311,12 @@ class _$CheckoutCartEvent implements CheckoutCartEvent {
 }
 
 abstract class CheckoutCartEvent implements CheckoutEvent {
-  const factory CheckoutCartEvent({required final String paymentMethod}) =
-      _$CheckoutCartEvent;
+  const factory CheckoutCartEvent(
+      {required final String paymentMethod,
+      required final String alamat}) = _$CheckoutCartEvent;
 
   String get paymentMethod;
+  String get alamat;
   @JsonKey(ignore: true)
   _$$CheckoutCartEventCopyWith<_$CheckoutCartEvent> get copyWith =>
       throw _privateConstructorUsedError;

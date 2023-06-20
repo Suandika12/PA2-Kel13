@@ -1,5 +1,6 @@
 import 'package:nsfutsal/features/credit/domain/usecases/checkout_usecase.dart';
 import 'package:get_it/get_it.dart';
+import 'package:nsfutsal/features/guest/home_guest/domain/repository/home_guest_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../features/cart/data/datasource/cart_remote_source.dart';
@@ -18,6 +19,21 @@ import '../features/credit/data/datasource/credit_remote_source.dart';
 import '../features/credit/data/repository/credit_repository.dart';
 import '../features/credit/domain/repository/credit_repository.dart';
 import '../features/credit/domain/usecases/get_credits.dart';
+import '../features/event/data/datasouce/event_remote_source.dart';
+import '../features/event/data/repository/event_repository.dart';
+import '../features/event/domain/repository/event_repository.dart';
+import '../features/event/domain/usecases/get_event.dart';
+import '../features/event_detail/data/datasouce/event_detail_remote_source.dart';
+import '../features/event_detail/data/repository/event_detail_repository.dart';
+import '../features/event_detail/domain/repository/event_detail_repository.dart';
+import '../features/event_detail/domain/usecases/get_event_detail.dart';
+import '../features/guest/home_guest/data/datasource/home_guest_product_remote_source.dart' as home_guest;
+import '../features/guest/home_guest/data/repository/home_guest_repository.dart';
+import '../features/guest/home_guest/domain/usercases/get_guest_products.dart' as home_guest;
+import '../features/guest/lapangan_guest/data/datasource/lapangan_guest_remote_source.dart';
+import '../features/guest/lapangan_guest/data/repository/lapangan_guest_repository.dart';
+import '../features/guest/lapangan_guest/domain/repository/lapangan_guest_repository.dart';
+import '../features/guest/lapangan_guest/domain/usecases/get_lapangan_guest.dart';
 import '../features/home/data/datasource/home_product_remote_source.dart'
     as home;
 import '../features/home/data/datasource/home_user_local_data_source.dart';
@@ -155,10 +171,11 @@ Future<void> setUpServiceLocator() async {
   // datasource
   serviceLocator.registerFactory<LapanganLocalUserDataSource>(
       () => LapanganLocalUserDataSourceImlp());
-  serviceLocator
-      .registerFactory<LapanganRemoteDataSource>(() => LapanganRemoteDataSourceImpl());
+  serviceLocator.registerFactory<LapanganRemoteDataSource>(
+      () => LapanganRemoteDataSourceImpl());
 // repositories
-  serviceLocator.registerFactory<LapanganRepository>(() => LapanganRepositoryImpl());
+  serviceLocator
+      .registerFactory<LapanganRepository>(() => LapanganRepositoryImpl());
 
 // room detail
 // usecase
@@ -172,8 +189,8 @@ Future<void> setUpServiceLocator() async {
       () => LapanganDetailRemoteDataSourceImpl());
 
 // repositories
-  serviceLocator
-      .registerFactory<LapanganDetailRepository>(() => LapanganDetailRepositoryImpl());
+  serviceLocator.registerFactory<LapanganDetailRepository>(
+      () => LapanganDetailRepositoryImpl());
 // cart
 // usecase
   serviceLocator
@@ -243,4 +260,48 @@ Future<void> setUpServiceLocator() async {
   serviceLocator.registerFactory<SharedPreferences>(() => sharedPreferences);
   // request
   serviceLocator.registerSingleton<Request>(Request());
+
+  serviceLocator
+      .registerFactory<GetEventsFromServer>(() => GetEventsFromServer());
+
+  // datasource
+  serviceLocator.registerFactory<EventsRemoteDataSource>(
+      () => EventsRemoteDataSourceImpl());
+// repositories
+  serviceLocator.registerFactory<EventRepository>(() => EventRepositoryImpl());
+
+    serviceLocator.registerFactory<GetEventFromServer>(() => GetEventFromServer());
+
+// datasource
+  serviceLocator.registerFactory<EventDetailRemoteDataSource>(
+      () => EventDetailRemoteDataSourceImpl());
+
+// repositories
+  serviceLocator.registerFactory<EventDetailRepository>(
+      () => EventDetailRepositoryImpl());
+
+
+
+  serviceLocator
+      .registerFactory<GetLapangansGuestFromServer>(() => GetLapangansGuestFromServer());
+
+  // datasource
+
+  serviceLocator.registerFactory<LapanganGuestRemoteDataSource>(
+      () => LapanganGuestRemoteDataSourceImpl());
+// // repositories
+  serviceLocator
+      .registerFactory<LapanganGuestRepository>(() => LapanganGuestRepositoryImpl());      
+
+
+  
+ serviceLocator.registerFactory<home_guest.GetProductsGuestFromServer>(
+      () => home_guest.GetProductsGuestFromServer()); 
+
+  serviceLocator.registerFactory<home_guest.ProductsGuestRemoteDataSource>(
+      () => home_guest.ProductsGuestRemoteDataSourceImpl());
+
+  // repositories
+  serviceLocator.registerFactory<HomeGuestRepository>(() => HomeGuestRepositoryImpl());    
+
 }

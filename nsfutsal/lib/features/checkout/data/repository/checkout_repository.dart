@@ -11,8 +11,8 @@ import '../../data/models/order/order_model.dart';
 
 class CheckoutRepositoryImpl extends CheckoutRepository {
   @override
-  Future<Either<Failure, OrderModel>> checkout(String paymentMethod) {
-    return serviceLocator<CheckoutRemoteDataSource>().checkout(paymentMethod);
+  Future<Either<Failure, OrderModel>> checkout(String paymentMethod,String alamat) {
+    return serviceLocator<CheckoutRemoteDataSource>().checkout(paymentMethod,alamat);
   }
 
   @override

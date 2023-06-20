@@ -3,7 +3,6 @@ import '../../../../core/failure.dart';
 import '../../../../core/Request.dart';
 import '../../../../core/service_locator.dart';
 import './../models/product_model.dart';
-import 'package:flutter/foundation.dart';
 
 abstract class DetailProductRemoteDataSource {
   Future<Either<Failure, Product>> getDetailProductFromServer(
@@ -53,7 +52,7 @@ class DetailProductRemoteDataSourceImpl extends DetailProductRemoteDataSource {
         return Right(response.data['meta']['message']);
       } catch (e) {
         return const Left(
-          ParsingFailure('Unable to parse the response'),
+          ParsingFailure('Quantity not enough'),
         );
       }
     } catch (e) {

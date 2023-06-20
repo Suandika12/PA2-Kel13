@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart'
-    show FontAwesomeIcons;
 
+import '../../../../constants/colors.dart';
 import '../../../../routes/app_routers.gr.dart';
 import '../../../../shared/theme.dart';
 import '../bloc/login_bloc.dart';
 import '../bloc/login_event.dart';
 import '../bloc/login_states.dart';
-import '../shared/custom_text_form_field.dart';
 import '../shared/custom_filled_button.dart';
 import '../../data/models/user_model.dart';
 
@@ -23,7 +21,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  bool obsecureText = true;
+  String paswordFieldSuffixText = "Show";
+  bool _obscureText = true;
+
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   IconData icon = Icons.visibility;
@@ -32,17 +32,51 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: cyan,
+        // backgroundColor: Colors.transparent,
         body: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state) {
-            // on success delete navigator stack and push to home
             if (state is LoginLoadedState) {
-              AutoRouter.of(context).pushAndPopUntil(
-                const HomeScreen(),
-                predicate: (_) => false,
+              // Show success alert dialog
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('Login Success'),
+                    content: const Text('Login successfully.'),
+                    actions: <Widget>[
+                      TextButton(
+                        child: const Text('OK'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                          AutoRouter.of(context).pushAndPopUntil(
+                            const LapanganScreen(),
+                            predicate: (_) => false,
+                          );
+                        },
+                      ),
+                    ],
+                  );
+                },
               );
             } else if (state is LoginErrorState) {
-              _showSnackBar(state.message);
+              // Show error alert dialog
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('Login Error'),
+                    content: const Text('wrong username or password.'),
+                    actions: <Widget>[
+                      TextButton(
+                        child: const Text('OK'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
             }
           },
           builder: (context, state) {
@@ -51,165 +85,234 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: CircularProgressIndicator(),
               );
             }
-            return SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(0.20),
-                    child: const SizedBox(
-                      height: 300,
-                      width: 300,
-                      child: Image(
-                        image: AssetImage('assets/images/logofutsal.png'),
-                        fit: BoxFit.fill,
+            return Container(
+              height: 1000,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/bglogin2.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.all(0.20),
+                      child: SizedBox(
+                        height: 300,
+                        width: 300,
                       ),
                     ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Selamat Datang di NSfutsal",
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: dark,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        const Text(
-                          "Banyak aneka snack yang lezat untuk jam kosong ",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: 'Poppins',
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Form(
-                          key: _formKey,
-                          child: Column(children: [
-                            // email input
-                            CustomTextFormField(
-                              hintText: "Email",
-                              prefixIcon: Icon(
-                                Icons.email,
-                                color: softGray,
-                              ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter your email';
-                                } else if (!value.contains('@')) {
-                                  return 'Please enter a valid email';
-                                }
-                                return null;
-                              },
-                              controller: _emailController,
-                              onSaved: (value) =>
-                                  _emailController.text = value!,
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 50),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Selamat Datang di NSfutsal",
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: white,
                             ),
-                            const SizedBox(height: 10),
-                            // password input
-                            CustomTextFormField(
-                              hintText: "Password",
-                              prefixIcon: Icon(
-                                Icons.lock,
-                                color: softGray,
-                              ),
-                              suffixIcon: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    obsecureText = !obsecureText;
-                                    icon = obsecureText
-                                        ? Icons.visibility
-                                        : Icons.visibility_off;
-                                  });
-                                },
-                                icon: Icon(
-                                  icon,
-                                  color: softGray,
-                                ),
-                              ),
-                              controller: _passwordController,
-                              obscureText: obsecureText,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter your password';
-                                } else if (value.length < 6) {
-                                  return 'Password must be at least 6 characters';
-                                }
-                                return null;
-                              },
-                              onSaved: (value) =>
-                                  _passwordController.text = value!,
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            "Banyak aneka snack yang lezat untuk jam kosong ",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Poppins',
+                              color: white,
                             ),
-                            const SizedBox(height: 10),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                InkWell(
-                                  onTap: _showForgotPasswordPage,
-                                  child: Text(
-                                    "Forgot Password?",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontFamily: 'Poppins',
-                                      color: chocolate,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                          ),
+                          const SizedBox(height: 8),
+                          Form(
+                            key: _formKey,
+                            child: Column(children: [
+                              // email input
+                              TextFormField(
+                                keyboardType: TextInputType.emailAddress,
+                                decoration: InputDecoration(
+                                  labelText: "Email",
+                                  labelStyle: TextStyle(color: white),
+                                  hintText: "Enter your email",
+                                  hintStyle: const TextStyle(
+                                      color: Color.fromARGB(255, 255, 255,
+                                          255)), // Set the hint text color to white
+                                  enabledBorder: const UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors
+                                            .white), // Warna garis saat tidak dalam fokus
+                                  ),
+                                  focusedBorder: const UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors
+                                            .white), // Warna garis saat dalam fokus
                                   ),
                                 ),
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-                            CustomFilledButton(
-                              gradient: gradient,
-                              text: "Login",
-                              onPressed: _login,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                          ]),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Don't have an account?",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: 'Poppins',
-                                color: dark,
-                                fontWeight: FontWeight.bold,
+                                style: const TextStyle(
+                                    color: Colors
+                                        .white), // Set the input text color to white
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter your email';
+                                  } else if (!value.contains('@')) {
+                                    return 'Please enter a valid email';
+                                  }
+                                  return null;
+                                },
+                                controller: _emailController,
+                                onSaved: (value) =>
+                                    _emailController.text = value!,
                               ),
-                            ),
-                            TextButton(
-                              onPressed: _showRegisterPage,
-                              child: Text(
-                                "Register",
+
+                              const SizedBox(height: 10),
+                              // password input
+                              TextFormField(
+                                controller: _passwordController,
+                                keyboardType: TextInputType.visiblePassword,
+                                obscureText: _obscureText,
+                                decoration: InputDecoration(
+                                  labelText: "Password",
+                                  labelStyle: TextStyle(color: white),
+                                  hintText: "Enter your password",
+                                  hintStyle:
+                                      const TextStyle(color: Colors.white),
+                                  suffixIcon: TextButton(
+                                    child: Text(
+                                      paswordFieldSuffixText,
+                                      style: const TextStyle(
+                                        color: lightPrimaryColor,
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        _obscureText = !_obscureText;
+                                        paswordFieldSuffixText =
+                                            (paswordFieldSuffixText == "Show")
+                                                ? "Hide"
+                                                : "Show";
+                                      });
+                                    },
+                                  ),
+                                  enabledBorder: const UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors
+                                            .white), // Warna garis saat tidak dalam fokus
+                                  ),
+                                  focusedBorder: const UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors
+                                            .white), // Warna garis saat dalam fokus
+                                  ),
+                                ),
+                                style: const TextStyle(color: Colors.white),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter your password';
+                                  } else if (value.length < 6) {
+                                    return 'Password must be at least 6 characters';
+                                  }
+                                  return null;
+                                },
+                                onSaved: (value) =>
+                                    _passwordController.text = value!,
+                              ),
+
+                              const SizedBox(height: 10),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  InkWell(
+                                    onTap: _showForgotPasswordPage,
+                                    child: Text(
+                                      "",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: 'Poppins',
+                                        color: chocolate,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 10),
+                              CustomFilledButton(
+                                gradient: gradient,
+                                width: 200,
+                                text: "Login",
+                                onPressed: _login,
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                            ]),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Don't have an account?",
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontFamily: 'Poppins',
-                                  color: chocolate,
+                                  color: white,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                              TextButton(
+                                onPressed: _showRegisterPage,
+                                child: Text(
+                                  "Register",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: 'Poppins',
+                                    color: cyan,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Login as Guest",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: 'Poppins',
+                                  color: white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: _showGuestPage,
+                                child: Text(
+                                  "Guest",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: 'Poppins',
+                                    color: cyan,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             );
           },
@@ -245,6 +348,10 @@ class _LoginScreenState extends State<LoginScreen> {
     BlocProvider.of<LoginBloc>(context).add(
       const LoginEvent.onFacebookLoginTapped(),
     );
+  }
+
+  void _showGuestPage() {
+    AutoRouter.of(context).push(const LapanganGuestScreen());
   }
 
   void _showRegisterPage() {

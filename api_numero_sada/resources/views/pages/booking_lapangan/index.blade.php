@@ -53,6 +53,9 @@
                                     <th class="text-end min-w-70px">Status</th>
                                     <th class="text-end min-w-70px">Start Play</th>
                                     <th class="text-end min-w-70px">End Play</th>
+                                    <th class="text-end min-w-70px">Price</th>
+                                    <th class="text-end min-w-70px">Add Price</th>
+                                    <th class="text-end min-w-70px">Payment Method</th>
                                     <th class="text-end min-w-100px">Actions</th>
                                 </tr>
                                 <!--end::Table row-->
@@ -119,13 +122,37 @@
                                         </td>
                                         <!--end::Status=-->
                                         <!--begin::Start Date=-->
-                                        <td class="text-end" data-request="{{ $request->start_play }}">
-                                            <span class="fw-bold">{{ $request->start_play }}</span>
+                                        <td class="text-end" data-request="{{ $request->start_time }}">
+                                            <span class="fw-bold">{{ $request->start_time }}</span>
                                         </td>
                                         <!--end::Date Added=-->
                                         <!--begin::End Date=-->
-                                        <td class="text-end" data-request="{{ $request->end_play }}">
-                                            <span class="fw-bold">{{ $request->end_play}}</span>
+                                        <td class="text-end" data-request="{{ $request->end_time }}">
+                                            <span class="fw-bold">{{ $request->end_time}}</span>
+                                        </td>
+                                        @if($request->opsiPembayaran == "Down Payment")
+                                            <td class="text-end" data-request="{{ $request->totalPrice * 0.5 }}">
+                                                <span class="fw-bold">Rp.{{number_format($request->totalPrice * 0.5, 0, ',', '.')}}</span>
+                                                
+                                            </td>
+                                        @endif
+                                        @if($request->opsiPembayaran == "Paid Off")
+                                            <td class="text-end" data-request="{{ $request->totalPrice }}">
+                                                <span class="fw-bold">Rp.{{ number_format($request->totalPrice, 0, ',', '.')}}</span>
+                                            </td>
+                                        @endif
+                                        @if($request->opsiPembayaran == "Down Payment")
+                                            <td class="text-end" data-request="{{ $request->totalPrice * 0.5 }}">
+                                                <span class="fw-bold">Rp.{{ number_format($request->totalPrice * 0.5, 0, ',', '.')}}</span>
+                                            </td>
+                                        @endif
+                                        @if($request->opsiPembayaran == "Paid Off")
+                                            <td class="text-end" data-request="">
+                                                <span class="fw-bold">Rp.0</span>
+                                            </td>
+                                        @endif
+                                        <td class="text-end" data-request="{{ $request->opsiPembayaran }}">
+                                            <span class="fw-bold">{{ $request->opsiPembayaran}}</span>
                                         </td>
                                         <!--begin::Action=-->
                                         <td class="text-end">

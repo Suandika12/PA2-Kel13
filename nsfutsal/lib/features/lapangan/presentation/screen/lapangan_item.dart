@@ -1,10 +1,11 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:nsfutsal/features/lapangan/data/models/lapangan/lapangan_model.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
+
+import 'package:nsfutsal/features/lapangan/data/models/lapangan/lapangan_model.dart';
+import 'package:nsfutsal/shared/strings.dart';
+import 'package:nsfutsal/shared/theme.dart';
 
 import '../../../../routes/app_routers.gr.dart';
-import '../../../../shared/theme.dart';
-import 'package:nsfutsal/shared/strings.dart';
 
 class LapanganItem extends StatefulWidget {
   final LapanganList lapanganList;
@@ -18,65 +19,116 @@ class LapanganItem extends StatefulWidget {
   State<LapanganItem> createState() => _LapanganItemState();
 }
 
-class _LapanganItemState extends State<LapanganItem> {
+class _LapanganItemState extends State<LapanganItem>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<Offset> _slideAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(
+          milliseconds: 600), // Ubah durasi animasi sesuai kebutuhan Anda
+    );
+
+    _slideAnimation = Tween<Offset>(
+      begin: Offset(
+          1, 0), // Mulai dari luar layar sejauh 1 kali lebar layar ke kanan
+      end: Offset.zero, // Berakhir di posisi awal (tidak ada pergeseran)
+    ).animate(CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeOut, // Ubah kurva animasi sesuai keinginan Anda
+    ));
+
+    // Memulai animasi saat halaman selesai dibangun
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _animationController.forward();
+    });
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(left: 20, right: 20),
-      child: GridView.builder(
-        itemCount: widget.lapanganList.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-        ),
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (BuildContext context, int index) {
-          return InkWell(
-            onTap: () {
-              AutoRouter.of(context)
-                  .push(LapanganDetailScreen(lapanganId: widget.lapanganList[index].id));
-            },
-            child: Container(
-              // disable if lapangan is not available
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  color: Colors.grey.withOpacity(0.5),
+    return SlideTransition(
+      position: _slideAnimation,
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(40, 0, 40, 20),
+        child: ListView.builder(
+          itemCount: widget.lapanganList.length,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (BuildContext context, int index) {
+            return InkWell(
+              onTap: () {
+                AutoRouter.of(context).push(
+                  LapanganDetailScreen(
+                      lapanganId: widget.lapanganList[index].id),
+                );
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // image lapangan
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
+                elevation: 5,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: NetworkImage(
-                            widget.lapanganList[index].image.parseBaseUrlImage),
-                        fit: BoxFit.cover,
+                      child: Container(
+                        width: double.infinity,
+                        height: 200,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              widget
+                                  .lapanganList[index].image.parseBaseUrlImage,
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    widget.lapanganList[index].name,
-                    style: TextStyle(
-                      color: dark,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                    SizedBox(height: 10),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            widget.lapanganList[index].name,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            widget.lapanganList[index].description,
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                ],
+                  ],
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

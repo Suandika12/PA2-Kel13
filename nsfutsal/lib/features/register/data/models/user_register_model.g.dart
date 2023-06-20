@@ -9,7 +9,6 @@ part of 'user_register_model.dart';
 _$_UserRegister _$$_UserRegisterFromJson(Map<String, dynamic> json) =>
     _$_UserRegister(
       id: json['id'] as int? ?? 0,
-      nik: json['nik'] as String? ?? '',
       name: json['name'] as String? ?? '',
       email: json['email'] as String? ?? '',
       password: json['password'] as String? ?? '',
@@ -23,7 +22,6 @@ _$_UserRegister _$$_UserRegisterFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_UserRegisterToJson(_$_UserRegister instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'nik': instance.nik,
       'name': instance.name,
       'email': instance.email,
       'password': instance.password,

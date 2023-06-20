@@ -54,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         const SizedBox(
                           child: Image(
-                            image: AssetImage('assets/images/bgc.jpg'),
+                            image: AssetImage('assets/images/bguser.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -85,27 +85,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               radius: 50,
                                               backgroundImage: AssetImage(
                                                 'assets/images/blank.png',
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            bottom: 0,
-                                            right: 0,
-                                            child: Container(
-                                              width: 40,
-                                              height: 40,
-                                              decoration: BoxDecoration(
-                                                gradient: gradient,
-                                                borderRadius:
-                                                    BorderRadius.circular(50),
-                                                border: Border.all(
-                                                  color: white,
-                                                  width: 2,
-                                                ),
-                                              ),
-                                              child: Icon(
-                                                Icons.edit,
-                                                color: white,
                                               ),
                                             ),
                                           ),

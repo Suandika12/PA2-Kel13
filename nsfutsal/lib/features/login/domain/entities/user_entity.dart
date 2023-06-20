@@ -1,6 +1,5 @@
 class UserEntity {
   final int id;
-  final String nik;
   final String name;
   final String email;
   final String phone;
@@ -9,7 +8,6 @@ class UserEntity {
 
   const UserEntity(
     this.id,
-    this.nik,
     this.name,
     this.email,
     this.phone,

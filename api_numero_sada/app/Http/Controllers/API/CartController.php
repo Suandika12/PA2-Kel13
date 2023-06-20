@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Cart\CartCollection;
+use App\Http\Resources\Product\ProductResource;
+use App\Http\Resources\Product\ProductCollection;
 use App\Http\Resources\Cart\CartResource;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
 
 class CartController extends Controller
 {
@@ -32,6 +35,21 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $product = Product::find($request->product_id);
+        if (!$product) {
+            return ResponseFormatter::error(
+                null,
+                'Produk tidak ditemukan',
+                400
+            );
+        }
+        if ($product->quantity < $request->quantity) {
+            return ResponseFormatter::error(
+                null,
+                'Stok produk tidak mencukupi',
+                400
+            )->withCross();
+        }
         $data['user_id'] = Auth::user()->id;
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $data['product_id'])->first();
         if ($cart) {
@@ -50,19 +68,42 @@ class CartController extends Controller
         }
     }
 
+
+    /**
+     * increase the specified resource from storage.
+     */
     /**
      * increase the specified resource from storage.
      */
     public function increase($id)
     {
         $item = Cart::findOrFail($id);
-        $item->quantity = $item->quantity + 1;
-        $item->save();
-        return ResponseFormatter::success(
-            CartResource::make($item),
-            'Data cart berhasil ditambahkan'
-        );
+        $product = $item->product;
+
+        if ($product->quantity > $item->quantity) {
+            $item->quantity = $item->quantity + 1;
+            $item->save();
+
+            return ResponseFormatter::success(
+                new CartResource($item),
+                'Data cart berhasil ditambahkan'
+            );
+        } else {
+            return ResponseFormatter::error(
+                null,
+                'Stok produk tidak mencukupi',
+                400
+            );
+        }
     }
+
+
+    /**
+     * decrease the specified resource from storage.
+     *
+     */
+
+
     /**
      * update the specified resource from storage.
      *

@@ -24,7 +24,7 @@ class BookingLapanganController extends Controller
             ->orderBy('created_at', 'DESC')->get();
         return ResponseFormatter::success(
             new BookingLapanganCollection($bookingLapangan),
-            'Data list request rooms berhasil diambil'
+            'Data list booking lapangan berhasil diambil'
         );
     }
 
@@ -39,13 +39,13 @@ class BookingLapanganController extends Controller
         $bookingLapangan = BookingLapangan::find($id);
         if ($bookingLapangan) {
             return ResponseFormatter::success(
-                $bookingLapangan,
-                'Data detail request room berhasil diambil'
+                new BookingLapanganCollection($bookingLapangan),
+                'Data detail request lapangan berhasil diambil'
             );
         } else {
             return ResponseFormatter::error(
                 null,
-                'Data request room tidak ada',
+                'Data request lapangan tidak ada',
                 404
             );
         }
@@ -59,21 +59,60 @@ class BookingLapanganController extends Controller
      */
     public function store(Request $request)
     {
+        // Validasi waktu yang sama
+        $startTime = date('H:i', strtotime(explode(' ', $request->start_time)[0]));
+        $endTime = date('H:i', strtotime(explode(' ', $request->end_time)[0]));
+        $existingBooking = BookingLapangan::where('lapangan_id', $request->lapangan_id)
+            ->where(function ($query) use ($startTime, $endTime) {
+                $query->where(function ($q) use ($startTime, $endTime) {
+                    $q->where('start_time', '<=', $startTime)
+                        ->where('end_time', '>=', $startTime);
+                })->orWhere(function ($q) use ($startTime, $endTime) {
+                    $q->where('start_time', '>=', $startTime)
+                        ->where('end_time', '<=', $endTime);
+                })->orWhere(function ($q) use ($startTime, $endTime) {
+                    $q->where('start_time', '<=', $endTime)
+                        ->where('end_time', '>=', $endTime);
+                });
+            })
+            ->first();
+
+        if ($existingBooking) {
+            return ResponseFormatter::error(
+                null,
+                'The selected time has been used by another user',
+            );
+        }
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/buktipembayaran/'), $imageName);
+        }
+
+        $durasi = $request->durasi;
+        $hargaPerJam = 100000;
+        $totalPrice = $durasi * $hargaPerJam;
+
         $bookingLapangan = BookingLapangan::create([
-            'user_id' => Auth::user()->id, // auth('api')->user() = user yang sedang login (user yang sedang login adalah user yang membuat request room
-            'room_id' => $request->room_id,
-            'description' => $request->description,
-            'status' => 'Pending',
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
+            'user_id' => Auth::user()->id,
+            'lapangan_id' => $request->lapangan_id,
+            'opsiPembayaran' => $request->opsiPembayaran,
+            'start_time' => date('H:i', strtotime(explode(' ', $request->start_time)[0])),
+            'end_time' => date('H:i', strtotime(explode(' ', $request->end_time)[0])),
+            'durasi' => $request->durasi,
+            'price' => $hargaPerJam,
+            'totalPrice' => $totalPrice,
+            'image' => $imageName
         ]);
 
+        $bookingLapangan->save();
+
         return ResponseFormatter::success(
-            BookingLapanganResource::make($bookingLapangan),
-            'Data request room berhasil ditambahkan'
+            $bookingLapangan,
+            'Booking has succsesfully been created'
         );
     }
-
     /**
      * Update status request room to canceled.
      *
@@ -86,17 +125,17 @@ class BookingLapanganController extends Controller
         $bookingLapangan = BookingLapangan::find($id);
         if ($bookingLapangan) {
             $bookingLapangan->update([
-                'status' => 'Cancelled',
+                'status' => 'Denied',
             ]);
 
             return ResponseFormatter::success(
                 BookingLapanganResource::make($bookingLapangan),
-                'Data request room berhasil dibatalkan'
+                'Data request lapangan berhasil dibatalkan'
             );
         } else {
             return ResponseFormatter::error(
                 null,
-                'Data request room tidak ada',
+                'Data request lapangan tidak ada',
                 404
             );
         }

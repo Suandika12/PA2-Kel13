@@ -11,12 +11,10 @@ class BookingLapangan with _$BookingLapangan {
   const factory BookingLapangan({
     required int id,
     required Lapangan lapangan,
-    required String description,
+    required String opsiPembayaran,
     required String status,
-    required String startDate,
-    required String endDate,
-    required String createdAt,
-    required String updatedAt,
+    required String startTime,
+    required String endTime,
   }) = _BookingLapangan;
 
   factory BookingLapangan.fromJson(Map<String, dynamic> json) =>

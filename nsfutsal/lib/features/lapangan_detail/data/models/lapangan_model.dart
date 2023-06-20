@@ -10,10 +10,12 @@ class Lapangan with _$Lapangan {
   factory Lapangan({
     @Default(0) int id,
     @Default('') String name,
-    @Default('') String description,
+    @Default('') String opsiPembayaran,
     @Default('') String image,
     @Default('') String status,
+    @Default(0) int price,
   }) = _Lapangan;
 
-  factory Lapangan.fromJson(Map<String, Object?> json) => _$LapanganFromJson(json);
+  factory Lapangan.fromJson(Map<String, Object?> json) =>
+      _$LapanganFromJson(json);
 }

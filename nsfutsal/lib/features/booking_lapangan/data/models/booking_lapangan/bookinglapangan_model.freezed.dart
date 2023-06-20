@@ -22,12 +22,10 @@ BookingLapangan _$BookingLapanganFromJson(Map<String, dynamic> json) {
 mixin _$BookingLapangan {
   int get id => throw _privateConstructorUsedError;
   Lapangan get lapangan => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  String get opsiPembayaran => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
-  String get startDate => throw _privateConstructorUsedError;
-  String get endDate => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String get startTime => throw _privateConstructorUsedError;
+  String get endTime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,12 +42,10 @@ abstract class $BookingLapanganCopyWith<$Res> {
   $Res call(
       {int id,
       Lapangan lapangan,
-      String description,
+      String opsiPembayaran,
       String status,
-      String startDate,
-      String endDate,
-      String createdAt,
-      String updatedAt});
+      String startTime,
+      String endTime});
 
   $LapanganCopyWith<$Res> get lapangan;
 }
@@ -69,12 +65,10 @@ class _$BookingLapanganCopyWithImpl<$Res, $Val extends BookingLapangan>
   $Res call({
     Object? id = null,
     Object? lapangan = null,
-    Object? description = null,
+    Object? opsiPembayaran = null,
     Object? status = null,
-    Object? startDate = null,
-    Object? endDate = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? startTime = null,
+    Object? endTime = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -85,29 +79,21 @@ class _$BookingLapanganCopyWithImpl<$Res, $Val extends BookingLapangan>
           ? _value.lapangan
           : lapangan // ignore: cast_nullable_to_non_nullable
               as Lapangan,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
+      opsiPembayaran: null == opsiPembayaran
+          ? _value.opsiPembayaran
+          : opsiPembayaran // ignore: cast_nullable_to_non_nullable
               as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
+      startTime: null == startTime
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
               as String,
-      endDate: null == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      endTime: null == endTime
+          ? _value.endTime
+          : endTime // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -132,12 +118,10 @@ abstract class _$$_BookingLapanganCopyWith<$Res>
   $Res call(
       {int id,
       Lapangan lapangan,
-      String description,
+      String opsiPembayaran,
       String status,
-      String startDate,
-      String endDate,
-      String createdAt,
-      String updatedAt});
+      String startTime,
+      String endTime});
 
   @override
   $LapanganCopyWith<$Res> get lapangan;
@@ -156,12 +140,10 @@ class __$$_BookingLapanganCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? lapangan = null,
-    Object? description = null,
+    Object? opsiPembayaran = null,
     Object? status = null,
-    Object? startDate = null,
-    Object? endDate = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? startTime = null,
+    Object? endTime = null,
   }) {
     return _then(_$_BookingLapangan(
       id: null == id
@@ -172,29 +154,21 @@ class __$$_BookingLapanganCopyWithImpl<$Res>
           ? _value.lapangan
           : lapangan // ignore: cast_nullable_to_non_nullable
               as Lapangan,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
+      opsiPembayaran: null == opsiPembayaran
+          ? _value.opsiPembayaran
+          : opsiPembayaran // ignore: cast_nullable_to_non_nullable
               as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
+      startTime: null == startTime
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
               as String,
-      endDate: null == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
+      endTime: null == endTime
+          ? _value.endTime
+          : endTime // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -206,12 +180,10 @@ class _$_BookingLapangan implements _BookingLapangan {
   const _$_BookingLapangan(
       {required this.id,
       required this.lapangan,
-      required this.description,
+      required this.opsiPembayaran,
       required this.status,
-      required this.startDate,
-      required this.endDate,
-      required this.createdAt,
-      required this.updatedAt});
+      required this.startTime,
+      required this.endTime});
 
   factory _$_BookingLapangan.fromJson(Map<String, dynamic> json) =>
       _$$_BookingLapanganFromJson(json);
@@ -221,21 +193,17 @@ class _$_BookingLapangan implements _BookingLapangan {
   @override
   final Lapangan lapangan;
   @override
-  final String description;
+  final String opsiPembayaran;
   @override
   final String status;
   @override
-  final String startDate;
+  final String startTime;
   @override
-  final String endDate;
-  @override
-  final String createdAt;
-  @override
-  final String updatedAt;
+  final String endTime;
 
   @override
   String toString() {
-    return 'BookingLapangan(id: $id, lapangan: $lapangan, description: $description, status: $status, startDate: $startDate, endDate: $endDate, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'BookingLapangan(id: $id, lapangan: $lapangan, opsiPembayaran: $opsiPembayaran, status: $status, startTime: $startTime, endTime: $endTime)';
   }
 
   @override
@@ -246,22 +214,18 @@ class _$_BookingLapangan implements _BookingLapangan {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.lapangan, lapangan) ||
                 other.lapangan == lapangan) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            (identical(other.opsiPembayaran, opsiPembayaran) ||
+                other.opsiPembayaran == opsiPembayaran) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.startDate, startDate) ||
-                other.startDate == startDate) &&
-            (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+            (identical(other.startTime, startTime) ||
+                other.startTime == startTime) &&
+            (identical(other.endTime, endTime) || other.endTime == endTime));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, lapangan, description,
-      status, startDate, endDate, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+      runtimeType, id, lapangan, opsiPembayaran, status, startTime, endTime);
 
   @JsonKey(ignore: true)
   @override
@@ -281,12 +245,10 @@ abstract class _BookingLapangan implements BookingLapangan {
   const factory _BookingLapangan(
       {required final int id,
       required final Lapangan lapangan,
-      required final String description,
+      required final String opsiPembayaran,
       required final String status,
-      required final String startDate,
-      required final String endDate,
-      required final String createdAt,
-      required final String updatedAt}) = _$_BookingLapangan;
+      required final String startTime,
+      required final String endTime}) = _$_BookingLapangan;
 
   factory _BookingLapangan.fromJson(Map<String, dynamic> json) =
       _$_BookingLapangan.fromJson;
@@ -296,17 +258,13 @@ abstract class _BookingLapangan implements BookingLapangan {
   @override
   Lapangan get lapangan;
   @override
-  String get description;
+  String get opsiPembayaran;
   @override
   String get status;
   @override
-  String get startDate;
+  String get startTime;
   @override
-  String get endDate;
-  @override
-  String get createdAt;
-  @override
-  String get updatedAt;
+  String get endTime;
   @override
   @JsonKey(ignore: true)
   _$$_BookingLapanganCopyWith<_$_BookingLapangan> get copyWith =>

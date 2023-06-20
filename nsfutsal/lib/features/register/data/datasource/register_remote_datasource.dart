@@ -24,7 +24,6 @@ class RegisterRemoteDataSourceImpl implements RegisterRemoteDataSource {
     try {
       var userRegister = UserRegister(
           id: user.id,
-          nik: user.nik,
           name: user.name,
           email: user.email,
           password: user.password,

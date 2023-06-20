@@ -67,8 +67,17 @@ class BookingItem extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
+          // Text(
+          //   'Booking On : ${bookingLapangan.createdAt}',
+          //   style: TextStyle(
+          //     color: dark.withOpacity(0.5),
+          //     fontSize: 14,
+          //     fontWeight: FontWeight.w600,
+          //   ),
+          // ),
+          const SizedBox(height: 10),
           Text(
-            'Booking On : ${bookingLapangan.createdAt}',
+            'Start Time: ${bookingLapangan.startTime}',
             style: TextStyle(
               color: dark.withOpacity(0.5),
               fontSize: 14,
@@ -77,16 +86,7 @@ class BookingItem extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            'Start Date: ${bookingLapangan.startDate}',
-            style: TextStyle(
-              color: dark.withOpacity(0.5),
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            'End Date: ${bookingLapangan.endDate}',
+            'End Time: ${bookingLapangan.endTime}',
             style: TextStyle(
               color: dark.withOpacity(0.5),
               fontSize: 14,

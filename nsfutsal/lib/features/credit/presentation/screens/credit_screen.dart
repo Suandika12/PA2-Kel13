@@ -1,16 +1,10 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:nsfutsal/routes/app_routers.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import '../../../navigation/presentation/screens/bottom_navigation_bar_screen.dart';
 
-import '../../../../shared/theme.dart';
 import '../bloc/credit_bloc.dart';
-import '../bloc/credit_state.dart';
 import '../bloc/credit_event.dart';
-import '../shared/custom_text_form_field.dart';
-import 'credit_item.dart';
 
 List<Ogrenci> tumOgrenciler = List.generate(
   500,
@@ -121,31 +115,6 @@ class _CreditScreenState extends State<CreditScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: chocolate2,
-        elevation: 0,
-        title: Text(
-          'Pinjam Ruangan',
-          style: TextStyle(
-            color: white,
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: white,
-            size: 30,
-          ),
-          onPressed: () {
-            AutoRouter.of(context).pushAndPopUntil(
-              const HomeScreen(),
-              predicate: (_) => false,
-            );
-          },
-        ),
-      ),  
       body: ListView.separated(
         itemBuilder: (context, index) {
           var oankiOgrenci = tumOgrenciler[index];
@@ -181,6 +150,7 @@ class _CreditScreenState extends State<CreditScreen> {
         },
         itemCount: tumOgrenciler.length,
       ),
+      bottomNavigationBar: const NavigationBarScreen(),
     );
   }
 }

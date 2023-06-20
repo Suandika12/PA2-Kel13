@@ -50,7 +50,7 @@
                             <!--begin::Card header-->
                             <div class="card-header">
                                 <div class="card-title">
-                                    <h2>Order Details ({{$order->code}})</h2>
+                                    <h2>Order Details ({{ $order->code }})</h2>
                                 </div>
                             </div>
                             <!--end::Card header-->
@@ -80,7 +80,7 @@
                                                         <!--end::Svg Icon-->Date Added
                                                     </div>
                                                 </td>
-                                                <td class="fw-bold text-end">{{$order->created_at}}</td>
+                                                <td class="fw-bold text-end">{{ $order->created_at }}</td>
                                             </tr>
                                             <!--end::Date-->
                                             <!--begin::Payment method-->
@@ -105,7 +105,7 @@
                                                         <!--end::Svg Icon-->Payment Method
                                                     </div>
                                                 </td>
-                                                <td class="fw-bold text-end">{{$order->payment_method}}
+                                                <td class="fw-bold text-end">{{ $order->payment_method }}
                                                 </td>
                                             </tr>
                                             <!--end::Payment method-->
@@ -236,24 +236,7 @@
                             <div class="d-flex flex-column gap-7 gap-lg-10">
                                 <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
                                     <!--begin::Payment address-->
-                                    <div class="card card-flush py-4 flex-row-fluid overflow-hidden">
-                                        <!--begin::Background-->
-                                        <div class="position-absolute top-0 end-0 opacity-10 pe-none text-end">
-                                            <img src="assets/media/icons/duotune/ecommerce/ecm001.svg" class="w-175px" />
-                                        </div>
-                                        <!--end::Background-->
-                                        <!--begin::Card header-->
-                                        <div class="card-header">
-                                            <div class="card-title">
-                                                <h2>Payment</h2>
-                                            </div>
-                                        </div>
-                                        <!--end::Card header-->
-                                        <!--begin::Card body-->
-                                        <div class="card-body pt-0">{{ $order->buktipembayaran }}
-                                        </div>
-                                        <!--end::Card body-->
-                                    </div>
+
                                     <!--end::Payment address-->
                                     <!--begin::Shipping address-->
                                     <div class="card card-flush py-4 flex-row-fluid overflow-hidden">
@@ -270,7 +253,7 @@
                                         </div>
                                         <!--end::Card header-->
                                         <!--begin::Card body-->
-                                        <div class="card-body pt-0">{{ $order->buktipembayaran }}
+                                        <div class="card-body pt-0">{{ $order->alamat }}
                                         </div>
                                         <!--end::Card body-->
                                     </div>
@@ -297,21 +280,27 @@
                                                 </span>
                                             </a>
                                             <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                        data-kt-menu="true">
-                                            <div class="menu-item px-3">
-                                                <a href="javascript:;" onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{route('orders.completed',$order->id)}}');" class="menu-link px-3">Completed</a>
-                                            </div>   
-                                            <div class="menu-item px-3">
-                                                <a href="javascript:;" onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{route('orders.process',$order->id)}}');" class="menu-link px-3">Processing</a>
-                                            </div>
-                                            <div class="menu-item px-3">
-                                                <a href="javascript:;" onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{route('orders.deny',$order->id)}}');" class="menu-link px-3">Denied</a>
-                                            </div>
-                                            {{-- <div class="menu-item px-3">
+                                                data-kt-menu="true">
+                                                <div class="menu-item px-3">
+                                                    <a href="javascript:;"
+                                                        onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{ route('orders.completed', $order->id) }}');"
+                                                        class="menu-link px-3">Completed</a>
+                                                </div>
+                                                <div class="menu-item px-3">
+                                                    <a href="javascript:;"
+                                                        onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{ route('orders.process', $order->id) }}');"
+                                                        class="menu-link px-3">Processing</a>
+                                                </div>
+                                                <div class="menu-item px-3">
+                                                    <a href="javascript:;"
+                                                        onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{ route('orders.deny', $order->id) }}');"
+                                                        class="menu-link px-3">Denied</a>
+                                                </div>
+                                                {{-- <div class="menu-item px-3">
                                                 <a href="javascript:;" data-kt-ecommerce-order-filter="delete_row" class="menu-link px-3">Hapus Order</a>                                                         
                                             </div> --}}
+                                            </div>
                                         </div>
-                                    </div>
                                     </div>
                                     <!--end::Card header-->
                                     <!--begin::Card body-->
@@ -333,44 +322,49 @@
                                                 <!--begin::Table body-->
                                                 <tbody class="fw-semibold text-gray-600">
                                                     <!--begin::Products-->
-                                                    <?php $total = 0; ?> <!-- Inisialisasi variabel total di luar loop -->
-                                                    @foreach($product as $products)
-                                                    <tr>
-                                                        <!--begin::Product-->
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <!--begin::Thumbnail-->
-                                                                <a class="symbol symbol-50px">
-                                                                    <span class="symbol-label"
-                                                                        style="background-image:url('{{ asset('images/products/' . $products->image) }}')"></span>
-                                                                </a>
-                                                                <!--end::Thumbnail-->
-                                                                <!--begin::Title-->
-                                                                <div class="ms-5">
-                                                                    <a class="fw-bold text-gray-600 text-hover-primary">{{ $products->name }}</a>
-                                                                    {{-- <div class="fs-7 text-muted">Delivery Date: 23/11/2022
+                                                    <?php $total = 0; ?>
+                                                    <!-- Inisialisasi variabel total di luar loop -->
+                                                    @foreach ($product as $products)
+                                                        <tr>
+                                                            <!--begin::Product-->
+                                                            <td>
+                                                                <div class="d-flex align-items-center">
+                                                                    <!--begin::Thumbnail-->
+                                                                    <a class="symbol symbol-50px">
+                                                                        <span class="symbol-label"
+                                                                            style="background-image:url('{{ asset('images/products/' . $products->image) }}')"></span>
+                                                                    </a>
+                                                                    <!--end::Thumbnail-->
+                                                                    <!--begin::Title-->
+                                                                    <div class="ms-5">
+                                                                        <a
+                                                                            class="fw-bold text-gray-600 text-hover-primary">{{ $products->name }}</a>
+                                                                        {{-- <div class="fs-7 text-muted">Delivery Date: 23/11/2022
                                                                     </div> --}}
+                                                                    </div>
+                                                                    <!--end::Title-->
                                                                 </div>
-                                                                <!--end::Title-->
-                                                            </div>
-                                                        </td>
-                                                        <!--end::Product-->
-                                                        <!--begin::SKU-->
-                                                        <td class="text-end">{{ $products->sku }}</td>
-                                                        <!--end::SKU-->
-                                                        <!--begin::Quantity-->
-                                                        <td class="text-end">{{ $products->quantity }}</td>
-                                                        <!--end::Quantity-->
-                                                        <!--begin::Price-->
-                                                        <td class="text-end">Rp.{{number_format($products->price, 0, ',', '.')}}</td>
-                                                        <!--end::Price-->
-                                                        <!--begin::Total-->
-                                                        <td class="text-end">Rp.{{number_format($products->price * $products->quantity)}}</td>
-                                                        <!--end::Total-->
-                                                        <?php
+                                                            </td>
+                                                            <!--end::Product-->
+                                                            <!--begin::SKU-->
+                                                            <td class="text-end">{{ $products->sku }}</td>
+                                                            <!--end::SKU-->
+                                                            <!--begin::Quantity-->
+                                                            <td class="text-end">{{ $products->quantity }}</td>
+                                                            <!--end::Quantity-->
+                                                            <!--begin::Price-->
+                                                            <td class="text-end">
+                                                                Rp.{{ number_format($products->price, 0, ',', '.') }}</td>
+                                                            <!--end::Price-->
+                                                            <!--begin::Total-->
+                                                            <td class="text-end">
+                                                                Rp.{{ number_format($products->price * $products->quantity) }}
+                                                            </td>
+                                                            <!--end::Total-->
+                                                            <?php
                                                             $total += $products->price * $products->quantity; // Menambahkan harga setiap produk ke variabel total
-                                                        ?>
-                                                    </tr>
+                                                            ?>
+                                                        </tr>
                                                     @endforeach
                                                     <!--end::Products-->
                                                     <!--begin::Subtotal-->
@@ -384,11 +378,11 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            
+
                                                         </td>
                                                     </tr>
                                                     <!--end::Grand total-->
-                                                </tbody>                                                
+                                                </tbody>
                                                 <!--end::Table head-->
                                             </table>
                                             <!--end::Table-->
@@ -398,8 +392,8 @@
                                 </div>
                                 <!--end::Product List-->
                             </div>
-                                
-                                
+
+
                             <!--end::Orders-->
                         </div>
                         <!--end::Tab pane-->

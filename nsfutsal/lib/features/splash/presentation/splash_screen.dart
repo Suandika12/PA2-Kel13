@@ -2,8 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nsfutsal/core/service_locator.dart';
 import 'package:nsfutsal/features/splash/domain/usecase/check_user_login_status.dart';
-import 'package:nsfutsal/routes/app_routers.gr.dart';
+// import 'package:nsfutsal/routes/app_routers.gr.dart';
 import 'package:nsfutsal/shared/theme.dart';
+
+import '../../../routes/app_routers.gr.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -24,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
             .checkIfUserLoggedIn()
             .then((isUserLoggedIn) {
           AutoRouter.of(context).pushAndPopUntil(
-            isUserLoggedIn ? const HomeScreen() : const LoginScreen(),
+            isUserLoggedIn ? const LapanganGuestScreen() : const LoginScreen(),
             predicate: (_) => false,
           );
         });
@@ -41,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
-              const SizedBox(
+              SizedBox(
                 height: 300,
                 width: 300,
                 child: Image(
@@ -53,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
               SizedBox(
                 width: 200.0,
                 child: LinearProgressIndicator(),
-              ),  
+              ),
             ],
           ),
         ),

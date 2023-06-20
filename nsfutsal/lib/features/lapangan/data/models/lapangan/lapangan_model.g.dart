@@ -14,7 +14,8 @@ _$_Lapangan _$$_LapanganFromJson(Map<String, dynamic> json) => _$_Lapangan(
       status: json['status'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_LapanganToJson(_$_Lapangan instance) => <String, dynamic>{
+Map<String, dynamic> _$$_LapanganToJson(_$_Lapangan instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'description': instance.description,

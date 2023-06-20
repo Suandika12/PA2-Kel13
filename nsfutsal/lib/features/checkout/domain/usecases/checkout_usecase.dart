@@ -6,7 +6,7 @@ import '../../data/models/order/order_model.dart';
 import '../repository/checkout_repository.dart';
 
 class CheckoutUseCase {
-  Future<Either<Failure, OrderModel>> checkout(String paymentMethod) {
-    return serviceLocator<CheckoutRepository>().checkout(paymentMethod);
+  Future<Either<Failure, OrderModel>> checkout(String paymentMethod,String alamat) {
+    return serviceLocator<CheckoutRepository>().checkout(paymentMethod,alamat);
   }
 }

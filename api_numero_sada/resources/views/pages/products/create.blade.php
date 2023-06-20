@@ -1,11 +1,11 @@
 @extends('layouts.master')
-@section('title', 'Create Hidangan')
-@section('page', 'Hidangan')
+@section('title', 'Create Dish')
+@section('page', 'Dish')
 @section('breadcrumb')
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">
         <!--begin::Item-->
-        <li class="breadcrumb-item text-muted">Hidangan</li>
+        <li class="breadcrumb-item text-muted">Dish</li>
         <!--end::Item-->
         <!--begin::Item-->
         <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
         </li>
         <!--end::Item-->
         <!--begin::Item-->
-        <li class="breadcrumb-item text-dark">Add Hidangan</li>
+        <li class="breadcrumb-item text-dark">Add Dish</li>
         <!--end::Item-->
     </ul>
     <!--end::Breadcrumb-->
@@ -115,8 +115,8 @@
                                 <select class="form-select mb-2" data-control="select2" data-placeholder="Select an option"
                                     name="category">
                                     <option></option>
-                                    <option value="Makanan">Makanan</option>
-                                    <option value="Minuman">Minuman</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Drink">Drink</option>
                                 </select>
                                 <!--end::Select2-->
                                 <!--begin::Description-->
@@ -147,8 +147,8 @@
                                     <label class="required form-label">Dish Name</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" name="name" class="form-control mb-2"
-                                        placeholder="Hidangan Name" value="" />
+                                    <input type="text" name="name" class="form-control mb-2" placeholder="Dish Name"
+                                        value="" />
                                     <!--end::Input-->
                                     <!--begin::Description-->
                                     <div class="text-muted fs-7">A Dish name is required and recommended to be unique.
@@ -159,10 +159,10 @@
                                 <!--begin::Input group-->
                                 <div class="mb-10 fv-row">
                                     <!--begin::Label-->
-                                    <label class="required form-label">SKU</label>
+                                    <label class="required form-label">Code Dish</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" name="sku" class="form-control mb-2" placeholder="SKU"
+                                    <input type="text" name="sku" class="form-control mb-2" placeholder="Code Dish"
                                         value="" />
                                     <!--end::Input-->
                                     <!--begin::Description-->

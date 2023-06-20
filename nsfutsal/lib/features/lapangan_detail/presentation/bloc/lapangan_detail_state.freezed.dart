@@ -50,7 +50,8 @@ mixin _$LapanganDetailState {
     required TResult Function(LapanganDetailLoadingState value) loading,
     required TResult Function(LapanganDetailErrorState value) error,
     required TResult Function(LapanganDetailLoadedState value) loadedState,
-    required TResult Function(LapanganDetailRequestedState value) requestedState,
+    required TResult Function(LapanganDetailRequestedState value)
+        requestedState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -94,16 +95,19 @@ class _$LapanganDetailStateCopyWithImpl<$Res, $Val extends LapanganDetailState>
 
 /// @nodoc
 abstract class _$$LapanganDetailInitialStateCopyWith<$Res> {
-  factory _$$LapanganDetailInitialStateCopyWith(_$LapanganDetailInitialState value,
+  factory _$$LapanganDetailInitialStateCopyWith(
+          _$LapanganDetailInitialState value,
           $Res Function(_$LapanganDetailInitialState) then) =
       __$$LapanganDetailInitialStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$LapanganDetailInitialStateCopyWithImpl<$Res>
-    extends _$LapanganDetailStateCopyWithImpl<$Res, _$LapanganDetailInitialState>
+    extends _$LapanganDetailStateCopyWithImpl<$Res,
+        _$LapanganDetailInitialState>
     implements _$$LapanganDetailInitialStateCopyWith<$Res> {
-  __$$LapanganDetailInitialStateCopyWithImpl(_$LapanganDetailInitialState _value,
+  __$$LapanganDetailInitialStateCopyWithImpl(
+      _$LapanganDetailInitialState _value,
       $Res Function(_$LapanganDetailInitialState) _then)
       : super(_value, _then);
 }
@@ -121,7 +125,8 @@ class _$LapanganDetailInitialState implements LapanganDetailInitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LapanganDetailInitialState);
+        (other.runtimeType == runtimeType &&
+            other is _$LapanganDetailInitialState);
   }
 
   @override
@@ -174,7 +179,8 @@ class _$LapanganDetailInitialState implements LapanganDetailInitialState {
     required TResult Function(LapanganDetailLoadingState value) loading,
     required TResult Function(LapanganDetailErrorState value) error,
     required TResult Function(LapanganDetailLoadedState value) loadedState,
-    required TResult Function(LapanganDetailRequestedState value) requestedState,
+    required TResult Function(LapanganDetailRequestedState value)
+        requestedState,
   }) {
     return initial(this);
   }
@@ -214,16 +220,19 @@ abstract class LapanganDetailInitialState implements LapanganDetailState {
 
 /// @nodoc
 abstract class _$$LapanganDetailLoadingStateCopyWith<$Res> {
-  factory _$$LapanganDetailLoadingStateCopyWith(_$LapanganDetailLoadingState value,
+  factory _$$LapanganDetailLoadingStateCopyWith(
+          _$LapanganDetailLoadingState value,
           $Res Function(_$LapanganDetailLoadingState) then) =
       __$$LapanganDetailLoadingStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$LapanganDetailLoadingStateCopyWithImpl<$Res>
-    extends _$LapanganDetailStateCopyWithImpl<$Res, _$LapanganDetailLoadingState>
+    extends _$LapanganDetailStateCopyWithImpl<$Res,
+        _$LapanganDetailLoadingState>
     implements _$$LapanganDetailLoadingStateCopyWith<$Res> {
-  __$$LapanganDetailLoadingStateCopyWithImpl(_$LapanganDetailLoadingState _value,
+  __$$LapanganDetailLoadingStateCopyWithImpl(
+      _$LapanganDetailLoadingState _value,
       $Res Function(_$LapanganDetailLoadingState) _then)
       : super(_value, _then);
 }
@@ -241,7 +250,8 @@ class _$LapanganDetailLoadingState implements LapanganDetailLoadingState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LapanganDetailLoadingState);
+        (other.runtimeType == runtimeType &&
+            other is _$LapanganDetailLoadingState);
   }
 
   @override
@@ -294,7 +304,8 @@ class _$LapanganDetailLoadingState implements LapanganDetailLoadingState {
     required TResult Function(LapanganDetailLoadingState value) loading,
     required TResult Function(LapanganDetailErrorState value) error,
     required TResult Function(LapanganDetailLoadedState value) loadedState,
-    required TResult Function(LapanganDetailRequestedState value) requestedState,
+    required TResult Function(LapanganDetailRequestedState value)
+        requestedState,
   }) {
     return loading(this);
   }
@@ -390,9 +401,10 @@ class _$LapanganDetailErrorState implements LapanganDetailErrorState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LapanganDetailErrorStateCopyWith<_$LapanganDetailErrorState> get copyWith =>
-      __$$LapanganDetailErrorStateCopyWithImpl<_$LapanganDetailErrorState>(
-          this, _$identity);
+  _$$LapanganDetailErrorStateCopyWith<_$LapanganDetailErrorState>
+      get copyWith =>
+          __$$LapanganDetailErrorStateCopyWithImpl<_$LapanganDetailErrorState>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -441,7 +453,8 @@ class _$LapanganDetailErrorState implements LapanganDetailErrorState {
     required TResult Function(LapanganDetailLoadingState value) loading,
     required TResult Function(LapanganDetailErrorState value) error,
     required TResult Function(LapanganDetailLoadedState value) loadedState,
-    required TResult Function(LapanganDetailRequestedState value) requestedState,
+    required TResult Function(LapanganDetailRequestedState value)
+        requestedState,
   }) {
     return error(this);
   }
@@ -481,13 +494,14 @@ abstract class LapanganDetailErrorState implements LapanganDetailState {
 
   String get message;
   @JsonKey(ignore: true)
-  _$$LapanganDetailErrorStateCopyWith<_$LapanganDetailErrorState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$LapanganDetailErrorStateCopyWith<_$LapanganDetailErrorState>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$LapanganDetailLoadedStateCopyWith<$Res> {
-  factory _$$LapanganDetailLoadedStateCopyWith(_$LapanganDetailLoadedState value,
+  factory _$$LapanganDetailLoadedStateCopyWith(
+          _$LapanganDetailLoadedState value,
           $Res Function(_$LapanganDetailLoadedState) then) =
       __$$LapanganDetailLoadedStateCopyWithImpl<$Res>;
   @useResult
@@ -544,7 +558,8 @@ class _$LapanganDetailLoadedState implements LapanganDetailLoadedState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LapanganDetailLoadedState &&
-            (identical(other.lapangan, lapangan) || other.lapangan == lapangan));
+            (identical(other.lapangan, lapangan) ||
+                other.lapangan == lapangan));
   }
 
   @override
@@ -553,9 +568,9 @@ class _$LapanganDetailLoadedState implements LapanganDetailLoadedState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LapanganDetailLoadedStateCopyWith<_$LapanganDetailLoadedState> get copyWith =>
-      __$$LapanganDetailLoadedStateCopyWithImpl<_$LapanganDetailLoadedState>(
-          this, _$identity);
+  _$$LapanganDetailLoadedStateCopyWith<_$LapanganDetailLoadedState>
+      get copyWith => __$$LapanganDetailLoadedStateCopyWithImpl<
+          _$LapanganDetailLoadedState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -604,7 +619,8 @@ class _$LapanganDetailLoadedState implements LapanganDetailLoadedState {
     required TResult Function(LapanganDetailLoadingState value) loading,
     required TResult Function(LapanganDetailErrorState value) error,
     required TResult Function(LapanganDetailLoadedState value) loadedState,
-    required TResult Function(LapanganDetailRequestedState value) requestedState,
+    required TResult Function(LapanganDetailRequestedState value)
+        requestedState,
   }) {
     return loadedState(this);
   }
@@ -644,13 +660,14 @@ abstract class LapanganDetailLoadedState implements LapanganDetailState {
 
   Lapangan get lapangan;
   @JsonKey(ignore: true)
-  _$$LapanganDetailLoadedStateCopyWith<_$LapanganDetailLoadedState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$LapanganDetailLoadedStateCopyWith<_$LapanganDetailLoadedState>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$LapanganDetailRequestedStateCopyWith<$Res> {
-  factory _$$LapanganDetailRequestedStateCopyWith(_$LapanganDetailRequestedState value,
+  factory _$$LapanganDetailRequestedStateCopyWith(
+          _$LapanganDetailRequestedState value,
           $Res Function(_$LapanganDetailRequestedState) then) =
       __$$LapanganDetailRequestedStateCopyWithImpl<$Res>;
   @useResult
@@ -659,9 +676,11 @@ abstract class _$$LapanganDetailRequestedStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$LapanganDetailRequestedStateCopyWithImpl<$Res>
-    extends _$LapanganDetailStateCopyWithImpl<$Res, _$LapanganDetailRequestedState>
+    extends _$LapanganDetailStateCopyWithImpl<$Res,
+        _$LapanganDetailRequestedState>
     implements _$$LapanganDetailRequestedStateCopyWith<$Res> {
-  __$$LapanganDetailRequestedStateCopyWithImpl(_$LapanganDetailRequestedState _value,
+  __$$LapanganDetailRequestedStateCopyWithImpl(
+      _$LapanganDetailRequestedState _value,
       $Res Function(_$LapanganDetailRequestedState) _then)
       : super(_value, _then);
 
@@ -707,9 +726,8 @@ class _$LapanganDetailRequestedState implements LapanganDetailRequestedState {
   @override
   @pragma('vm:prefer-inline')
   _$$LapanganDetailRequestedStateCopyWith<_$LapanganDetailRequestedState>
-      get copyWith =>
-          __$$LapanganDetailRequestedStateCopyWithImpl<_$LapanganDetailRequestedState>(
-              this, _$identity);
+      get copyWith => __$$LapanganDetailRequestedStateCopyWithImpl<
+          _$LapanganDetailRequestedState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -758,7 +776,8 @@ class _$LapanganDetailRequestedState implements LapanganDetailRequestedState {
     required TResult Function(LapanganDetailLoadingState value) loading,
     required TResult Function(LapanganDetailErrorState value) error,
     required TResult Function(LapanganDetailLoadedState value) loadedState,
-    required TResult Function(LapanganDetailRequestedState value) requestedState,
+    required TResult Function(LapanganDetailRequestedState value)
+        requestedState,
   }) {
     return requestedState(this);
   }

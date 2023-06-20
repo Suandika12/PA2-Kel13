@@ -21,8 +21,9 @@ class BookingLapanganController extends Controller
         // ->get(['products.name','products.price','order_details.quantity','products.image']);
 
         $bookingLapangan = BookingLapangan::select('lapangans.name')
-        ->join('lapangans', 'lapangans.id', '=', 'booking_lapangans.lapangans_id')
+        ->join('lapangans', 'lapangans.id', '=', 'booking_lapangans.lapangan_id')
         ->where('booking_lapangans.id', $id)
+        ->get('booking_lapangans.image')
         ->first();
 
         $user = BookingLapangan::where('booking_lapangans.id', $id)

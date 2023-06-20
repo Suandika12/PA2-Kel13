@@ -6,7 +6,6 @@ part 'user_model.g.dart';
 class User with _$User {
   factory User({
     @Default(0) int id,
-    @Default('') String nik,
     @Default('') String name,
     @Default('') String email,
     @Default('') String password,

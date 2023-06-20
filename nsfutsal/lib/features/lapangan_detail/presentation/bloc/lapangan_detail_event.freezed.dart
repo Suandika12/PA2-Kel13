@@ -19,19 +19,25 @@ mixin _$LapanganDetailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int lapanganId) getLapanganDetail,
-    required TResult Function(BookingLapanganEntity requestLapanganEntity) requestLapangan,
+    required TResult Function(
+            BookingLapanganEntity requestRoomEntity, DroppedFile? droppedFile)
+        requestLapangan,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int lapanganId)? getLapanganDetail,
-    TResult? Function(BookingLapanganEntity requestLapanganEntity)? requestLapangan,
+    TResult? Function(
+            BookingLapanganEntity requestRoomEntity, DroppedFile? droppedFile)?
+        requestLapangan,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int lapanganId)? getLapanganDetail,
-    TResult Function(BookingLapanganEntity requestLapanganEntity)? requestLapangan,
+    TResult Function(
+            BookingLapanganEntity requestRoomEntity, DroppedFile? droppedFile)?
+        requestLapangan,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -87,8 +93,8 @@ abstract class _$$GetLapanganDetailEventCopyWith<$Res> {
 class __$$GetLapanganDetailEventCopyWithImpl<$Res>
     extends _$LapanganDetailEventCopyWithImpl<$Res, _$GetLapanganDetailEvent>
     implements _$$GetLapanganDetailEventCopyWith<$Res> {
-  __$$GetLapanganDetailEventCopyWithImpl(
-      _$GetLapanganDetailEvent _value, $Res Function(_$GetLapanganDetailEvent) _then)
+  __$$GetLapanganDetailEventCopyWithImpl(_$GetLapanganDetailEvent _value,
+      $Res Function(_$GetLapanganDetailEvent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +129,8 @@ class _$GetLapanganDetailEvent implements GetLapanganDetailEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetLapanganDetailEvent &&
-            (identical(other.lapanganId, lapanganId) || other.lapanganId == lapanganId));
+            (identical(other.lapanganId, lapanganId) ||
+                other.lapanganId == lapanganId));
   }
 
   @override
@@ -140,7 +147,9 @@ class _$GetLapanganDetailEvent implements GetLapanganDetailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int lapanganId) getLapanganDetail,
-    required TResult Function(BookingLapanganEntity requestLapanganEntity) requestLapangan,
+    required TResult Function(
+            BookingLapanganEntity requestRoomEntity, DroppedFile? droppedFile)
+        requestLapangan,
   }) {
     return getLapanganDetail(lapanganId);
   }
@@ -149,7 +158,9 @@ class _$GetLapanganDetailEvent implements GetLapanganDetailEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int lapanganId)? getLapanganDetail,
-    TResult? Function(BookingLapanganEntity requestLapanganEntity)? requestLapangan,
+    TResult? Function(
+            BookingLapanganEntity requestRoomEntity, DroppedFile? droppedFile)?
+        requestLapangan,
   }) {
     return getLapanganDetail?.call(lapanganId);
   }
@@ -158,7 +169,9 @@ class _$GetLapanganDetailEvent implements GetLapanganDetailEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int lapanganId)? getLapanganDetail,
-    TResult Function(BookingLapanganEntity requestLapanganEntity)? requestLapangan,
+    TResult Function(
+            BookingLapanganEntity requestRoomEntity, DroppedFile? droppedFile)?
+        requestLapangan,
     required TResult orElse(),
   }) {
     if (getLapanganDetail != null) {
@@ -211,46 +224,68 @@ abstract class GetLapanganDetailEvent implements LapanganDetailEvent {
 
 /// @nodoc
 abstract class _$$RequestLapanganEventCopyWith<$Res> {
-  factory _$$RequestLapanganEventCopyWith(
-          _$RequestLapanganEvent value, $Res Function(_$RequestLapanganEvent) then) =
+  factory _$$RequestLapanganEventCopyWith(_$RequestLapanganEvent value,
+          $Res Function(_$RequestLapanganEvent) then) =
       __$$RequestLapanganEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({BookingLapanganEntity requestLapanganEntity});
+  $Res call(
+      {BookingLapanganEntity requestRoomEntity, DroppedFile? droppedFile});
+
+  $DroppedFileCopyWith<$Res>? get droppedFile;
 }
 
 /// @nodoc
 class __$$RequestLapanganEventCopyWithImpl<$Res>
     extends _$LapanganDetailEventCopyWithImpl<$Res, _$RequestLapanganEvent>
     implements _$$RequestLapanganEventCopyWith<$Res> {
-  __$$RequestLapanganEventCopyWithImpl(
-      _$RequestLapanganEvent _value, $Res Function(_$RequestLapanganEvent) _then)
+  __$$RequestLapanganEventCopyWithImpl(_$RequestLapanganEvent _value,
+      $Res Function(_$RequestLapanganEvent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? requestLapanganEntity = null,
+    Object? requestRoomEntity = null,
+    Object? droppedFile = freezed,
   }) {
     return _then(_$RequestLapanganEvent(
-      null == requestLapanganEntity
-          ? _value.requestLapanganEntity
-          : requestLapanganEntity // ignore: cast_nullable_to_non_nullable
+      null == requestRoomEntity
+          ? _value.requestRoomEntity
+          : requestRoomEntity // ignore: cast_nullable_to_non_nullable
               as BookingLapanganEntity,
+      freezed == droppedFile
+          ? _value.droppedFile
+          : droppedFile // ignore: cast_nullable_to_non_nullable
+              as DroppedFile?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DroppedFileCopyWith<$Res>? get droppedFile {
+    if (_value.droppedFile == null) {
+      return null;
+    }
+
+    return $DroppedFileCopyWith<$Res>(_value.droppedFile!, (value) {
+      return _then(_value.copyWith(droppedFile: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$RequestLapanganEvent implements RequestLapanganEvent {
-  const _$RequestLapanganEvent(this.requestLapanganEntity);
+  const _$RequestLapanganEvent(this.requestRoomEntity, this.droppedFile);
 
   @override
-  final BookingLapanganEntity requestLapanganEntity;
+  final BookingLapanganEntity requestRoomEntity;
+  @override
+  final DroppedFile? droppedFile;
 
   @override
   String toString() {
-    return 'LapanganDetailEvent.requestLapangan(requestLapanganEntity: $requestLapanganEntity)';
+    return 'LapanganDetailEvent.requestLapangan(requestRoomEntity: $requestRoomEntity, droppedFile: $droppedFile)';
   }
 
   @override
@@ -258,46 +293,55 @@ class _$RequestLapanganEvent implements RequestLapanganEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RequestLapanganEvent &&
-            (identical(other.requestLapanganEntity, requestLapanganEntity) ||
-                other.requestLapanganEntity == requestLapanganEntity));
+            (identical(other.requestRoomEntity, requestRoomEntity) ||
+                other.requestRoomEntity == requestRoomEntity) &&
+            (identical(other.droppedFile, droppedFile) ||
+                other.droppedFile == droppedFile));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, requestLapanganEntity);
+  int get hashCode => Object.hash(runtimeType, requestRoomEntity, droppedFile);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$RequestLapanganEventCopyWith<_$RequestLapanganEvent> get copyWith =>
-      __$$RequestLapanganEventCopyWithImpl<_$RequestLapanganEvent>(this, _$identity);
+      __$$RequestLapanganEventCopyWithImpl<_$RequestLapanganEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int lapanganId) getLapanganDetail,
-    required TResult Function(BookingLapanganEntity requestLapanganEntity) requestLapangan,
+    required TResult Function(
+            BookingLapanganEntity requestRoomEntity, DroppedFile? droppedFile)
+        requestLapangan,
   }) {
-    return requestLapangan(requestLapanganEntity);
+    return requestLapangan(requestRoomEntity, droppedFile);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int lapanganId)? getLapanganDetail,
-    TResult? Function(BookingLapanganEntity requestLapanganEntity)? requestLapangan,
+    TResult? Function(
+            BookingLapanganEntity requestRoomEntity, DroppedFile? droppedFile)?
+        requestLapangan,
   }) {
-    return requestLapangan?.call(requestLapanganEntity);
+    return requestLapangan?.call(requestRoomEntity, droppedFile);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int lapanganId)? getLapanganDetail,
-    TResult Function(BookingLapanganEntity requestLapanganEntity)? requestLapangan,
+    TResult Function(
+            BookingLapanganEntity requestRoomEntity, DroppedFile? droppedFile)?
+        requestLapangan,
     required TResult orElse(),
   }) {
     if (requestLapangan != null) {
-      return requestLapangan(requestLapanganEntity);
+      return requestLapangan(requestRoomEntity, droppedFile);
     }
     return orElse();
   }
@@ -335,10 +379,12 @@ class _$RequestLapanganEvent implements RequestLapanganEvent {
 }
 
 abstract class RequestLapanganEvent implements LapanganDetailEvent {
-  const factory RequestLapanganEvent(final BookingLapanganEntity requestLapanganEntity) =
-      _$RequestLapanganEvent;
+  const factory RequestLapanganEvent(
+      final BookingLapanganEntity requestRoomEntity,
+      final DroppedFile? droppedFile) = _$RequestLapanganEvent;
 
-  BookingLapanganEntity get requestLapanganEntity;
+  BookingLapanganEntity get requestRoomEntity;
+  DroppedFile? get droppedFile;
   @JsonKey(ignore: true)
   _$$RequestLapanganEventCopyWith<_$RequestLapanganEvent> get copyWith =>
       throw _privateConstructorUsedError;

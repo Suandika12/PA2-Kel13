@@ -6,7 +6,8 @@ import '../../domain/usecases/booking_lapangan.dart';
 import 'lapangan_detail_event.dart';
 import 'lapangan_detail_state.dart';
 
-class LapanganDetailBloc extends Bloc<LapanganDetailEvent, LapanganDetailState> {
+class LapanganDetailBloc
+    extends Bloc<LapanganDetailEvent, LapanganDetailState> {
   LapanganDetailBloc() : super(const LapanganDetailInitialState()) {
     on<GetLapanganDetailEvent>((event, emit) async {
       emit(const LapanganDetailLoadingState());
@@ -22,9 +23,11 @@ class LapanganDetailBloc extends Bloc<LapanganDetailEvent, LapanganDetailState> 
       );
     });
     on<RequestLapanganEvent>((event, emit) async {
-      emit(const LapanganDetailLoadingState());
+      // emit(const LapanganDetailLoadingState());
       var result = await serviceLocator<BookingLapanganUseCase>()
-          .bookingLapangan(bookingLapanganEntity: event.requestLapanganEntity);
+          .bookingLapangan(
+              bookingLapanganEntity: event.requestRoomEntity,
+              droppedFile: event.droppedFile);
       result.fold(
         (failure) {
           emit(LapanganDetailErrorState(failure.message));
@@ -33,8 +36,6 @@ class LapanganDetailBloc extends Bloc<LapanganDetailEvent, LapanganDetailState> 
           emit(LapanganDetailRequestedState(message: data));
         },
       );
-      // back to loaded state
-      emit(LapanganDetailLoadedState(lapangan: event.requestLapanganEntity.lapangan));
     });
   }
 }

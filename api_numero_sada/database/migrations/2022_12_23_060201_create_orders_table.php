@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('code')->unique();
-            $table->double('total', 10, 2);
+            $table->double('total', 8, 2);
             $table->string('alamat')->nullable();
-            $table->string('buktipembayaran')->nullable();
+            $table->string('image')->nullable();
             $table->string('payment_method');
-            $table->enum('status', ['Pending', 'Processing', 'Completed', 'Denied'])->default('Pending');
+            $table->enum('status', ['Pending', 'Processing', 'Completed', 'Cancelled', 'Denied'])->default('Pending');
             $table->timestamps();
         });
     }

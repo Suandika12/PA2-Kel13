@@ -33,7 +33,6 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
               (data) async {
                 var userRe = userRegister.User(
                   id: user.id,
-                  nik: user.nik,
                   name: user.name,
                   email: user.email,
                   password: user.password,

@@ -31,7 +31,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
       emit(const CheckoutLoadingState());
       try {
         var result = await serviceLocator<CheckoutUseCase>()
-            .checkout(event.paymentMethod);
+            .checkout(event.paymentMethod,event.alamat);
         result.fold(
           (failure) {
             emit(CheckoutState.error(failure.message));

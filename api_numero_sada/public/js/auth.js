@@ -1,4 +1,4 @@
-$("body").on("contextmenu", "img", function(e) {
+$("body").on("contextmenu", "img", function (e) {
     return false;
 });
 $('img').attr('draggable', false);
@@ -7,14 +7,12 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-function auth_content(obj)
-{
+function auth_content(obj) {
     $("#page_login").hide();
     $("#page_forgot").hide();
     $("#" + obj).show();
 }
-function content_auth(obj,title)
-{
+function content_auth(obj, title) {
     $("#title_auth").html(title);
     $("#main_auth").hide();
     $("#mail_login").hide();
@@ -23,7 +21,7 @@ function content_auth(obj,title)
     $("#forgot_page").hide();
     $("#" + obj).show();
 }
-$("#form_login").on('keydown', 'input', function(event) {
+$("#form_login").on('keydown', 'input', function (event) {
     if (event.which == 13) {
         event.preventDefault();
         var $this = $(event.target);
@@ -37,20 +35,20 @@ $("#form_login").on('keydown', 'input', function(event) {
     }
 });
 $("#email").focus();
-function handle_post(tombol,form,url){
+function handle_post(tombol, form, url) {
     $(tombol).prop("disabled", true);
     $(tombol).attr("data-kt-indicator", "on");
-    $.post(url, $(form).serialize(), function(result) {
+    $.post(url, $(form).serialize(), function (result) {
         if (result.alert == "success") {
-            Swal.fire({ text: result.message, icon: "success", buttonsStyling: !1, confirmButtonText: "Ok, Mengerti!", customClass: { confirmButton: "btn btn-primary" } }).then(function() {
-                if(result.callback == "reload"){
+            Swal.fire({ text: result.message, icon: "success", buttonsStyling: !1, confirmButtonText: "Ok, Understand!", customClass: { confirmButton: "btn btn-primary" } }).then(function () {
+                if (result.callback == "reload") {
                     location.reload();
-                }else{
-                    content_auth(result.callback,result.title);
+                } else {
+                    content_auth(result.callback, result.title);
                 }
             });
-        }else{
-            Swal.fire({ text: result.message, icon: "error", buttonsStyling: !1, confirmButtonText: "Ok, Mengerti!", customClass: { confirmButton: "btn btn-primary" } });
+        } else {
+            Swal.fire({ text: result.message, icon: "error", buttonsStyling: !1, confirmButtonText: "Ok, Understand!", customClass: { confirmButton: "btn btn-primary" } });
         }
         $(tombol).prop("disabled", false);
         $(tombol).removeAttr("data-kt-indicator");

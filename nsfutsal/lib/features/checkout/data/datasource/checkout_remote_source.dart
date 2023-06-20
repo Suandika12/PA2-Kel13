@@ -8,7 +8,7 @@ import '../models/order/order_model.dart';
 
 abstract class CheckoutRemoteDataSource {
   Future<Either<Failure, CartList>> getCartFromServer();
-  Future<Either<Failure, OrderModel>> checkout(String paymentMethod);
+  Future<Either<Failure, OrderModel>> checkout(String paymentMethod,String alamat);
 }
 
 class CheckoutRemoteDataSourceImpl implements CheckoutRemoteDataSource {
@@ -49,11 +49,12 @@ class CheckoutRemoteDataSourceImpl implements CheckoutRemoteDataSource {
   }
 
   @override
-  Future<Either<Failure, OrderModel>> checkout(String paymentMethod) async {
+  Future<Either<Failure, OrderModel>> checkout(String paymentMethod,String alamat) async {
     try {
       final response = await request.post('/checkout', data: {
         'description': 'Pembelian produk di nsfutsal',
         'payment_method': paymentMethod,
+                'alamat': alamat,
       });
       if (response.statusCode == 200) {
         try {

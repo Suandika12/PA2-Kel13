@@ -22,13 +22,20 @@ class ProductDetailScreen extends StatefulWidget {
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   int _quantity = 1;
-
   @override
   void initState() {
     super.initState();
     context
         .read<ProductDetailBloc>()
         .add(GetDetailProductEvent(productId: widget.productId));
+  }
+
+  void increaseQuantity(int maxQuantity) {
+    setState(() {
+      if (_quantity < maxQuantity) {
+        _quantity++;
+      }
+    });
   }
 
   @override
@@ -146,6 +153,30 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       const SizedBox(
                         height: 8,
                       ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Number of products available ${state.product.quantity}",
+                          softWrap: false,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: dark,
+                          ),
+                        ),
+                      ),
+                      // Text(
+                      //   "Jumlah Produk yang tersedia ${state.product.quantity}",
+                      //   style: TextStyle(
+                      //     fontFamily: 'Poppins',
+                      //     fontSize: 18,
+                      //     fontWeight: FontWeight.bold,
+                      //     color: dark,
+                      //   ),
+                      // ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -166,7 +197,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               InkWell(
                                 onTap: () {
                                   setState(() {
-                                    if (_quantity > 0) {
+                                    if (_quantity > 1) {
                                       _quantity--;
                                     }
                                   });

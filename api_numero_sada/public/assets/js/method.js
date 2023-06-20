@@ -128,7 +128,7 @@ function handle_save_password(tombol, form, url, method) {
                     text: response.message,
                     icon: "success",
                     buttonsStyling: !1,
-                    confirmButtonText: "Ok, Mengerti!",
+                    confirmButtonText: "Ok, Understand!",
                     customClass: {
                         confirmButton: "btn btn-primary"
                     }
@@ -144,7 +144,7 @@ function handle_save_password(tombol, form, url, method) {
                     text: response.message,
                     icon: "error",
                     buttonsStyling: !1,
-                    confirmButtonText: "Ok, Mengerti!",
+                    confirmButtonText: "Ok, Understand!",
                     customClass: {
                         confirmButton: "btn btn-primary"
                     }
@@ -178,7 +178,7 @@ function handle_save(tombol, form, url, method) {
                     text: response.message,
                     icon: "success",
                     buttonsStyling: !1,
-                    confirmButtonText: "Ok, Mengerti!",
+                    confirmButtonText: "Ok, Understand!",
                     customClass: {
                         confirmButton: "btn btn-primary"
                     }
@@ -201,7 +201,7 @@ function handle_save(tombol, form, url, method) {
                     text: response.message,
                     icon: "error",
                     buttonsStyling: !1,
-                    confirmButtonText: "Ok, Mengerti!",
+                    confirmButtonText: "Ok, Understand!",
                     customClass: {
                         confirmButton: "btn btn-primary"
                     }

@@ -67,7 +67,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
           return Right(Cart.fromJson(response.data['data']));
         } catch (e) {
           return const Left(
-            ParsingFailure('Unable to parse the response'),
+            ParsingFailure('Quantity not enough'),
           );
         }
       } else {
@@ -77,7 +77,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
       }
     } catch (e) {
       return const Left(
-        ParsingFailure('Unable to parse the response'),
+        ParsingFailure('Quantity not enough'),
       );
     }
   }
@@ -94,7 +94,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
           return Right(Cart.fromJson(response.data['data']));
         } catch (e) {
           return const Left(
-            ParsingFailure('Unable to parse the response'),
+            ParsingFailure('Cannot quantity cannot be decreased'),
           );
         }
       } else {
@@ -104,7 +104,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
       }
     } catch (e) {
       return const Left(
-        ParsingFailure('Unable to parse the response'),
+        ParsingFailure('Cannot quantity cannot be decreased'),
       );
     }
   }

@@ -1,11 +1,11 @@
 @extends('layouts.master')
-@section('title', 'Create Lapangan')
+@section('title', 'Create Field')
 @section('page', 'Lapangan')
 @section('breadcrumb')
     <!--begin::Breadcrumb-->
     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">
         <!--begin::Item-->
-        <li class="breadcrumb-item text-muted">Field</li>
+
         <!--end::Item-->
         <!--begin::Item-->
         <li class="breadcrumb-item">
@@ -161,7 +161,7 @@
                                     <label class="required form-label">Field Name</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" name="name" class="form-control mb-2" placeholder="Lapangan Name"
+                                    <input type="text" name="name" class="form-control mb-2" placeholder="Field Name"
                                         value="" />
                                     <!--end::Input-->
                                     <!--begin::Description-->

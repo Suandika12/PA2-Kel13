@@ -19,13 +19,11 @@ class BookingLapanganResource extends JsonResource
         return [
             'id' => $this->id,
             'lapangan' => LapanganResource::make($this->lapangan),
-            'description' => $this->description,
+            'opsiPembayaran' => $this->opsiPembayaran,
+            'image' => $this->image,
             'status' => $this->status,
-            // format date example: Senin, 1 Januari 2021 00:00
-            'startDate' => Carbon::parse($this->start_date)->format('l, d F Y H:i'),
-            'endDate' => Carbon::parse($this->end_date)->format('l, d F Y H:i'),
-            'createdAt' => Carbon::parse($this->created_at)->format('d/m/Y'),
-            'updatedAt' => Carbon::parse($this->updated_at)->format('d/m/Y'),
+            'startTime' => Carbon::parse($this->start_time)->format('HH:mm'),
+            'endTime' => Carbon::parse($this->end_time)->format('HH:mm')
         ];
     }
 }

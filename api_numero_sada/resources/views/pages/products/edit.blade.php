@@ -115,9 +115,9 @@
                                 <select class="form-select mb-2" data-control="select2" data-placeholder="Select an option"
                                     name="category">
                                     <option></option>
-                                    <option value="Makanan" {{ $product->category == 'Makanan' ? 'selected' : '' }}>Makanan
+                                    <option value="Food" {{ $product->category == 'Food' ? 'selected' : '' }}>Food
                                     </option>
-                                    <option value="Minuman" {{ $product->category == 'Minuman' ? 'selected' : '' }}>Minuman
+                                    <option value="Drink" {{ $product->category == 'Drink' ? 'selected' : '' }}>Drink
                                     </option>
                     
                                 </select>
@@ -151,7 +151,7 @@
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input type="text" name="name" class="form-control mb-2"
-                                        placeholder="Product Name" value="{{ $product->name }}" />
+                                        placeholder="Dish Name" value="{{ $product->name }}" />
                                     <!--end::Input-->
                                     <!--begin::Description-->
                                     <div class="text-muted fs-7">A Dish name is required and recommended to be unique.
@@ -162,10 +162,10 @@
                                 <!--begin::Input group-->
                                 <div class="mb-10 fv-row">
                                     <!--begin::Label-->
-                                    <label class="required form-label">SKU</label>
+                                    <label class="required form-label">Code Dish</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" name="sku" class="form-control mb-2" placeholder="SKU"
+                                    <input type="text" name="sku" class="form-control mb-2" placeholder="Code Dish"
                                         value="{{ $product->sku }}" />
                                     <!--end::Input-->
                                     <!--begin::Description-->

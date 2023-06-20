@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Lapangan\LapanganCollection;
 use App\Http\Resources\Lapangan\LapanganResource;
 use App\Models\Lapangan;
 
-class RoomController extends Controller
+class LapanganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,17 +17,21 @@ class RoomController extends Controller
      */
     public function index(Request $request)
     {
-        $lapangans = Lapangan::where('name', 'like', '%' . $request->search . '%')->get();
+        $search = $request->input('search');
+        $lapangans = Lapangan::where('name', 'like', "%$search%")
+            ->where('status', 'available')
+            ->get();
+
         return ResponseFormatter::success(
-            new LapanganCollection($lapangans),
-            'Data list rooms berhasil diambil'
+            LapanganResource::collection($lapangans),
+            'Data list lapangan berhasil diambil'
         );
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Room  $room
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -37,13 +39,13 @@ class RoomController extends Controller
         $lapangan = Lapangan::find($id);
         if ($lapangan) {
             return ResponseFormatter::success(
-                LapanganResource::make($lapangan),
-                'Data detail room berhasil diambil'
+                new LapanganResource($lapangan),
+                'Data detail lapangan berhasil diambil'
             );
         } else {
             return ResponseFormatter::error(
                 null,
-                'Data room tidak ada',
+                'Data lapangan tidak ditemukan',
                 404
             );
         }

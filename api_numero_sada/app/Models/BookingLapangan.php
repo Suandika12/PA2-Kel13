@@ -9,14 +9,7 @@ class BookingLapangan extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'room_id',
-        'description',
-        'status',
-        'start_date',
-        'end_date',
-    ];
+    protected $guarded = [];
 
     public function user()
     {

@@ -11,68 +11,73 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i17;
-import 'package:flutter/material.dart' as _i18;
+import 'package:auto_route/auto_route.dart' as _i20;
+import 'package:flutter/material.dart' as _i21;
 
+import '../features/booking_lapangan/presentation/screens/booking_lapangan_screen.dart'
+    as _i16;
 import '../features/cart/presentation/screens/cart_screen.dart' as _i11;
-import '../features/checkout/data/models/order/order_model.dart' as _i21;
+import '../features/checkout/data/models/order/order_model.dart' as _i24;
 import '../features/checkout/presentation/screens/checkout_screen.dart' as _i12;
 import '../features/checkout/presentation/screens/checkout_success_screen.dart'
     as _i13;
-import '../features/credit/data/models/credit/credit_model.dart' as _i19;
-import '../features/credit/data/models/order/order_model.dart' as _i20;
+import '../features/credit/data/models/credit/credit_model.dart' as _i22;
+import '../features/credit/data/models/order/order_model.dart' as _i23;
 import '../features/credit/presentation/screens/credit_checkout_screen.dart'
     as _i7;
 import '../features/credit/presentation/screens/credit_checkout_success_screen.dart'
     as _i8;
 import '../features/credit/presentation/screens/credit_screen.dart' as _i6;
+import '../features/event/presentation/screens/event_screen.dart' as _i17;
+import '../features/guest/home_guest/presentation/screens/home_guest_screen.dart'
+    as _i19;
+import '../features/guest/lapangan_guest/presentation/screen/lapangan_guest_screen.dart'
+    as _i18;
 import '../features/home/presentation/screens/home_screen.dart' as _i4;
+import '../features/lapangan/presentation/screen/lapangan_screen.dart' as _i9;
+import '../features/lapangan_detail/presentation/screens/lapangan_detail_screen.dart'
+    as _i10;
 import '../features/login/presentation/screens/login_screen.dart' as _i2;
 import '../features/order/presentation/screens/order_screen.dart' as _i15;
 import '../features/product_detail/presentation/screens/product_detail_screen.dart'
     as _i5;
 import '../features/profile/presentation/screens/profile_screen.dart' as _i14;
 import '../features/register/presentation/screens/register_screen.dart' as _i3;
-import '../features/booking_lapangan/presentation/screens/booking_lapangan_screen.dart'
-    as _i16;
-import '../features/lapangan/presentation/screen/lapangan_screen.dart' as _i9;
-import '../features/lapangan_detail/presentation/screens/lapangan_detail_screen.dart'
-    as _i10;
 import '../features/splash/presentation/splash_screen.dart' as _i1;
 
-class FlutterRouter extends _i17.RootStackRouter {
-  FlutterRouter([_i18.GlobalKey<_i18.NavigatorState>? navigatorKey])
+class FlutterRouter extends _i20.RootStackRouter {
+  FlutterRouter([_i21.GlobalKey<_i21.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i17.PageFactory> pagesMap = {
+  final Map<String, _i20.PageFactory> pagesMap = {
     SplashScreen.name: (routeData) {
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: const _i1.SplashScreen(),
       );
     },
     LoginScreen.name: (routeData) {
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: const _i2.LoginScreen(),
       );
     },
     RegisterScreen.name: (routeData) {
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: const _i3.RegisterScreen(),
       );
     },
     HomeScreen.name: (routeData) {
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: const _i4.HomeScreen(),
       );
     },
     ProductDetailScreen.name: (routeData) {
       final args = routeData.argsAs<ProductDetailScreenArgs>();
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: _i5.ProductDetailScreen(
           key: args.key,
@@ -81,14 +86,14 @@ class FlutterRouter extends _i17.RootStackRouter {
       );
     },
     CreditScreen.name: (routeData) {
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: const _i6.CreditScreen(),
       );
     },
     CreditCheckoutScreen.name: (routeData) {
       final args = routeData.argsAs<CreditCheckoutScreenArgs>();
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: _i7.CreditCheckoutScreen(
           args.credit,
@@ -98,7 +103,7 @@ class FlutterRouter extends _i17.RootStackRouter {
     },
     CreditCheckoutSuccessScreen.name: (routeData) {
       final args = routeData.argsAs<CreditCheckoutSuccessScreenArgs>();
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: _i8.CreditCheckoutSuccessScreen(
           key: args.key,
@@ -107,14 +112,14 @@ class FlutterRouter extends _i17.RootStackRouter {
       );
     },
     LapanganScreen.name: (routeData) {
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: const _i9.LapanganScreen(),
       );
     },
     LapanganDetailScreen.name: (routeData) {
       final args = routeData.argsAs<LapanganDetailScreenArgs>();
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: _i10.LapanganDetailScreen(
           key: args.key,
@@ -123,20 +128,20 @@ class FlutterRouter extends _i17.RootStackRouter {
       );
     },
     CartScreen.name: (routeData) {
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: const _i11.CartScreen(),
       );
     },
     CheckoutScreen.name: (routeData) {
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: const _i12.CheckoutScreen(),
       );
     },
     CheckoutSuccessScreen.name: (routeData) {
       final args = routeData.argsAs<CheckoutSuccessScreenArgs>();
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: _i13.CheckoutSuccessScreen(
           key: args.key,
@@ -145,97 +150,131 @@ class FlutterRouter extends _i17.RootStackRouter {
       );
     },
     ProfileScreen.name: (routeData) {
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: const _i14.ProfileScreen(),
       );
     },
     OrderScreen.name: (routeData) {
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: const _i15.OrderScreen(),
       );
     },
     BookingLapanganScreen.name: (routeData) {
-      return _i17.MaterialPageX<bool>(
+      return _i20.MaterialPageX<bool>(
         routeData: routeData,
         child: const _i16.BookingLapanganScreen(),
+      );
+    },
+    EventScreen.name: (routeData) {
+      return _i20.MaterialPageX<bool>(
+        routeData: routeData,
+        child: const _i17.EventScreen(),
+      );
+    },
+    LapanganGuestScreen.name: (routeData) {
+      return _i20.MaterialPageX<bool>(
+        routeData: routeData,
+        child: const _i18.LapanganGuestScreen(),
+      );
+    },
+    HomeGuestScreen.name: (routeData) {
+      return _i20.MaterialPageX<bool>(
+        routeData: routeData,
+        child: const _i19.HomeGuestScreen(),
       );
     },
   };
 
   @override
-  List<_i17.RouteConfig> get routes => [
-        _i17.RouteConfig(
+  List<_i20.RouteConfig> get routes => [
+        _i20.RouteConfig(
           SplashScreen.name,
           path: '/',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           LoginScreen.name,
           path: '/login',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           RegisterScreen.name,
           path: '/register',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           HomeScreen.name,
           path: '/home',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           ProductDetailScreen.name,
           path: '/product-detail',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           CreditScreen.name,
           path: '/credit',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           CreditCheckoutScreen.name,
           path: '/credit/checkout',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           CreditCheckoutSuccessScreen.name,
           path: '/credit/checkout/success',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           LapanganScreen.name,
           path: '/lapangan',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           LapanganDetailScreen.name,
           path: '/lapangan-detail',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           CartScreen.name,
           path: '/cart',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           CheckoutScreen.name,
           path: '/checkout',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           CheckoutSuccessScreen.name,
           path: '/checkout-success',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           ProfileScreen.name,
           path: '/profile',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           OrderScreen.name,
           path: '/order',
         ),
-        _i17.RouteConfig(
+        _i20.RouteConfig(
           BookingLapanganScreen.name,
-          path: '/booking-lapangan',
+          path: '/Booking-lapangan',
+        ),
+        _i20.RouteConfig(
+          EventScreen.name,
+          path: '/event',
+        ),
+        _i20.RouteConfig(
+          EventScreen.name,
+          path: '/event',
+        ),
+        _i20.RouteConfig(
+          LapanganGuestScreen.name,
+          path: '/lapangan_guest',
+        ),
+        _i20.RouteConfig(
+          HomeGuestScreen.name,
+          path: '/home_guest',
         ),
       ];
 }
 
 /// generated route for
 /// [_i1.SplashScreen]
-class SplashScreen extends _i17.PageRouteInfo<void> {
+class SplashScreen extends _i20.PageRouteInfo<void> {
   const SplashScreen()
       : super(
           SplashScreen.name,
@@ -247,7 +286,7 @@ class SplashScreen extends _i17.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.LoginScreen]
-class LoginScreen extends _i17.PageRouteInfo<void> {
+class LoginScreen extends _i20.PageRouteInfo<void> {
   const LoginScreen()
       : super(
           LoginScreen.name,
@@ -259,7 +298,7 @@ class LoginScreen extends _i17.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.RegisterScreen]
-class RegisterScreen extends _i17.PageRouteInfo<void> {
+class RegisterScreen extends _i20.PageRouteInfo<void> {
   const RegisterScreen()
       : super(
           RegisterScreen.name,
@@ -271,7 +310,7 @@ class RegisterScreen extends _i17.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.HomeScreen]
-class HomeScreen extends _i17.PageRouteInfo<void> {
+class HomeScreen extends _i20.PageRouteInfo<void> {
   const HomeScreen()
       : super(
           HomeScreen.name,
@@ -283,9 +322,9 @@ class HomeScreen extends _i17.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.ProductDetailScreen]
-class ProductDetailScreen extends _i17.PageRouteInfo<ProductDetailScreenArgs> {
+class ProductDetailScreen extends _i20.PageRouteInfo<ProductDetailScreenArgs> {
   ProductDetailScreen({
-    _i18.Key? key,
+    _i21.Key? key,
     required int productId,
   }) : super(
           ProductDetailScreen.name,
@@ -305,7 +344,7 @@ class ProductDetailScreenArgs {
     required this.productId,
   });
 
-  final _i18.Key? key;
+  final _i21.Key? key;
 
   final int productId;
 
@@ -317,7 +356,7 @@ class ProductDetailScreenArgs {
 
 /// generated route for
 /// [_i6.CreditScreen]
-class CreditScreen extends _i17.PageRouteInfo<void> {
+class CreditScreen extends _i20.PageRouteInfo<void> {
   const CreditScreen()
       : super(
           CreditScreen.name,
@@ -330,10 +369,10 @@ class CreditScreen extends _i17.PageRouteInfo<void> {
 /// generated route for
 /// [_i7.CreditCheckoutScreen]
 class CreditCheckoutScreen
-    extends _i17.PageRouteInfo<CreditCheckoutScreenArgs> {
+    extends _i20.PageRouteInfo<CreditCheckoutScreenArgs> {
   CreditCheckoutScreen({
-    required _i19.Credit credit,
-    _i18.Key? key,
+    required _i22.Credit credit,
+    _i21.Key? key,
   }) : super(
           CreditCheckoutScreen.name,
           path: '/credit/checkout',
@@ -352,9 +391,9 @@ class CreditCheckoutScreenArgs {
     this.key,
   });
 
-  final _i19.Credit credit;
+  final _i22.Credit credit;
 
-  final _i18.Key? key;
+  final _i21.Key? key;
 
   @override
   String toString() {
@@ -365,10 +404,10 @@ class CreditCheckoutScreenArgs {
 /// generated route for
 /// [_i8.CreditCheckoutSuccessScreen]
 class CreditCheckoutSuccessScreen
-    extends _i17.PageRouteInfo<CreditCheckoutSuccessScreenArgs> {
+    extends _i20.PageRouteInfo<CreditCheckoutSuccessScreenArgs> {
   CreditCheckoutSuccessScreen({
-    _i18.Key? key,
-    required _i20.OrderModel order,
+    _i21.Key? key,
+    required _i23.OrderModel order,
   }) : super(
           CreditCheckoutSuccessScreen.name,
           path: '/credit/checkout/success',
@@ -387,9 +426,9 @@ class CreditCheckoutSuccessScreenArgs {
     required this.order,
   });
 
-  final _i18.Key? key;
+  final _i21.Key? key;
 
-  final _i20.OrderModel order;
+  final _i23.OrderModel order;
 
   @override
   String toString() {
@@ -399,7 +438,7 @@ class CreditCheckoutSuccessScreenArgs {
 
 /// generated route for
 /// [_i9.LapanganScreen]
-class LapanganScreen extends _i17.PageRouteInfo<void> {
+class LapanganScreen extends _i20.PageRouteInfo<void> {
   const LapanganScreen()
       : super(
           LapanganScreen.name,
@@ -412,9 +451,9 @@ class LapanganScreen extends _i17.PageRouteInfo<void> {
 /// generated route for
 /// [_i10.LapanganDetailScreen]
 class LapanganDetailScreen
-    extends _i17.PageRouteInfo<LapanganDetailScreenArgs> {
+    extends _i20.PageRouteInfo<LapanganDetailScreenArgs> {
   LapanganDetailScreen({
-    _i18.Key? key,
+    _i21.Key? key,
     required int lapanganId,
   }) : super(
           LapanganDetailScreen.name,
@@ -434,7 +473,7 @@ class LapanganDetailScreenArgs {
     required this.lapanganId,
   });
 
-  final _i18.Key? key;
+  final _i21.Key? key;
 
   final int lapanganId;
 
@@ -446,7 +485,7 @@ class LapanganDetailScreenArgs {
 
 /// generated route for
 /// [_i11.CartScreen]
-class CartScreen extends _i17.PageRouteInfo<void> {
+class CartScreen extends _i20.PageRouteInfo<void> {
   const CartScreen()
       : super(
           CartScreen.name,
@@ -458,7 +497,7 @@ class CartScreen extends _i17.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i12.CheckoutScreen]
-class CheckoutScreen extends _i17.PageRouteInfo<void> {
+class CheckoutScreen extends _i20.PageRouteInfo<void> {
   const CheckoutScreen()
       : super(
           CheckoutScreen.name,
@@ -471,10 +510,10 @@ class CheckoutScreen extends _i17.PageRouteInfo<void> {
 /// generated route for
 /// [_i13.CheckoutSuccessScreen]
 class CheckoutSuccessScreen
-    extends _i17.PageRouteInfo<CheckoutSuccessScreenArgs> {
+    extends _i20.PageRouteInfo<CheckoutSuccessScreenArgs> {
   CheckoutSuccessScreen({
-    _i18.Key? key,
-    required _i21.OrderModel order,
+    _i21.Key? key,
+    required _i24.OrderModel order,
   }) : super(
           CheckoutSuccessScreen.name,
           path: '/checkout-success',
@@ -493,9 +532,9 @@ class CheckoutSuccessScreenArgs {
     required this.order,
   });
 
-  final _i18.Key? key;
+  final _i21.Key? key;
 
-  final _i21.OrderModel order;
+  final _i24.OrderModel order;
 
   @override
   String toString() {
@@ -505,7 +544,7 @@ class CheckoutSuccessScreenArgs {
 
 /// generated route for
 /// [_i14.ProfileScreen]
-class ProfileScreen extends _i17.PageRouteInfo<void> {
+class ProfileScreen extends _i20.PageRouteInfo<void> {
   const ProfileScreen()
       : super(
           ProfileScreen.name,
@@ -517,7 +556,7 @@ class ProfileScreen extends _i17.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i15.OrderScreen]
-class OrderScreen extends _i17.PageRouteInfo<void> {
+class OrderScreen extends _i20.PageRouteInfo<void> {
   const OrderScreen()
       : super(
           OrderScreen.name,
@@ -529,7 +568,7 @@ class OrderScreen extends _i17.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i16.BookingLapanganScreen]
-class BookingLapanganScreen extends _i17.PageRouteInfo<void> {
+class BookingLapanganScreen extends _i20.PageRouteInfo<void> {
   const BookingLapanganScreen()
       : super(
           BookingLapanganScreen.name,
@@ -537,4 +576,40 @@ class BookingLapanganScreen extends _i17.PageRouteInfo<void> {
         );
 
   static const String name = 'BookingLapanganScreen';
+}
+
+/// generated route for
+/// [_i17.EventScreen]
+class EventScreen extends _i20.PageRouteInfo<void> {
+  const EventScreen()
+      : super(
+          EventScreen.name,
+          path: '/event',
+        );
+
+  static const String name = 'EventScreen';
+}
+
+/// generated route for
+/// [_i18.LapanganGuestScreen]
+class LapanganGuestScreen extends _i20.PageRouteInfo<void> {
+  const LapanganGuestScreen()
+      : super(
+          LapanganGuestScreen.name,
+          path: '/lapangan_guest',
+        );
+
+  static const String name = 'LapanganGuestScreen';
+}
+
+/// generated route for
+/// [_i19.HomeGuestScreen]
+class HomeGuestScreen extends _i20.PageRouteInfo<void> {
+  const HomeGuestScreen()
+      : super(
+          HomeGuestScreen.name,
+          path: '/home_guest',
+        );
+
+  static const String name = 'HomeGuestScreen';
 }

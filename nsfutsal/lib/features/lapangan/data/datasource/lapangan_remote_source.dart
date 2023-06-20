@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:nsfutsal/core/Request.dart';
 import 'package:nsfutsal/core/service_locator.dart';
-import 'package:flutter/foundation.dart';
 
 import '../../../../core/failure.dart';
 import '../models/lapangan/lapangan_model.dart';
